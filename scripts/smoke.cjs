@@ -1,0 +1,24 @@
+const { chromium, devices } = require('playwright');
+const out = process.argv[2];
+(async () => {
+  const b = await chromium.launch();
+  const ctx = await b.newContext({ ...devices['iPhone 13'] });
+  const p = await ctx.newPage();
+  const errs = [];
+  p.on('pageerror', (e) => errs.push(String(e)));
+  p.on('console', (m) => m.type() === 'error' && errs.push(m.text()));
+  await p.goto('http://localhost:4173/');
+  await p.waitForSelector('.type-row');
+  await p.screenshot({ path: `${out}/01-home.png`, fullPage: true });
+  await p.click('text=割合');
+  await p.screenshot({ path: `${out}/02-setup.png`, fullPage: true });
+  await p.click('text=始める');
+  await p.waitForSelector('.choice');
+  await p.screenshot({ path: `${out}/03-quiz.png` });
+  await p.click('.choice >> nth=0');
+  await p.click('text=詳しい解説');
+  await p.click('text=한국어 해설');
+  await p.screenshot({ path: `${out}/04-explain.png`, fullPage: true });
+  console.log('errors:', errs);
+  await b.close();
+})();

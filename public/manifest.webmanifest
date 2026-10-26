@@ -1,0 +1,17 @@
+{
+  "name": "SPI・玉手箱 練習帳",
+  "short_name": "SPI練習帳",
+  "description": "SPIと玉手箱・SHL系検査の4択練習問題(オリジナル)",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#ffffff",
+  "theme_color": "#14213d",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "icon-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
