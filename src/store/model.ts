@@ -77,9 +77,11 @@ export interface Settings {
   theme: 'system' | 'light' | 'dark';
   lastExam: Exam;
   count: number;
+  /** 1日の目標問題数 */
+  dailyGoal: number;
 }
 
-export const DEFAULT_SETTINGS: Settings = { koMode: 'tap', theme: 'system', lastExam: 'SPI', count: 10 };
+export const DEFAULT_SETTINGS: Settings = { koMode: 'tap', theme: 'system', lastExam: 'SPI', count: 10, dailyGoal: 10 };
 
 export function localDay(ts: number): string {
   const d = new Date(ts);

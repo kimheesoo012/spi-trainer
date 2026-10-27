@@ -48,6 +48,18 @@ export function Settings({ nav }: { nav: Nav }) {
       <Top title="設定" onBack={() => nav({ name: 'home' })} />
       <main>
         <fieldset>
+          <legend>1日の目標(問題数)</legend>
+          <div className="seg" role="group">
+            {[5, 10, 20, 30].map((n) => (
+              <button key={n} aria-pressed={st.settings.dailyGoal === n} onClick={() => updateSettings({ dailyGoal: n })}>
+                {n}問
+              </button>
+            ))}
+          </div>
+          <div className="tiny muted">連続記録は1問でも解けば続きます。目標はホームの輪とカレンダーの達成印に使います。</div>
+        </fieldset>
+
+        <fieldset>
           <legend>韓国語の解説</legend>
           <div className="seg" role="group">
             <button aria-pressed={st.settings.koMode === 'tap'} onClick={() => updateSettings({ koMode: 'tap' })}>

@@ -2,17 +2,27 @@ import type { Exam } from '../core/types';
 import { FOUR_CHOICE_NOTE, TYPES } from '../data/catalog';
 import { verifiedCount } from '../data/bank';
 import { daySummary, fmtDuration, typeStats } from '../store/logic';
+import { allMastery, dayCells, levelOf, streakOf, totalXp } from '../store/progress';
 import { localDay } from '../store/model';
 import { updateSettings, useStore } from '../store/state';
 import type { Nav } from '../App';
-import { pctText, Top } from './common';
+import { Top } from './common';
+import { GoalRing, LevelBar, MasteryBar, StreakBadge, WeekDots } from './Progress';
 
 export function Home({ nav }: { nav: Nav }) {
   const st = useStore();
   const exam = st.settings.lastExam;
   const attempts = [...st.attempts.values()];
-  const today = daySummary(attempts, localDay(Date.now()));
+  const todayKey = localDay(Date.now());
+  const today = daySummary(attempts, todayKey);
   const stats = new Map(typeStats(attempts).map((s) => [s.typeId, s]));
+  const goal = st.settings.dailyGoal;
+  const streak = streakOf(attempts, todayKey);
+  const xp = totalXp(attempts, st.mistakes.values());
+  const lv = levelOf(xp);
+  const week = dayCells(attempts, todayKey, 7, goal);
+  const mastery = allMastery(attempts);
+  const remain = Math.max(0, goal - today.n);
   const openMistakes = [...st.mistakes.values()].filter((m) => !m.cleared).length;
   const sections = [...new Set(TYPES.filter((t) => t.exam === exam).map((t) => t.section))];
 
@@ -41,25 +51,22 @@ export function Home({ nav }: { nav: Nav }) {
           </div>
         )}
 
-        <button className="card stack" style={{ border: 0, textAlign: 'left', cursor: 'pointer' }} onClick={() => nav({ name: 'stats' })}>
-          <div className="row" style={{ justifyContent: 'space-between' }}>
-            <h2>今日の記録</h2>
-            <span className="small muted">記録をすべて見る →</span>
-          </div>
-          <div className="today">
-            <div>
-              <span className="tiny muted">解いた問題</span>
-              <b>{today.n}問</b>
-            </div>
-            <div>
-              <span className="tiny muted">学習時間</span>
-              <b>{fmtDuration(today.timeMs)}</b>
-            </div>
-            <div>
-              <span className="tiny muted">正答率</span>
-              <b>{today.n ? pctText(today.correct / today.n) : '—'}</b>
+        <button className="card hero" style={{ border: 0, textAlign: 'left', cursor: 'pointer', color: 'inherit' }} onClick={() => nav({ name: 'stats' })} aria-label="今日の進み具合。タップで記録を見る">
+          <GoalRing n={today.n} goal={goal} />
+          <div className="stack" style={{ gap: 4, minWidth: 0 }}>
+            <StreakBadge s={streak} />
+            <div className="small">
+              {today.n >= goal ? (
+                <span style={{ color: 'var(--ok)', fontWeight: 700 }}>今日の目標 {goal}問を達成!</span>
+              ) : streak.atRisk ? (
+                <span style={{ color: 'var(--warn)', fontWeight: 700 }}>今日まだ解いていません。1問で連続記録が続きます</span>
+              ) : (
+                <span className="muted">目標まであと{remain}問・学習時間 {fmtDuration(today.timeMs)}</span>
+              )}
             </div>
           </div>
+          <LevelBar lv={lv} xp={xp} />
+          <WeekDots cells={week} today={todayKey} />
         </button>
 
         <div className="seg" role="group" aria-label="検査の種類">
@@ -100,7 +107,7 @@ export function Home({ nav }: { nav: Nav }) {
                     </span>
                     <span className="meta">
                       {t.kind === 'gen' ? <span className="badge accent">自動生成</span> : <span className="badge">検証済み {cnt}問</span>}
-                      <span className="rate">{s ? pctText(s.rate) : '—'}</span>
+                      {s ? <MasteryBar m={mastery.get(t.id)!} compact /> : <span className="rate">未習</span>}
                     </span>
                   </button>
                 );
@@ -112,7 +119,7 @@ export function Home({ nav }: { nav: Nav }) {
         <p className="tiny muted" style={{ margin: 0 }}>
           {FOUR_CHOICE_NOTE}
           <br />
-          正答率は累計。<button className="btn ghost" style={{ minHeight: 0, padding: 0, border: 0, color: 'var(--accent)', fontWeight: 400 }} onClick={() => nav({ name: 'about' })}>このアプリについて・試験情報の出典</button>
+          分野の横のバーは実力の目安(最近の正答と難易度から計算)。<button className="btn ghost" style={{ minHeight: 0, padding: 0, border: 0, color: 'var(--accent)', fontWeight: 400 }} onClick={() => nav({ name: 'about' })}>このアプリについて・試験情報の出典</button>
         </p>
       </main>
     </>

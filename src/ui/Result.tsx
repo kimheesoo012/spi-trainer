@@ -2,6 +2,8 @@ import { useState } from 'react';
 import { typeById } from '../data/catalog';
 import { fmtDuration, isCorrect, makeSession, modeLabel, questionsForType } from '../store/logic';
 import { saveActive, useStore } from '../store/state';
+import { sessionGains } from '../store/progress';
+import { localDay } from '../store/model';
 import type { Nav } from '../App';
 import { MathText, pctText, TableView, Top } from './common';
 import { ChoiceButtons, Explanation } from './Explanation';
@@ -26,6 +28,7 @@ export function Result({ nav }: { nav: Nav }) {
   const timeMs = counted.reduce((a, i) => a + (s.times[i] ?? 0), 0);
   const wrongCount = total - correct;
   const types = [...new Set(s.items.map((it) => it.q.typeId))];
+  const gains = total > 0 ? sessionGains([...st.attempts.values()], [...st.mistakes.values()], s.id, st.settings.dailyGoal, localDay(Date.now())) : null;
 
   const again = () => {
     // 同じ型・同じ難易度で新しい問題(生成問題は新しい数値)
@@ -58,6 +61,38 @@ export function Result({ nav }: { nav: Nav }) {
           </div>
           {wrongCount > 0 && <div className="small muted">間違えた{wrongCount}問は「間違えた問題」に保存しました。</div>}
         </div>
+
+        {gains && (
+          <div className="gain" aria-live="polite">
+            <div className="row" style={{ justifyContent: 'space-between' }}>
+              <span className="big num">+{gains.xp} XP</span>
+              <span className="small">
+                Lv.{gains.levelAfter.level}
+                {gains.levelAfter.level > gains.levelBefore.level && <b style={{ color: 'var(--ok)' }}> レベルアップ!</b>}
+              </span>
+            </div>
+            <div className="bar" aria-hidden="true">
+              <span style={{ width: `${Math.round(gains.levelAfter.ratio * 100)}%` }} />
+            </div>
+            <div className="small">
+              {gains.goalJustMet ? (
+                <span style={{ color: 'var(--ok)', fontWeight: 700 }}>今日の目標 {gains.goal}問を達成! </span>
+              ) : gains.todayN < gains.goal ? (
+                <span>今日 {gains.todayN}/{gains.goal}問。あと{gains.goal - gains.todayN}問で目標達成。 </span>
+              ) : (
+                <span>今日 {gains.todayN}問(目標達成済み)。 </span>
+              )}
+              <span>
+                🔥 {gains.streak.current}日連続{gains.streak.current >= 2 && gains.streak.current === gains.streak.best ? '(自己最長)' : ''}
+              </span>
+            </div>
+            {gains.newBadges.length > 0 && (
+              <div className="small">
+                新しいバッジ: {gains.newBadges.map((b) => `「${b.name}」`).join('')}
+              </div>
+            )}
+          </div>
+        )}
 
         <div className="row" style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
           {wrongCount > 0 ? (

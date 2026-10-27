@@ -751,3 +751,194 @@ textarea {
   z-index: 20;
   max-width: calc(100% - 32px);
 }
+
+/* ---- progress (streak / goal / level / mastery / badges) */
+.hero {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px 14px;
+  align-items: center;
+}
+.hero .lvl {
+  grid-column: 1 / -1;
+}
+.ring {
+  position: relative;
+  flex-shrink: 0;
+}
+.ring-label {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.1;
+}
+.ring-label b {
+  font-size: 1.3rem;
+}
+.streak {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 1.05rem;
+}
+.streak b {
+  font-size: 1.4rem;
+}
+.streak .flame {
+  font-size: 1.4rem;
+  filter: grayscale(1);
+  opacity: 0.6;
+}
+.streak.on .flame {
+  filter: none;
+  opacity: 1;
+}
+.streak.risk .flame {
+  filter: none;
+  opacity: 0.9;
+}
+.lvl {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.week {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  grid-column: 1 / -1;
+}
+.wd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+.wd .dot {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--surface-2);
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+.wd.some .dot {
+  border: 2px solid var(--accent);
+  background: var(--bg);
+  color: var(--accent);
+}
+.wd.met .dot {
+  background: var(--accent);
+  color: var(--accent-ink);
+}
+.wd.today .tiny {
+  color: var(--ink);
+  font-weight: 700;
+}
+.wd.today .dot {
+  box-shadow: 0 0 0 2px var(--bg), 0 0 0 4px var(--line);
+}
+.mastery {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.mastery .bar {
+  margin-top: 0;
+}
+.mastery .up {
+  color: var(--ok);
+  font-weight: 700;
+}
+.mastery .down {
+  color: var(--ng);
+}
+.mastery.compact {
+  width: 72px;
+}
+.mrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  min-height: 48px;
+  padding: 6px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--bg);
+  cursor: pointer;
+}
+.chart {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.chart svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.badges {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+.bd {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 8px 4px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  opacity: 0.45;
+  text-align: center;
+}
+.bd.on {
+  opacity: 1;
+  background: var(--accent-soft);
+}
+.bd-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: var(--bg);
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--accent);
+  border: 2px solid var(--line);
+}
+.bd.on .bd-icon {
+  border-color: var(--accent);
+}
+.gain {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1.5px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 12px 14px;
+}
+.gain .big {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}

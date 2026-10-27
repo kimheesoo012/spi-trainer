@@ -143,15 +143,16 @@ export function fmtDuration(ms: number): string {
 
 const pct = (r: number) => `${Math.round(r * 100)}%`;
 
-export function summaryText(attempts: Attempt[], day: string, openMistakes: number): string {
+export function summaryText(attempts: Attempt[], day: string, openMistakes: number, extra: { streak: number; level: number; xp: number; xpToday: number; goal: number } | null = null): string {
   const d = daySummary(attempts, day);
   const all = typeStats(attempts);
   const weak = weakest(all);
   const lines = [
     `【SPI・玉手箱 練習記録】${day}`,
-    `解いた問題: ${d.n}問 / 正解: ${d.correct}問${d.n ? `(${pct(d.correct / d.n)})` : ''}`,
+    `解いた問題: ${d.n}問 / 正解: ${d.correct}問${d.n ? `(${pct(d.correct / d.n)})` : ''}${extra ? `(目標${extra.goal}問${d.n >= extra.goal ? ' 達成' : ''})` : ''}`,
     `学習時間: ${fmtDuration(d.timeMs)}`,
   ];
+  if (extra) lines.push(`連続学習: ${extra.streak}日 / Lv.${extra.level}(累計${extra.xp}XP、今日+${extra.xpToday}XP)`);
   if (d.byType.length) {
     lines.push('今日の分野別:');
     for (const s of d.byType) lines.push(`・${typeById(s.typeId)?.name ?? s.typeId}: ${s.correct}/${s.n}(${pct(s.rate)})平均${(s.avgMs / 1000).toFixed(0)}秒`);

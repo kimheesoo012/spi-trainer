@@ -91,7 +91,7 @@ async function answer(p, wantWrong) {
 
   // 3) 記録 → 今日の結果をコピー
   await p.click('.top .icon-btn'); // ホームへ
-  await p.click('text=今日の記録');
+  await p.click('.hero');
   await p.click('text=今日の結果をコピー');
   await p.waitForTimeout(300);
   const clip = await p.evaluate(() => navigator.clipboard.readText());
@@ -99,6 +99,10 @@ async function answer(p, wantWrong) {
   assert(clip.includes('解いた問題: ' + (5 + reviewTotal) + '問'), 'コピー内容の問題数が合わない');
   await noHorizontalScroll(p, 'stats');
   await p.screenshot({ path: `${out}/${deviceName}-stats.png`, fullPage: true });
+  await p.click('.top .icon-btn');
+  await p.waitForSelector('.hero');
+  await p.screenshot({ path: `${out}/${deviceName}-home.png`, fullPage: true });
+  await p.click('.hero'); // 記録へ戻る(次の行で元の流れどおりホームへ)
 
   // 4) 実戦モードの途中でアプリを閉じ、開き直して復元
   await p.click('.top .icon-btn');
