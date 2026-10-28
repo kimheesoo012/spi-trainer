@@ -105,6 +105,7 @@ function tank(rng: Rng): Draft | null {
   const a = rng.int(6, 40);
   const b = rng.int(6, 60);
   const c = rng.int(8, 90);
+  if (a === b || b === c || a === c) return null; // 同じ時間だと打ち消し合って解説が不自然になる
   const rate = F(1, a).add(F(1, b)).sub(F(1, c));
   if (!rate.isPos()) return null;
   const T = F(1).div(rate);

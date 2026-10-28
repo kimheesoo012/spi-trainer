@@ -98,7 +98,7 @@ export function buildQuestion(meta: GenMeta, fn: GenFn, difficulty: Difficulty, 
       quick_ja: d.quick,
       explanation_ko: d.ko,
       tip: d.tip,
-      gen: { seed, params: { ...d.params, wrongWhy: ds.map((x) => x.why ?? '') } },
+      gen: { seed, params: { ...d.params, wrongWhy: Object.fromEntries(ds.filter((x) => x.why).map((x) => [x.text, x.why])) } },
     };
   }
   throw new GenerationError(`${meta.typeId}: could not generate (seed ${seed})`);

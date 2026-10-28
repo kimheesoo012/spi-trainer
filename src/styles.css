@@ -427,14 +427,17 @@ legend {
   font-family: var(--mono);
 }
 .math {
+  /* 式はひとまとまりで折り返し、長すぎるときだけ式の中を横スクロール */
+  display: inline-block;
+  max-width: 100%;
+  overflow-x: auto;
+  vertical-align: bottom;
+  white-space: nowrap;
   font-family: var(--mono);
   font-size: 0.95em;
   background: var(--surface-2);
   border-radius: 4px;
   padding: 0 4px;
-  overflow-wrap: anywhere;
-  -webkit-box-decoration-break: clone;
-  box-decoration-break: clone;
   font-variant-numeric: tabular-nums;
 }
 .table-wrap {
@@ -513,6 +516,16 @@ legend {
   flex: 1;
   min-width: 0;
   overflow-wrap: anywhere;
+}
+.choice .why {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--muted);
+  line-height: 1.4;
+  margin-top: 2px;
+}
+.choice.wrong .why {
+  color: var(--ng);
 }
 .choice .mark {
   flex-shrink: 0;

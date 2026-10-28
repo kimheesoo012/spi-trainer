@@ -88,7 +88,7 @@ function profitAfterDiscount(rng: Rng): Draft | null {
       numCand(S, fYen, '売値を出した'),
     ],
     fillers: [numCand(G.add(10), fYen), numCand(G.add(100), fYen)],
-    short: `定価 {{${num(C)} × ${d(F(1).add(wari(a)))} = ${num(P)}}}円、売値 {{${num(P)} × ${d(F(1).sub(wari(b)))} = ${num(S)}}}円。\n利益 = 売値 − 原価 = ${num(G)}円。答えは ${num(G)}円。`,
+    short: `定価 {{${num(C)} × ${d(F(1).add(wari(a)))} = ${num(P)}}}円、売値 {{${num(P)} × ${d(F(1).sub(wari(b)))} = ${num(S)}}}円。\n利益 = 売値 − 原価 = {{${num(S)} − ${num(C)} = ${num(G)}}}円。答えは ${num(G)}円。`,
     steps: [
       `定価: {{${num(C)} × (1 + ${d(wari(a))}) = ${num(P)}}}円`,
       `売値: {{${num(P)} × (1 − ${d(wari(b))}) = ${num(S)}}}円 (割引の基準は原価ではなく定価)`,

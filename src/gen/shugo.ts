@@ -137,7 +137,7 @@ function threeSets(rng: Rng): Draft | null {
     quick: [
       'ベン図の中心(3つすべて)から外側へ順に埋めると、検算もできる。',
       `2つだけの部分: XYだけ {{${AB} − ${r.abc} = ${r.ab}}}、YZだけ {{${BC} − ${r.abc} = ${r.bc}}}、XZだけ {{${AC} − ${r.abc} = ${r.ac}}}`,
-      `1つだけ: Xだけ {{${A} − ${r.ab} − ${r.ac} − ${r.abc} = ${r.a}}}、Yだけ ${r.b}、Zだけ ${r.c}`,
+      `1つだけ: Xだけ {{${A} − ${r.ab} − ${r.ac} − ${r.abc} = ${r.a}}}、Yだけ {{${B} − ${r.ab} − ${r.bc} − ${r.abc} = ${r.b}}}、Zだけ {{${C} − ${r.ac} − ${r.bc} − ${r.abc} = ${r.c}}}`,
       `合計 {{${r.a} + ${r.b} + ${r.c} + ${r.ab} + ${r.bc} + ${r.ac} + ${r.abc} = ${union}}} → {{${N} − ${union} = ${ans}}}`,
     ],
     ko: `적어도 하나 = X + Y + Z − (두 개씩 겹침) + 셋 다 = ${A} + ${B} + ${C} − ${AB} − ${BC} − ${AC} + ${r.abc} = ${union}명. 아무것도 안 들은 학생 = ${N} − ${union} = ${ans}명. "셋 다"를 다시 더하는 것을 잊기 쉽습니다.`,

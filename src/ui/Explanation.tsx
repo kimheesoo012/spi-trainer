@@ -101,11 +101,13 @@ export function ChoiceButtons({
             mark = '×';
           }
         } else if (i === chosen) cls += ' selected';
+        const why = reveal && i !== q.answer ? (q.gen?.params.wrongWhy as Record<string, string> | undefined)?.[c] : undefined;
         return (
           <button key={i} className={cls} onClick={() => onChoose(i)} disabled={reveal || disabled} aria-pressed={i === chosen}>
             <span className="no">{NO[i]}</span>
             <span className="txt">
               <MathText text={c} />
+              {why && <span className="why">{i === chosen ? 'この誤り: ' : ''}{why}</span>}
             </span>
             {mark && (
               <span className="mark" aria-label={mark === '○' ? '正解' : '選んだ答え(不正解)'}>

@@ -105,12 +105,12 @@ function successive(rng: Rng): Draft | null {
       '元の価格を1(=100%)とする。2回目の値下げは「値上げ後の価格」が基準になる点に注意。',
       `値上げ後: {{1 × (1 + ${a}%) = ${d(up)}}}`,
       `値下げ後: {{${d(up)} × (1 − ${b}%) = ${d(k)}}}`,
-      `最初との差: {{${d(k)} − 1 = ${d(change)}}} → ${label(change)}`,
+      change.isPos() ? `最初との差: {{${d(k)} − 1 = ${d(change)}}} → ${label(change)}` : `最初との差: {{1 − ${d(k)} = ${d(change.neg())}}} 減った → ${label(change)}`,
     ],
     quick: [
       '元の価格を100円と置くと、%がそのまま円で読める。',
       `{{100 × ${d(up)} = ${num(after1)}}}円 → {{${num(after1)} × ${d(F(100 - b, 100))} = ${num(after2)}}}円`,
-      `100円から ${num(after2.sub(100).n < 0 ? after2.sub(100).neg() : after2.sub(100))}円の${after2.gt(100) ? '増加' : '減少'} = ${label(change)}。「${a}% − ${b}% = ${a - b}%」と単純に引くのは誤り(基準が変わるため)。`,
+      `100円から ${num(after2.sub(100).n < 0 ? after2.sub(100).neg() : after2.sub(100))}円の${after2.gt(100) ? '増加' : '減少'} = ${label(change)}。「${a}%上げて${b}%下げたから ${Math.abs(a - b)}%${a >= b ? '増' : '減'}」と単純に引くのは誤り(2回目の基準が最初の価格ではなく、値上げ後の価格だから)。`,
     ],
     ko: `처음 가격을 1로 두면 ${d(up)} × ${d(F(100 - b, 100))} = ${d(k)}. 1과의 차이 ${d(change)} → ${label(change)}. 두 번째 할인은 "인상된 가격"이 기준이므로 ${a}% − ${b}%로 단순히 빼면 틀립니다.`,
     tip: '連続する%の増減は掛け算。100円と置くと速い。',
@@ -210,7 +210,7 @@ function mixedRate(rng: Rng): Draft | null {
     wrong: [
       numCand(F(p + q, 200), fp, '人数を考えずに平均した'),
       numCand(F(x * q + y * p, 100 * (x + y)), fp, '人数と合格率の組を取り違えた'),
-      numCand(F(p + q, 100), fp, '合格率を足しただけ'),
+      numCand(F(Math.max(p, q), 100), fp, '一方の組の率をそのまま答えた'),
     ],
     fillers: [numCand(r.add(F(1, 100)), fp), numCand(r.sub(F(1, 100)), fp), numCand(r.add(F(2, 100)), fp)],
     short: `合格者数を出してから全体で割る。\n合格者 {{${num(a)} + ${num(b)} = ${num(a.add(b))}}}人、全体 ${x + y}人\n{{${num(a.add(b))} ÷ ${x + y} × 100 = ${num(rp)}}} → 答えは ${fp(r)}。`,

@@ -87,15 +87,18 @@ function chooseOrArrange(rng: Rng): Draft | null {
           `{{${Array.from({ length: k }, (_, i) => n - i).join(' × ')} = ${ans}}}通り`,
         ]
       : [
-          `まず順番を区別して並べると {{${n}P${k} = ${P(n, k)}}}通り。`,
-          `同じ${k}人の並び替え {{${k}! = ${fact(k)}}}通り が同じ選び方なので割る: {{${P(n, k)} ÷ ${fact(k)} = ${ans}}}`,
+          `まず順番を区別して並べると {{${n}P${k} = ${num(P(n, k))}}}通り。`,
+          `同じ${k}人の並び替え {{${k}! = ${fact(k)}}}通り が同じ選び方なので割る: {{${num(P(n, k))} ÷ ${fact(k)} = ${num(ans)}}}`,
         ],
     quick: ordered
       ? ['「役割・順番がある」→ 順列 P、「ただ選ぶだけ」→ 組合せ C。']
-      : [`nCk = nC(n−k)。${n}C${k} は ${n}C${n - k} と同じ。小さい方で計算すると速い。`, `{{${n}C${k} = ${n}C${n - k}}}`],
+      : [
+          `直接計算するなら、分子に ${n} から ${k} 個を掛け、分母に ${k}! を置く: {{${Array.from({ length: k }, (_, i) => n - i).join(' × ')} ÷ (${Array.from({ length: k }, (_, i) => k - i).join(' × ')}) = ${num(ans)}}}`,
+          `nCk = nC(n−k)。${n}C${k} は ${n}C${n - k} と同じなので、小さい方で計算すると速い。`,
+        ],
     ko: ordered
       ? `역할이 다르므로 순서를 구별(순열): ${n}P${k} = ${ans}가지.`
-      : `대표는 구별하지 않으므로 조합: ${n}C${k} = ${n}P${k} ÷ ${k}! = ${P(n, k)} ÷ ${fact(k)} = ${ans}가지.`,
+      : `대표는 구별하지 않으므로 조합: ${n}C${k} = ${n}P${k} ÷ ${k}! = ${num(P(n, k))} ÷ ${fact(k)} = ${num(ans)}가지.`,
     tip: '役割があれば P、なければ C。',
     params: { template: ordered ? 'arrange' : 'choose', n, k },
     check: () => F(ordered ? perms(n, k).length : combos(n, k).length),
@@ -213,18 +216,18 @@ function adjacent(rng: Rng): Draft | null {
     fillers: [numCand(F(ans + 2), ft), numCand(F(ans * 3), ft)],
     short: circle
       ? `円順列は1人を固定して残りを並べる: {{(${n} − 1)! = ${ans}}}\n答えは ${num(ans)}通り。`
-      : `AとBを1つの固まりとみなして ${n - 1} 個を並べ、固まりの中の入れ替え2通りを掛ける。\n{{${n - 1}! × 2 = ${ans}}}\n答えは ${num(ans)}通り。`,
+      : `AとBを1つの固まりとみなして ${n - 1} 個を並べ、固まりの中の入れ替え2通りを掛ける。\n{{${n - 1}! × 2 = ${num(ans)}}}\n答えは ${num(ans)}通り。`,
     steps: circle
       ? [`回転すると同じになるので、1人の席を固定する。`, `残り${n - 1}人を並べる: {{${n - 1}! = ${ans}}}通り`]
       : [
           `AとBを1つの固まり[AB]とみなすと、並べるのは {{${n} − 1 = ${n - 1}}}個。`,
-          `${n - 1}個の並べ方: {{${n - 1}! = ${fact(n - 1)}}}通り`,
-          `固まりの中で AB と BA の2通り: {{${fact(n - 1)} × 2 = ${ans}}}通り`,
+          `${n - 1}個の並べ方: {{${n - 1}! = ${num(fact(n - 1))}}}通り`,
+          `固まりの中で AB と BA の2通り: {{${num(fact(n - 1))} × 2 = ${num(ans)}}}通り`,
         ],
-    quick: circle ? [`一列なら ${n}! = ${fact(n)} 通り。円では${n}通りの回転が同じなので {{${fact(n)} ÷ ${n} = ${ans}}}`] : ['「隣り合う」は固まりにまとめる、「隣り合わない」は全体から隣り合うを引く。'],
+    quick: circle ? [`一列なら ${n}! = ${num(fact(n))} 通り。円では${n}通りの回転が同じなので {{${num(fact(n))} ÷ ${n} = ${num(ans)}}}`] : ['「隣り合う」は固まりにまとめる、「隣り合わない」は全体から隣り合うを引く。'],
     ko: circle
       ? `원순열은 한 사람을 고정하고 나머지 ${n - 1}명을 배열: (${n} − 1)! = ${ans}가지.`
-      : `A와 B를 한 묶음으로 보고 ${n - 1}개를 배열(${n - 1}! = ${fact(n - 1)}), 묶음 안의 AB·BA 2가지를 곱해 ${ans}가지.`,
+      : `A와 B를 한 묶음으로 보고 ${n - 1}개를 배열(${n - 1}! = ${num(fact(n - 1))}), 묶음 안의 AB·BA 2가지를 곱해 ${num(ans)}가지.`,
     tip: circle ? '円順列 = (n − 1)!' : '隣り合う → まとめて並べ、中の並びを掛ける。',
     params: { template: circle ? 'circle' : 'adjacent', n },
     check: () => {
