@@ -8,7 +8,7 @@ import { ORACLES } from './oracles';
 const N = Number(process.env.GEN_N ?? 3000);
 
 function allText(qn: Question): string[] {
-  return [qn.explanation_short_ja, ...qn.steps_ja, ...qn.quick_ja];
+  return [qn.explanation_short_ja, ...qn.steps_ja, ...qn.quick_ja, qn.intuition_ja ?? '', qn.cue_ja ?? '', ...(qn.fast_ja ?? [])];
 }
 
 function checkQuestion(qn: Question): string[] {
@@ -30,6 +30,17 @@ function checkQuestion(qn: Question): string[] {
     }
   }
   if (!qn.explanation_ko) errs.push('no korean');
+  // 直感的な解き方・手がかりは必ずある。最速の解き方があるなら、その最後の行に答えが書かれている(別ルートで同じ答えに着く)
+  if (!qn.intuition_ja || qn.intuition_ja.trim().length < 10) errs.push('no intuition');
+  if (!qn.cue_ja || !qn.cue_ja.includes('→')) errs.push('cue must be "手がかり → 解き方"');
+  const fast = qn.fast_ja ?? [];
+  if (fast.length) {
+    const last = fast[fast.length - 1];
+    const ansCore = correct.replace(/^約/, '').replace(/^(時速|分速|秒速)/, '');
+    if (!fast.some((f) => f.replace(/\{\{|\}\}/g, '').includes(ansCore))) errs.push(`fast route does not state the answer "${correct}": ${last}`);
+    // 直感 → 最速 → 基本 の順に出すので、最速は基本より短くなければ「最速」と呼ばない
+    if (fast.length > qn.steps_ja.length) errs.push(`fast route (${fast.length} steps) is not shorter than basic (${qn.steps_ja.length})`);
+  }
   const oracle = ORACLES[qn.typeId];
   if (oracle) {
     const e = oracle(qn);
@@ -58,6 +69,12 @@ describe('generators', () => {
           }
         }
         expect(failures.slice(0, 10)).toEqual([]);
+        // 最速の解き方が一度は出るテンプレートの割合(ログ用)
+        if (process.env.GEN_LOG) {
+          let withFast = 0;
+          for (let seed = 1; seed <= 50; seed++) if ((generate(typeId, diff, seed * 7919 + diff).fast_ja ?? []).length) withFast++;
+          console.log(`${typeId} d${diff}: fast ${withFast}/50`);
+        }
         // 正解の位置が偏っていない
         for (const c of positions) expect(c).toBeGreaterThan(N * 0.15);
         // どのテンプレートも出る

@@ -16,7 +16,7 @@ const out = process.argv[2];
   await p.waitForSelector('.choice');
   await p.screenshot({ path: `${out}/03-quiz.png` });
   await p.click('.choice >> nth=0');
-  await p.click('text=詳しい解説');
+  if (!(await p.locator('.detail').count())) await p.click('.toggle:has-text("基本の解き方")');
   await p.click('text=한국어 해설');
   await p.screenshot({ path: `${out}/04-explain.png`, fullPage: true });
   console.log('errors:', errs);

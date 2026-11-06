@@ -23,6 +23,13 @@ interface Tpl {
   lhs: (x: Frac) => Frac;
   rhs: Frac;
   ko: string;
+  /** 直感的な解き方 */
+  intuition: string;
+  /** 手がかり → 解き方 */
+  cue: string;
+  /** 最速の解き方(基本より速いときだけ) */
+  fast?: string[];
+  fastCheck?: () => Frac;
 }
 
 const s = (v: Frac) => num(v);
@@ -52,6 +59,8 @@ function intOps(rng: Rng): Tpl | null {
       lhs: (v) => v.mul(a).add(b),
       rhs: c,
       ko: `거꾸로 계산: ${s(c)} − ${s(b)} = ${s(c.sub(b))}, ${s(c.sub(b))} ÷ ${s(a)} = ${s(x)}. 계산한 순서의 반대로(덧셈·뺄셈 먼저) 되돌립니다.`,
+      intuition: `□に ${s(a)} を掛けて、そのあと ${s(b)} を足したら ${s(c)} になった。やった操作を逆の順に外していく: 最後に足した ${s(b)} を引き、次に掛けた ${s(a)} で割る。`,
+      cue: '「□ × a + b = c」→ 足した分を引いてから、掛けた分で割る(計算の逆順)',
     };
   }
   if (kind === 1) {
@@ -73,6 +82,8 @@ function intOps(rng: Rng): Tpl | null {
       lhs: (v) => v.sub(aa).mul(a),
       rhs: c,
       ko: `괄호 밖의 × ${s(a)}부터 되돌립니다: ${s(c)} ÷ ${s(a)} = ${s(c.div(a))}, 그다음 + ${s(aa)} → ${s(x)}.`,
+      intuition: `かっこの中(□ − ${s(aa)})をひとまとまりと見る。それに ${s(a)} を掛けて ${s(c)} なので、まとまりは ${s(c)} ÷ ${s(a)}。そこから − ${s(aa)} を戻せば□になる。外側から順に外す。`,
+      cue: '「(□ − a) × b = c」→ 外側の × から戻し、最後にかっこの中を戻す',
     };
   }
   if (kind === 2) {
@@ -94,6 +105,8 @@ function intOps(rng: Rng): Tpl | null {
       lhs: (v) => v.div(a).sub(b),
       rhs: c,
       ko: `− ${s(b)}을 되돌려 ${s(c)} + ${s(b)} = ${s(c.add(b))}, ÷ ${s(a)}를 되돌려 × ${s(a)} → ${s(xx)}.`,
+      intuition: `□ ÷ ${s(a)} をひとまとまりと見ると、それから ${s(b)} を引いて ${s(c)}。まず ${s(b)} を足し戻し、そのあと「÷ ${s(a)}」の逆は「× ${s(a)}」で□に戻す。`,
+      cue: '「□ ÷ a − b = c」→ 引いた分を足してから、割った分を掛ける',
     };
   }
   // a − □ × b = c
@@ -113,6 +126,8 @@ function intOps(rng: Rng): Tpl | null {
     lhs: (v) => big.sub(v.mul(a)),
     rhs: c,
     ko: `□ × ${s(a)} = ${s(big)} − ${s(c)} = ${s(big.sub(c))}, 따라서 □ = ${s(big.sub(c))} ÷ ${s(a)} = ${s(x)}.`,
+    intuition: `「${s(big)} から何かを引いたら ${s(c)}」なので、引いた何か(□ × ${s(a)})は ${s(big)} − ${s(c)}。□が引く側にあるときは、足し戻すのではなく「差」を取るのがポイント。`,
+    cue: '「big − □ × a = c」→ □ × a = big − c、それを a で割る',
   };
 }
 
@@ -137,6 +152,10 @@ function decOps(rng: Rng): Tpl | null {
       lhs: (v) => v.mul(a).add(b),
       rhs: c,
       ko: `${s(c)} − ${s(b)} = ${s(c.sub(b))}, ${s(c.sub(b))} ÷ ${s(a)} = ${s(x)}. 소수로 나눌 때는 분수(${fracStr(a)})로 바꿔 역수를 곱하면 빠릅니다.`,
+      intuition: `小数 ${s(a)} で割るのは面倒だが、${s(a)} = ${fracStr(a)} と分数で見れば「÷ ${fracStr(a)}」は「× ${fracStr(a.inv())}」。まず足した ${s(b)} を引き、それから逆数を掛ける。`,
+      cue: '「□ × 小数 + b = c」→ b を引いてから、小数を分数にして逆数を掛ける',
+      fast: a.inv().isInt() ? [`{{${s(c)} − ${s(b)} = ${s(c.sub(b))}}}`, `÷ ${s(a)} は × ${s(a.inv())} と同じ: {{${s(c.sub(b))} × ${s(a.inv())} = ${s(x)}}}`] : [],
+      fastCheck: () => c.sub(b).mul(a.inv()),
     };
   }
   if (kind === 1) {
@@ -153,6 +172,8 @@ function decOps(rng: Rng): Tpl | null {
       lhs: (v) => v.add(b).div(a),
       rhs: c,
       ko: `÷ ${s(a)}를 되돌려 ${s(c)} × ${s(a)} = ${s(c.mul(a))}, + ${s(b)}를 되돌려 ${s(c.mul(a))} − ${s(b)} = ${s(x)}.`,
+      intuition: `かっこの中(□ + ${s(b)})をひとまとまりと見る。それを ${s(a)} で割って ${s(c)} なので、まとまりは ${s(c)} × ${s(a)}。最後に足した ${s(b)} を引けば□。`,
+      cue: '「(□ + b) ÷ a = c」→ 外側の ÷ を × で戻し、最後に b を引く',
     };
   }
   // b × □ − a = c
@@ -170,6 +191,8 @@ function decOps(rng: Rng): Tpl | null {
     lhs: (v) => m.mul(v).sub(a),
     rhs: c,
     ko: `${s(c)} + ${s(a)} = ${s(c.add(a))}, ${s(c.add(a))} ÷ ${s(m)} = ${s(x)}. ${s(m)} = ${fracStr(m)}이므로 ${fracStr(m.inv())}을 곱해도 됩니다.`,
+    intuition: `${s(m)} × □ から ${s(a)} を引いて ${s(c)}。まず ${s(a)} を足し戻し、${s(m)} で割る。${s(m)} = ${fracStr(m)} なので、割るかわりに ${fracStr(m.inv())} を掛けてもよい。`,
+    cue: '「小数 × □ − a = c」→ a を足してから小数で割る(分数の逆数を掛ける)',
   };
 }
 
@@ -200,6 +223,8 @@ function fracOps(rng: Rng): Tpl | null {
       lhs: (v) => v.mul(pq).sub(rs),
       rhs: t,
       ko: `${fracStr(t)} + ${fracStr(rs)} = ${fracStr(t.add(rs))}, 여기에 ${fracStr(pq)}의 역수 ${fracStr(pq.inv())}를 곱하면 ${fracStr(x)}. 분수로 나누기 = 역수 곱하기.`,
+      intuition: `□ × ${fracStr(pq)} をひとまとまりと見て、引いた ${fracStr(rs)} を足し戻す。分数で割るのは逆数を掛けること。通分と約分を先に済ませると数が小さいまま計算できる。`,
+      cue: '「□ × 分数 − 分数 = 分数」→ 引いた分を足し、分数の逆数を掛ける',
     };
   }
   // N ÷ □ − a = b (□ が割る数)
@@ -223,6 +248,8 @@ function fracOps(rng: Rng): Tpl | null {
     lhs: (v) => N.div(v).sub(a),
     rhs: b,
     ko: `${s(b)} + ${s(a)} = ${s(q)}. ${s(N)} ÷ □ = ${s(q)}이므로 □ = ${s(N)} ÷ ${s(q)} = ${s(x)}. □가 나누는 수일 때는 곱하지 말고 나눕니다.`,
+    intuition: `□は「割る数」。${s(N)} を□で割った結果が ${s(q)}(= ${s(b)} + ${s(a)})なら、${s(N)} ÷ ${s(q)} が□。割り算の逆だからといって掛けてしまうのが典型的なわな。`,
+    cue: '「N ÷ □ = B」の形 → □ = N ÷ B(掛けない)',
   };
 }
 
@@ -244,6 +271,10 @@ export function genShisoku(rng: Rng, diff: Difficulty): Draft | null {
     short: `計算した順番の逆から戻す。\n${t.steps.map((x) => x.replace(/^.*?: /, '')).join(' → ')}\n答えは ${xs}。`,
     steps: [`式: ${t.eq}`, ...t.steps, `検算: □に ${xs} を入れると左辺 = ${useFrac ? fracStr(t.rhs) : s(t.rhs)} になる。`],
     quick: t.quick,
+    intuition: t.intuition,
+    cue: t.cue,
+    fast: t.fast ?? [],
+    fastCheck: t.fastCheck,
     ko: t.ko,
     tip: '足し算・引き算を先に外し、最後に掛け算・割り算を外す。答えを□に入れて検算。',
     params: { template: t.name, eq: t.eq },

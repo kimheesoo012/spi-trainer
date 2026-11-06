@@ -46,6 +46,8 @@ function share(rng: Rng): Draft | null {
   const ans = exact.round(0);
   const totPrev = d.v.reduce((s, r) => s + r[1], 0);
   const approxTot = Math.round(tot / 100) * 100;
+  const approx = F(d.v[c][y] * 100, approxTot);
+  const approxOK = approx.round(0).eq(ans) && approxTot !== tot;
   const fmt = (v: Frac) => (v.isInt() && v.isPos() ? pctR(v) : null);
   return {
     question_ja: `表の${YEARS[y]}において、5か国の合計に占める${NAMES[c]}の割合はおよそ何%か(小数点以下を四捨五入)。`,
@@ -69,6 +71,12 @@ function share(rng: Rng): Draft | null {
       '選択肢の差が小さいときだけ、正確な合計で計算し直す。',
     ],
     ko: `${YEARS[y]} 합계 ${num(tot)}. ${NAMES[c]}의 비율 = ${num(d.v[c][y])} ÷ ${num(tot)} × 100 ≒ ${decStr(exact.round(2))} → 반올림 ${pctR(ans)}. 합계를 대략 ${num(approxTot)}로 어림하면 빨리 후보를 좁힐 수 있습니다.`,
+    intuition: `「合計に占める割合」は 部分 ÷ 全体。合計 ${num(tot)} を ${num(approxTot)} と丸めても割合はほとんど変わらないので、まず概数で見当をつけ、選択肢が近いときだけ正確に計算する。`,
+    cue: '「合計に占める割合は何%」→ その国 ÷ 5か国の合計 × 100(合計は概数でよい)',
+    fast: approxOK
+      ? [`合計を ${num(approxTot)} と丸める: {{${num(d.v[c][y])} ÷ ${num(approxTot)} × 100 ≒ ${decStr(approx.round(1))}}} → 四捨五入して ${pctR(ans)}(選択肢が離れているので概算で十分)`]
+      : [],
+    fastCheck: () => approx.round(0),
     tip: '割合 = 部分 ÷ 全体。全体は概数にして見当をつける。',
     params: { template: 'share', v: d.v, y, c },
     check: () => {
@@ -111,6 +119,9 @@ function growth(rng: Rng): Draft | null {
       '分母は「比べられる側(前年)」。今年の値で割る選択肢はわな。',
     ],
     ko: `증가율 = 증가량 ÷ 전년도 값. (${num(b)} − ${num(a)}) ÷ ${num(a)} × 100 ≒ ${decStr(exact.round(2))} → 반올림 ${pctR(ans)}. 기준(분모)은 2023년 값입니다.`,
+    intuition: `「前年に比べて何%増」は、増えた量が前年の何%にあたるか。分母は比べる元の2023年の ${num(a)}。${num(a)} の10%は ${decStr(F(a, 10))} なので、増加量 ${num(b - a)} がその何個分かを見れば、桁を間違えずに見当がつく。`,
+    cue: '「前年に比べて何%増加」→ (今年 − 前年) ÷ 前年 × 100(分母は前年)',
+    fast: [],
     tip: '「前年比○%増」の分母は前年の値。',
     params: { template: 'growth', v: d.v, c },
     check: () => F(Math.floor(((b - a) * 200 + a) / (2 * a))),
@@ -146,6 +157,9 @@ function maxIncrease(rng: Rng): Draft | null {
       '値が小さく伸びが目立たない国は飛ばし、差が大きそうな国から引き算する。',
     ],
     ko: `증가"량"(2024년 − 2022년)을 비교합니다. ${NAMES[iMax]}가 ${num(maxInc)}로 최대. 증가"율"이 가장 큰 나라는 ${NAMES[iRate]}이므로 혼동하지 마세요.`,
+    intuition: `問われているのは増加「量」= 2024年 − 2022年 の差そのもの。割り算はいらない。増加「率」(差 ÷ 元の値)が最大の ${NAMES[iRate]} とは別の問いなので、言葉に引きずられないこと。`,
+    cue: '「増加量が最も大きい国」→ 各国の(あと − 前)を引き算して比べる(率ではない)',
+    fast: [],
     tip: '増加量(差)と増加率(差 ÷ 元)を区別する。',
     params: { template: 'maxIncrease', v: d.v },
     check: () => {
@@ -194,6 +208,24 @@ function ratioTimes(rng: Rng): Draft | null {
       `${num(d.v[j][2])} × ${decStr(ans)} = ${decStr(ans.mul(d.v[j][2]))} が ${num(d.v[i][2])} に近いことを確かめる(掛け算の方が割り算より速い)。`,
     ],
     ko: `"A는 B의 몇 배"는 A ÷ B. ${num(d.v[i][2])} ÷ ${num(d.v[j][2])} ≒ ${decStr(exact.round(3))} → ${fmt(ans)}. 선택지 × ${num(d.v[j][2])}가 ${num(d.v[i][2])}에 가까운지 곱셈으로 확인하면 빠릅니다.`,
+    intuition: `「AはBの何倍か」は A ÷ B で、「〜の」が付く ${NAMES[j]} が基準(割る数)。割り算を筆算するより、選択肢の倍率を基準の値に掛けて ${num(d.v[i][2])} に近いものを探す方が速い。`,
+    cue: '「AはBの約何倍」→ A ÷ B。割り算が重ければ 選択肢 × B で確かめる',
+    fast: [`選択肢を基準に掛けて確かめる: {{${num(d.v[j][2])} × ${decStr(ans)} = ${decStr(ans.mul(d.v[j][2]))}}} が ${num(d.v[i][2])} に最も近い → ${fmt(ans)}`],
+    fastCheck: () => {
+      // 選択肢の倍率 k(0.1刻み)のうち、基準 × k が比べられる量に最も近いもの
+      const B = d.v[j][2];
+      const A = d.v[i][2];
+      let best = F(1, 10);
+      for (let t = 1; t <= 2000; t++) {
+        const k = F(t, 10);
+        const diff = k.mul(B).sub(A);
+        const bd = best.mul(B).sub(A);
+        const ad = diff.isPos() ? diff : diff.neg();
+        const abd = bd.isPos() ? bd : bd.neg();
+        if (ad.lt(abd) || ad.eq(abd)) best = k; // 同じ近さなら大きい方(四捨五入と同じ向き)
+      }
+      return best;
+    },
     tip: '割り算が重いときは、選択肢 × 基準の値 で確かめる。',
     params: { template: 'ratioTimes', v: d.v, i, j },
     check: () => F(Math.floor((d.v[i][2] * 20 + d.v[j][2]) / (2 * d.v[j][2])), 10),

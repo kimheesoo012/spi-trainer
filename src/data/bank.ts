@@ -32,6 +32,8 @@ export function validateBankItem(x: unknown): string[] {
     errs.push('missing explanation_detail_ja');
   if (typeof o.reviewed !== 'boolean') errs.push('reviewed must be boolean');
   if (o.passage_ja !== undefined && typeof o.passage_ja !== 'string') errs.push('passage_ja must be string');
+  for (const k of ['intuition_ja', 'cue_ja'] as const) if (o[k] !== undefined && (typeof o[k] !== 'string' || !(o[k] as string).trim())) errs.push(`${k} must be a non-empty string`);
+  if (o.fast_ja !== undefined && !(Array.isArray(o.fast_ja) && o.fast_ja.every((x) => typeof x === 'string' && x.trim()))) errs.push('fast_ja must be an array of strings');
   const t = typeof o.category === 'string' ? typeForCategory(o.category) : undefined;
   if (!t) errs.push(`unknown category ${String(o.category)}`);
   else if (t.exam !== o.exam) errs.push(`exam ${String(o.exam)} does not match category ${t.name}`);
@@ -96,6 +98,9 @@ export function bankQuestion(item: BankItem & { typeId: string }, shuffleSeed: n
     explanation_short_ja: item.explanation_short_ja,
     steps_ja: det,
     quick_ja: item.tip ? [item.tip] : [],
+    intuition_ja: item.intuition_ja,
+    cue_ja: item.cue_ja,
+    fast_ja: item.fast_ja ?? [],
     explanation_ko: item.explanation_ko,
     tip: item.tip,
   };

@@ -955,3 +955,63 @@ textarea {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* 解説: 直感的な解き方 / 最速の解き方 / 基本の解き方 */
+.way {
+  border-radius: var(--radius);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.way h3,
+.detail h3 {
+  margin: 0;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.way p {
+  margin: 0;
+  line-height: 1.75;
+}
+.way-intuition {
+  background: var(--accent-soft);
+}
+.way-fast {
+  background: var(--surface);
+  border: 1px solid var(--accent);
+}
+.way-fast ol {
+  margin: 0;
+  padding-left: 1.4em;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.badge-fast {
+  font-size: 0.7rem;
+  font-weight: 800;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+.cue {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 6px 8px;
+  font-size: 0.92rem;
+}
+.cue-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 1px 7px;
+  border-radius: 999px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  white-space: nowrap;
+}

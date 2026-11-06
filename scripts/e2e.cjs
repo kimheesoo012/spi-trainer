@@ -50,10 +50,13 @@ async function answer(p, wantWrong) {
     const ok = await answer(p, true);
     if (!ok) wrongs++;
     if (i === 0) {
-      // 解いている間は韓国語を出さない → 解説後にタップで表示
-      await p.click('text=詳しい解説');
+      // 直感的な解き方(手がかり)が最初に見える。基本の解き方は折りたたみ(最速がない問題では開いたまま)
+      await p.locator('.way-intuition').waitFor();
+      assert(await p.locator('.cue').count() === 1, '手がかりがない');
+      if (!(await p.locator('.detail').count())) await p.click('.toggle:has-text("基本の解き方")');
       await p.locator('.detail').waitFor();
-      assert(await p.locator('.detail li').count() >= 2, '詳しい解説の手順がない');
+      assert(await p.locator('.detail li').count() >= 2, '基本の解き方の手順がない');
+      // 解いている間は韓国語を出さない → 解説後にタップで表示
       assert.strictEqual(await p.locator('.ko').count(), 0, '韓国語がタップ前に表示されている');
       await p.click('.toggle[lang="ko"]');
       await p.locator('.ko').waitFor();

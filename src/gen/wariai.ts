@@ -36,6 +36,10 @@ function participation(rng: Rng): Draft | null {
       `先に「半分(${N / 2}人)より多いか少ないか」を見ると、50%より上か下かで選択肢を絞れる。`,
     ],
     ko: `"참가자는 정원의 몇 %인가"이므로 참가자 ÷ 정원 = ${num(M)} ÷ ${N} = ${d(r)} → ${p}%. "A는 B의 몇 %"는 항상 A ÷ B(기준이 되는 B로 나눔)입니다.`,
+    intuition: `「参加者は定員の何%か」は、参加者が定員の中でどれだけを占めるかを見る問題。「〜の」が付いた定員が基準(分母)になる。分数 ${num(M)}/${N} を作ってしまえば、あとは分母を100にするだけ。`,
+    cue: '「AはBの何%」→ A ÷ B(「〜の」が付く方で割る)',
+    fast: [`分数のまま約分: {{${num(M)}/${N} = ${fracStr(red)}}}`, `分母を100に: {{${fracStr(red)} = ${p}/100}} → ${p}%`],
+    fastCheck: () => M.div(N),
     tip: '「〜の何%」の「〜」が基準(割る数)。',
     params: { template: 'participation', N, p },
     check: () => F(N * p, 100).div(N),
@@ -69,6 +73,21 @@ function percentOf(rng: Rng): Draft | null {
       '10%・5%・1% を足し合わせる方法は、電卓が使えない試験で特に速い。',
     ],
     ko: `"${num(X)}엔의 ${p}%" = ${num(X)} × ${d(F(p, 100))} = ${num(ans)}엔. 빠른 방법: 10%(${num(ten)}엔)를 먼저 구해서 ${d(F(p, 10))}배 합니다.`,
+    intuition: `「${num(X)}円の${p}%」は、${num(X)}円を100等分したうちの${p}個分。10%(1桁ずらした ${num(ten)}円)を基準にすると、暗算で組み立てられる。`,
+    cue: '「〜の○%」→ 〜 × 0.○(10%を基準に組み立てる)',
+    fast:
+      p === 10
+        ? [`10%は1桁ずらすだけ: {{${num(X)} ÷ 10 = ${num(ans)}}}円`]
+        : p === 5
+          ? [`10%の半分: {{${num(X)} ÷ 10 ÷ 2 = ${num(ans)}}}円`]
+          : p === 25
+            ? [`25%は4分の1: {{${num(X)} ÷ 4 = ${num(ans)}}}円`]
+            : p === 15
+              ? [`10% + 5%: {{${num(ten)} + ${num(ten)} ÷ 2 = ${num(ans)}}}円`]
+              : p === 20 || p === 30
+                ? [`10%は ${num(ten)}円。その${p / 10}倍: {{${num(ten)} × ${p / 10} = ${num(ans)}}}円`]
+                : [],
+    fastCheck: () => (p === 25 ? F(X).div(4) : p === 15 ? ten.add(ten.div(2)) : p === 5 ? F(X).div(10).div(2) : ten.mul(F(p, 10))),
     tip: '10%は1桁ずらす。そこから5%(半分)、1%を組み合わせる。',
     params: { template: 'percentOf', X, p },
     check: () => F(X).div(100).mul(p),
@@ -113,6 +132,13 @@ function successive(rng: Rng): Draft | null {
       `100円から ${num(after2.sub(100).n < 0 ? after2.sub(100).neg() : after2.sub(100))}円の${after2.gt(100) ? '増加' : '減少'} = ${label(change)}。「${a}%上げて${b}%下げたから ${Math.abs(a - b)}%${a >= b ? '増' : '減'}」と単純に引くのは誤り(2回目の基準が最初の価格ではなく、値上げ後の価格だから)。`,
     ],
     ko: `처음 가격을 1로 두면 ${d(up)} × ${d(F(100 - b, 100))} = ${d(k)}. 1과의 차이 ${d(change)} → ${label(change)}. 두 번째 할인은 "인상된 가격"이 기준이므로 ${a}% − ${b}%로 단순히 빼면 틀립니다.`,
+    intuition: `2回目の${b}%引きは「値上げ後の価格」が基準なので、${a}% と ${b}% を足し引きしてはいけない。元の価格を100円と置けば、%がそのまま円で読めて、最後に100円と比べるだけで済む。`,
+    cue: '「○%上げてから△%下げ」→ 倍率を掛け算でつなぐ(100と置く)',
+    fast: [
+      `100円と置く: {{100 × ${d(up)} = ${num(after1)}}}円 → {{${num(after1)} × ${d(F(100 - b, 100))} = ${num(after2)}}}円`,
+      `100円との差は ${num(after2.sub(100).n < 0 ? after2.sub(100).neg() : after2.sub(100))}円の${after2.gt(100) ? '増加' : '減少'} → ${label(change)}`,
+    ],
+    fastCheck: () => F(100).mul(up).mul(F(100 - b, 100)).sub(100).div(100),
     tip: '連続する%の増減は掛け算。100円と置くと速い。',
     params: { template: 'successive', a, b },
     check: () => F(100).mul(F(100 + a, 100)).mul(F(100 - b, 100)).sub(100).div(100),
@@ -149,6 +175,9 @@ function partOfPart(rng: Rng): Draft | null {
       `{{${num(j)} ÷ ${Nn} × 100 = ${d(ans.mul(100))}}} → ${fp(ans)}`,
     ],
     ko: `"전체의 ${fracStr(f1)} 중 ${fracStr(f2)}"는 곱셈입니다. ${fracStr(f1)} × ${fracStr(f2)} = ${fracStr(ans)} → ${fp(ans)}. 전체를 ${Nn}명으로 두면 정수로 계산할 수 있습니다.`,
+    intuition: `「全体の${fracStr(f1)}」の、さらに「${fracStr(f2)}」なので、割合に割合を掛ける。全体を${Nn}人と置くと、営業部${num(k)}人 → そのうち女性${num(j)}人と整数で追えて、${num(j)}/${Nn} がそのまま答えの割合になる。`,
+    cue: '「〜のうち〜」→ 割合 × 割合(掛け算)',
+    fast: [],
     tip: '「〜のうち〜」は掛け算。全体を分母の積で置くと分数が消える。',
     params: { template: 'partOfPart', f1: fracStr(f1), f2: fracStr(f2) },
     check: () => F(Nn).mul(f1).mul(f2).div(Nn),
@@ -184,6 +213,10 @@ function reverseGrowth(rng: Rng): Draft | null {
       `「${num(N)} × (1 − ${p}%)」は今年を基準にしてしまう典型的な誤り。選択肢を ×${d(g)} して${num(N)}になるか確かめると確実。`,
     ],
     ko: `"작년보다 ${p}% 증가"는 작년 × ${d(g)} = 올해라는 뜻입니다. 따라서 작년 = ${num(N)} ÷ ${d(g)} = ${num(L)}명. 올해에서 ${p}%를 빼면(${num(N)} × ${d(F(100 - p, 100))}) 기준이 달라져서 틀립니다.`,
+    intuition: `「昨年より${p}%増えて今年${num(N)}人」は、昨年 × ${d(g)} = ${num(N)} ということ。知りたいのは掛ける前の昨年なので、今年 ÷ ${d(g)}。今年から${p}%を引くのは基準が違うので誤り。`,
+    cue: '「昨年より○%増 → 今年の値がわかっている」→ 今年 ÷ (1 + ○%)',
+    fast: [`${d(g)} = ${fracStr(g)}。割るかわりに逆数を掛ける: {{${num(N)} × ${fracStr(g.inv())} = ${num(L)}}}人`],
+    fastCheck: () => N.mul(g.inv()),
     tip: '「前年比○%増」の逆算は割り算。分数にして逆数を掛ける。',
     params: { template: 'reverseGrowth', p, L },
     check: () => N.mul(100).div(100 + p),
@@ -204,6 +237,9 @@ function mixedRate(rng: Rng): Draft | null {
   const fp = fPct(1);
   if (!r.mul(100).isInt()) return null;
   const rp = r.mul(100);
+  const wB = F(y, x + y); // B組の人数の割合(天秤法)
+  const delta = F(q - p).mul(wB);
+  const balance = wB.d <= 5 && delta.isInt();
   return {
     question_ja: `A組${x}人の合格率は${p}%、B組${y}人の合格率は${q}%だった。A組とB組を合わせた合格率は何%か。`,
     correct: { text: fp(r)!, value: r },
@@ -225,6 +261,15 @@ function mixedRate(rng: Rng): Draft | null {
       `人数の多い${x > y ? 'A' : 'B'}組の${x > y ? p : q}%に近い側の選択肢に絞り、合格者数で確かめる。`,
     ],
     ko: `합격자 수를 먼저 구합니다: A반 ${x} × ${p}% = ${num(a)}명, B반 ${y} × ${q}% = ${num(b)}명. 합계 ${num(a.add(b))}명 ÷ 전체 ${x + y}명 = ${fp(r)}. 인원이 다르므로 (${p}+${q})÷2 같은 단순 평균은 틀립니다.`,
+    intuition: `率どうしを平均してはいけない。合格率は「合格者数 ÷ 人数」なので、いったん合格者の人数に戻して足し、全体の人数で割る。答えは人数の多い${x > y ? 'A' : 'B'}組の${x > y ? p : q}%に近づく。`,
+    cue: '「2つの集団を合わせた率」→ 人数に戻して合計(加重平均)。人数の多い方に寄る',
+    fast: balance
+      ? [
+          `率の差 ${q - p > 0 ? q - p : p - q} を人数比で分ける。B組の人数の割合は {{${y}/(${x} + ${y}) = ${fracStr(wB)}}}`,
+          `A組の率から B組の方へ寄せる: {{${p} + (${q} − ${p}) × ${fracStr(wB)} = ${num(rp)}}} → ${fp(r)}`,
+        ]
+      : [],
+    fastCheck: () => F(p).add(F(q - p).mul(wB)).div(100),
     tip: '人数が違う集団の率は「中身の人数」に戻して合計する(加重平均)。',
     params: { template: 'mixedRate', x, y, p, q },
     check: () => F(x).mul(F(p, 100)).add(F(y).mul(F(q, 100))).div(F(x + y)),

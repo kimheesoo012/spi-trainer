@@ -44,6 +44,10 @@ function twoSetsBoth(rng: Rng): Draft | null {
       '「どちらでもない」を引き忘れる誤りが多い。全体からまず外しておく。',
     ],
     ko: `적어도 하나에 해당하는 사람 = ${N} − ${none} = ${N - none}명. 둘 다 = ${A} + ${B} − ${N - none} = ${both}명. "둘 다 아닌 사람"을 빼는 것을 잊지 마세요.`,
+    intuition: `A と B を足すと「両方」の人を2回数えてしまう。だから A + B は「少なくとも一方の人数」より両方の分だけ多い。少なくとも一方 = 全体 − どちらでもない、と置き換えれば引き算だけで出る。`,
+    cue: '「両方は何人」「どちらでもない人がいる」→ 両方 = A + B + どちらでもない − 全体',
+    fast: [`公式に当てはめる: {{${A} + ${B} + ${none} − ${N} = ${both}}}人`],
+    fastCheck: () => F(A + B + none - N),
     tip: '両方 = A + B + どちらでもない − 全体。',
     params: { template: 'twoSetsBoth', N, A, B, none },
     check: () => {
@@ -90,6 +94,12 @@ function twoSetsOnly(rng: Rng): Draft | null {
     ko: askNone
       ? `P + Q − 둘 다 = ${A} + ${B} − ${both} = ${A + B - both}명(적어도 하나). 둘 다 없는 사람 = ${N} − ${A + B - both} = ${none}명.`
       : `적어도 하나 = ${N} − ${none} = ${N - none}명. 여기서 Q를 가진 사람(둘 다 포함)을 빼면 P만 = ${N - none} − ${B} = ${onlyA}명.`,
+    intuition: askNone
+      ? `P と Q を足すと両方の${both}人を2回数えるので、1回分引いたものが「少なくとも一方」。全体からそれを引けば「どちらもない」。`
+      : `「Pだけ」は、少なくとも一方の人から Q を持つ人(両方の人も含む)をそっくり除いた残り。全体 − どちらもない − Q で一気に出せる。`,
+    cue: askNone ? '「どちらも持たない人は何人」→ 全体 − (P + Q − 両方)' : '「Pだけを持つ人」→ (全体 − どちらでもない) − Q',
+    fast: askNone ? [`{{${N} − ${A} − ${B} + ${both} = ${none}}}人`] : [`{{${N} − ${none} − ${B} = ${onlyA}}}人`],
+    fastCheck: () => F(askNone ? N - A - B + both : N - none - B),
     tip: 'ベン図の4つの部分(Aだけ・Bだけ・両方・どちらでもない)を全部埋めると間違えない。',
     params: { template: askNone ? 'twoSetsNone' : 'twoSetsOnlyA', N, A, B },
     check: () => F(askNone ? N - (A + B - both) : N - none - B),
@@ -141,6 +151,9 @@ function threeSets(rng: Rng): Draft | null {
       `合計 {{${r.a} + ${r.b} + ${r.c} + ${r.ab} + ${r.bc} + ${r.ac} + ${r.abc} = ${union}}} → {{${N} − ${union} = ${ans}}}`,
     ],
     ko: `적어도 하나 = X + Y + Z − (두 개씩 겹침) + 셋 다 = ${A} + ${B} + ${C} − ${AB} − ${BC} − ${AC} + ${r.abc} = ${union}명. 아무것도 안 들은 학생 = ${N} − ${union} = ${ans}명. "셋 다"를 다시 더하는 것을 잊기 쉽습니다.`,
+    intuition: `X・Y・Z を足すと、2つに入る人は2回、3つ全部の人は3回数えている。2つずつの重なりを引くと3つ全部の人が0回になってしまうので、最後に1回足し戻す。「少なくとも1つ」が出たら全体から引く。`,
+    cue: '「3つの講座・どれも受講していない」→ 足す − 2つずつの重なり + 3つ全部、を全体から引く',
+    fast: [],
     tip: '3つの集合: 足す → 2つの重なりを引く → 3つの重なりを足し戻す。',
     params: { template: 'threeSets', ...r },
     check: () => {

@@ -5,13 +5,19 @@ import { MathText } from './common';
 
 const NO = ['1', '2', '3', '4'];
 
-/** 正誤 → 要点の解説(日本語) → 詳しい解説(正攻法・速解き) → 韓国語の補足 */
+/**
+ * 正誤 → 直感的な解き方(手がかり) → 最速の解き方(基本より本当に速いときだけ) → 基本の解き方(折りたたみ) → 韓国語の補足
+ * 最速の解き方がない問題は、基本の解き方を最初から開いておく(計算を隠さない)
+ */
 export function Explanation({ q, chosen, timedOut }: { q: Question; chosen: number | null; timedOut?: boolean }) {
   const { settings } = useStore();
-  const [detail, setDetail] = useState(false);
+  const hasIntuition = !!q.intuition_ja;
+  const fast = q.fast_ja ?? [];
+  const [basic, setBasic] = useState(!hasIntuition || fast.length === 0);
   const [ko, setKo] = useState(false);
   const ok = chosen === q.answer;
   const showKo = settings.koMode === 'always' || ko;
+  const isGen = q.source === 'gen';
   return (
     <section className="explain" aria-live="polite">
       <div className={`verdict ${ok ? 'ok' : 'ng'}`}>
@@ -29,15 +35,56 @@ export function Explanation({ q, chosen, timedOut }: { q: Question; chosen: numb
           )}
         </div>
       )}
-      <div className="short">
-        <MathText text={q.explanation_short_ja} />
-      </div>
-      <button className="toggle" aria-expanded={detail} onClick={() => setDetail(!detail)}>
-        {detail ? '詳しい解説を閉じる' : '詳しい解説'}
-      </button>
-      {detail && (
+      {hasIntuition ? (
+        <div className="way way-intuition">
+          <h3>直感的な解き方</h3>
+          {q.cue_ja && (
+            <div className="cue">
+              <span className="cue-label">手がかり</span>
+              <MathText text={q.cue_ja} />
+            </div>
+          )}
+          <p>
+            <MathText text={q.intuition_ja!} />
+          </p>
+        </div>
+      ) : (
+        <div className="short">
+          <MathText text={q.explanation_short_ja} />
+        </div>
+      )}
+      {fast.length > 0 && (
+        <div className="way way-fast">
+          <h3>
+            最速の解き方 <span className="badge-fast">最速</span>
+          </h3>
+          <ol>
+            {fast.map((s, i) => (
+              <li key={i}>
+                <MathText text={s} />
+              </li>
+            ))}
+          </ol>
+        </div>
+      )}
+      {hasIntuition && (
+        <button className="toggle" aria-expanded={basic} onClick={() => setBasic(!basic)}>
+          {basic ? '基本の解き方を閉じる' : fast.length ? '基本の解き方' : '基本の解き方(この問題では最短)'}
+        </button>
+      )}
+      {!hasIntuition && (
+        <button className="toggle" aria-expanded={basic} onClick={() => setBasic(!basic)}>
+          {basic ? '詳しい解説を閉じる' : '詳しい解説'}
+        </button>
+      )}
+      {basic && (
         <div className="detail">
-          <h3>{q.source === 'gen' ? '正攻法(手順)' : '解説'}</h3>
+          <h3>{hasIntuition ? '基本の解き方' : isGen ? '正攻法(手順)' : '解説'}</h3>
+          {hasIntuition && (
+            <div className="short">
+              <MathText text={q.explanation_short_ja} />
+            </div>
+          )}
           <ol>
             {q.steps_ja.map((s, i) => (
               <li key={i}>
@@ -45,9 +92,9 @@ export function Explanation({ q, chosen, timedOut }: { q: Question; chosen: numb
               </li>
             ))}
           </ol>
-          {q.source === 'gen' && q.quick_ja.length > 0 && (
+          {isGen && q.quick_ja.length > 0 && (
             <>
-              <h3>速解き(時間を縮めるコツ)</h3>
+              <h3>{hasIntuition ? '補足(別の見方・わな)' : '速解き(時間を縮めるコツ)'}</h3>
               <ul>
                 {q.quick_ja.map((s, i) => (
                   <li key={i}>

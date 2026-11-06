@@ -21,6 +21,15 @@ describe('問題JSONの形式', () => {
       expect(i.choices.filter((c) => c === i.answer).length, i.id).toBe(1);
     }
   });
+  it('推論の問題には「直感的な解き方」と「手がかり → 解き方」がある(日本語)', () => {
+    for (const i of BANK.items.filter((x) => x.typeId === 'suiron')) {
+      expect(i.intuition_ja && i.intuition_ja.length >= 20, i.id).toBe(true);
+      expect(i.cue_ja && i.cue_ja.includes('→'), i.id).toBe(true);
+      for (const s of [i.intuition_ja!, i.cue_ja!, ...(i.fast_ja ?? [])]) expect(HANGUL.test(s), `${i.id}: ${s.slice(0, 30)}`).toBe(false);
+      // 最速の解き方があるなら、最後の行に答え(または答えの要点)が書かれている
+      if (i.fast_ja?.length) expect(i.fast_ja.join(' ').includes(i.answer.slice(0, 6)), `${i.id}: fast route must end with the answer`).toBe(true);
+    }
+  });
   it('問題文・選択肢・要点の解説は日本語だけ(韓国語は解説の補足欄のみ)', () => {
     for (const i of BANK.items) {
       for (const s of [i.question_ja, i.passage_ja ?? '', ...i.choices, i.explanation_short_ja, i.tip])

@@ -35,6 +35,9 @@ function densityMax(rng: Rng): Draft | null {
       `人口が最も多い ${CITIES[iPop]} が人口密度も最大とは限らない。面積で割ることを忘れない。`,
     ],
     ko: `인구밀도 = 인구 ÷ 면적. ${CITIES.map((c, i) => `${c} ≒ ${num(dens[i].round(0))}`).join(', ')}(명/km²) → ${CITIES[iMax]}가 최대. 인구가 가장 많은 ${CITIES[iPop]}가 답이 아닙니다.`,
+    intuition: `人口密度は「1km²あたりの人口」= 人口 ÷ 面積。人口が多くても面積が広ければ密度は低い。比べるだけなら万人のままでよく、割り算もおおよそで十分。人口が最大の ${CITIES[iPop]} に飛びつかないこと。`,
+    cue: '「〜あたりが最も高い」→ 割り算(人口 ÷ 面積)の大小を比べる。単位はそろえなくてよい',
+    fast: [],
     tip: '「〜あたり」は割り算。比べるだけなら単位をそろえる必要はない。',
     params: { template: 'densityMax', pop, area },
     check: () => {
@@ -85,6 +88,10 @@ function densityRatio(rng: Rng): Draft | null {
       '「人口の比」と「面積の逆比」を掛けたもの、と考えてもよい。',
     ],
     ko: `인구밀도의 비 = (${pop[i]} ÷ ${area[i]}) ÷ (${pop[j]} ÷ ${area[j]}) = ${pop[i]} × ${area[j]} ÷ (${area[i]} × ${pop[j]}) ≒ ${decStr(exact.round(3))} → ${fmt(ans)}. 나눗셈을 한 번으로 묶으면 계산이 줄어듭니다.`,
+    intuition: `(人口 ÷ 面積) ÷ (人口 ÷ 面積) は、分数のまま並べ替えると「人口の比 × 面積の逆比」。割り算を2回してから割るより、掛け算にまとめて1回で割る方が速く、途中の小数も出ない。`,
+    cue: '「密度の何倍」(比の比)→ 分数のまま掛け算1回にまとめる',
+    fast: [`{{${pop[i]} × ${area[j]} ÷ (${area[i]} × ${pop[j]}) ≒ ${decStr(exact.round(3))}}} → 小数第2位を四捨五入して ${fmt(ans)}`],
+    fastCheck: () => F(pop[i] * area[j], area[i] * pop[j]).round(1),
     tip: '比の比は、分数のまま掛け算1回にまとめる。',
     params: { template: 'densityRatio', pop, area, i, j },
     check: () => F(Math.floor((pop[i] * area[j] * 20 + area[i] * pop[j]) / (2 * area[i] * pop[j])), 10),
@@ -118,6 +125,17 @@ function elderlyMax(rng: Rng): Draft | null {
       '比べるだけなら「人口 × 割合の数字」の大小を見ればよい(÷100 は全部同じなので省略できる)。',
     ],
     ko: `인원 = 인구 × 비율. ${CITIES.map((c, i) => `${c} ${decStr(old[i])}만 명`).join(', ')} → ${CITIES[iMax]}가 최대. 비율이 가장 높은 ${CITIES[iRate]}가 인원도 최대인 것은 아닙니다.`,
+    intuition: `問われているのは人数。人数 = 人口 × 割合 なので、割合が高くても人口が少なければ人数は少ない。比べるだけなら ÷100 は全部同じなので省略して「人口 × 割合の数字」だけ見ればよい。`,
+    cue: '「割合は分かっている・人数が最も多い」→ 人口 × 割合(÷100は省略して比べる)',
+    fast: [
+      `÷100 を省いて掛け算だけ: ${CITIES.map((c, k) => `${c} {{${pop[k]} × ${rate[k]} = ${pop[k] * rate[k]}}}`).join('、')}`,
+      `最大は ${CITIES[iMax]}`,
+    ],
+    fastCheck: () => {
+      let best = 0;
+      for (let k = 1; k < 4; k++) if (pop[k] * rate[k] > pop[best] * rate[best]) best = k;
+      return CITIES[best];
+    },
     tip: '割合の大小と、実数(人数)の大小を区別する。',
     params: { template: 'elderlyMax', pop, rate },
     check: () => {

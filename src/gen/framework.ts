@@ -21,6 +21,14 @@ export interface Draft {
   short: string;
   steps: string[];
   quick: string[];
+  /** 直感的な解き方: 計算の前に、どの観点で問題を見るか(1〜3文) */
+  intuition: string;
+  /** 手がかり → 解き方(例:「何倍」→ 基準で割る) */
+  cue: string;
+  /** 最速の解き方。基本の手順より実際に速いときだけ入れる(数値によって成り立たないときは空にする) */
+  fast: string[];
+  /** fast の方法で正解を計算し直す。fast が空でなければ必須 */
+  fastCheck?: () => Frac | string;
   ko: string;
   tip: string;
   params: Record<string, unknown> & { template: string };
@@ -80,6 +88,14 @@ export function buildQuestion(meta: GenMeta, fn: GenFn, difficulty: Difficulty, 
     const re = d.check();
     const ok = re instanceof Frac ? !!d.correct.value && re.eq(d.correct.value) : re === d.correct.text;
     if (!ok) throw new GenerationError(`${meta.typeId}: check mismatch (${String(re)} vs ${d.correct.text})`);
+    if (d.fast.length) {
+      // 最速の解き方も同じ答えに着くことを、別の計算で確かめる
+      if (!d.fastCheck) throw new GenerationError(`${meta.typeId}: fast route without fastCheck (${d.params.template})`);
+      const rf = d.fastCheck();
+      const okf = rf instanceof Frac ? !!d.correct.value && rf.eq(d.correct.value) : rf === d.correct.text;
+      if (!okf) throw new GenerationError(`${meta.typeId}: fast route mismatch (${String(rf)} vs ${d.correct.text}, ${d.params.template})`);
+    }
+    if (!d.intuition.trim()) throw new GenerationError(`${meta.typeId}: no intuition (${d.params.template})`);
     const all = rng.shuffle([d.correct, ...ds]);
     return {
       id: `g:${meta.typeId}:${difficulty}:${seed}`,
@@ -96,6 +112,9 @@ export function buildQuestion(meta: GenMeta, fn: GenFn, difficulty: Difficulty, 
       explanation_short_ja: d.short,
       steps_ja: d.steps,
       quick_ja: d.quick,
+      intuition_ja: d.intuition,
+      cue_ja: d.cue,
+      fast_ja: d.fast,
       explanation_ko: d.ko,
       tip: d.tip,
       gen: { seed, params: { ...d.params, wrongWhy: Object.fromEntries(ds.filter((x) => x.why).map((x) => [x.text, x.why])) } },

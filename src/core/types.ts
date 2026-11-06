@@ -29,6 +29,12 @@ export interface Question {
   steps_ja: string[];
   /** 速解きの手順 */
   quick_ja: string[];
+  /** 直感的な解き方: 計算の前に、問題をどう見るか(1〜3文) */
+  intuition_ja?: string;
+  /** 手がかり → 解き方(「何倍」→ 基準で割る、など) */
+  cue_ja?: string;
+  /** 最速の解き方。実際に基本より速いときだけ入れる(空なら基本が最短) */
+  fast_ja?: string[];
   explanation_ko: string;
   tip?: string;
   /** 生成問題の復元用 */
@@ -52,6 +58,12 @@ export interface BankItem {
   explanation_detail_ja: string[] | string;
   explanation_ko: string;
   tip: string;
+  /** 直感的な解き方(任意) */
+  intuition_ja?: string;
+  /** 手がかり → 解き方(任意) */
+  cue_ja?: string;
+  /** 最速の解き方(任意。基本より速いときだけ) */
+  fast_ja?: string[];
   /** 二重チェックが済んでいるか。false の問題は出題しない */
   reviewed: boolean;
 }
