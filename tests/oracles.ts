@@ -284,9 +284,28 @@ export const ORACLES: Record<string, Oracle> = {
   zuhyo: (qn) => {
     const p = P(qn);
     const t = qn.table!;
-    const v = t.rows.map((r) => r.slice(1).map((c) => evaluate(c).n)); // [国][年]
     const round = (n: bigint, d: bigint) => (2n * n + d) / (2n * d); // 四捨五入(正の数)
     const ans = qn.choices[qn.answer];
+    const cell = (c: string) => evaluate(c.replace('%', '')).n;
+    if (p.template === 'compAmount' || p.template === 'compTimes') {
+      const s = t.rows.slice(0, 5).map((r) => r.slice(1).map(cell));
+      const T = t.rows[5].slice(1).map(cell);
+      for (let y = 0; y < 3; y++) if (s.reduce((a, r) => a + r[y], 0n) !== 100n) return 'comp: shares do not sum to 100';
+      const c = Number(p.c);
+      if (!qn.question_ja.includes(String(t.rows[c][0]))) return 'comp: wrong row';
+      if (p.template === 'compAmount') {
+        const y = Number(p.y);
+        if (!qn.question_ja.includes(t.headers[y + 1])) return 'comp: wrong year';
+        return expect(qn, q(round(T[y] * s[c][y], 100n), 1n));
+      }
+      return expect(qn, q(round(T[2] * s[c][2] * 10n, T[1] * s[c][1]), 10n));
+    }
+    if (p.template === 'prevFromRate') {
+      const c = Number(p.c);
+      if (!qn.question_ja.includes(String(t.rows[c][0]))) return 'prevFromRate: wrong row';
+      return expect(qn, q(round(cell(t.rows[c][1]) * 100n, 100n + cell(t.rows[c][2])), 1n));
+    }
+    const v = t.rows.map((r) => r.slice(1).map((c) => evaluate(c).n)); // [国][年]
     switch (p.template) {
       case 'share': {
         const c = Number(p.c);

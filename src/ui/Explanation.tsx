@@ -3,7 +3,11 @@ import type { Question } from '../core/types';
 import { useStore } from '../store/state';
 import { MathText } from './common';
 
-const NO = ['1', '2', '3', '4'];
+import { typeById } from '../data/catalog';
+
+const NUM = ['1', '2', '3', '4'];
+const ABC = ['A', 'B', 'C'];
+const labels = (q: Question) => (typeById(q.typeId)?.abc ? ABC : NUM);
 
 /**
  * 正誤 → 直感的な解き方(手がかり) → 最速の解き方(基本より本当に速いときだけ) → 基本の解き方(折りたたみ) → 韓国語の補足
@@ -26,11 +30,11 @@ export function Explanation({ q, chosen, timedOut }: { q: Question; chosen: numb
       </div>
       {!ok && (
         <div>
-          正解は <b>{NO[q.answer]}</b>「<MathText text={q.choices[q.answer]} />」
+          正解は <b>{labels(q)[q.answer]}</b>「<MathText text={q.choices[q.answer]} />」
           {chosen !== null && (
             <span className="muted small">
               {' '}
-              (選んだ答え: {NO[chosen]}「{q.choices[chosen]}」)
+              (選んだ答え: {labels(q)[chosen]}「{q.choices[chosen]}」)
             </span>
           )}
         </div>
@@ -151,7 +155,7 @@ export function ChoiceButtons({
         const why = reveal && i !== q.answer ? (q.gen?.params.wrongWhy as Record<string, string> | undefined)?.[c] : undefined;
         return (
           <button key={i} className={cls} onClick={() => onChoose(i)} disabled={reveal || disabled} aria-pressed={i === chosen}>
-            <span className="no">{NO[i]}</span>
+            <span className="no">{labels(q)[i]}</span>
             <span className="txt">
               <MathText text={c} />
               {why && <span className="why">{i === chosen ? 'この誤り: ' : ''}{why}</span>}

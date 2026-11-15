@@ -35,8 +35,8 @@ function checkQuestion(q: unknown): string | null {
   if (!q || typeof q !== 'object') return '問題データがない';
   const o = q as Record<string, unknown>;
   if (!isStr(o.id) || !isStr(o.question_ja) || !isStr(o.typeId)) return '問題データの形式が不正';
-  if (!Array.isArray(o.choices) || o.choices.length !== 4 || !o.choices.every(isStr)) return '問題の選択肢が4つでない';
-  if (!isNum(o.answer) || (o.answer as number) < 0 || (o.answer as number) > 3) return '問題の正解の位置が不正';
+  if (!Array.isArray(o.choices) || (o.choices.length !== 4 && o.choices.length !== 3) || !o.choices.every(isStr)) return '問題の選択肢の数が不正';
+  if (!isNum(o.answer) || (o.answer as number) < 0 || (o.answer as number) >= o.choices.length) return '問題の正解の位置が不正';
   return null;
 }
 

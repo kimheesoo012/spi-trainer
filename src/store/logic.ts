@@ -166,8 +166,9 @@ export function summaryText(attempts: Attempt[], day: string, openMistakes: numb
 
 /** 選択肢の順番だけを並べ替えた同じ問題 */
 export function reshuffle(q: Question, seed: number): Question {
+  if (typeById(q.typeId)?.abc) return q;
   const rng = makeRng(seed);
-  const order = rng.shuffle([0, 1, 2, 3]);
+  const order = rng.shuffle(q.choices.map((_, i) => i));
   return { ...q, choices: order.map((i) => q.choices[i]), answer: order.indexOf(q.answer) };
 }
 

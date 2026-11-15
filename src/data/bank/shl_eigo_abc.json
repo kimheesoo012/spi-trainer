@@ -1,0 +1,578 @@
+[
+ {
+  "id": "engabc-01-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A software company introduced a policy that allows employees to work from home up to three days a week. Before the change, all staff were required to be in the office every weekday. One year later, the company surveyed its 400 employees. About 70 percent said they were more satisfied with their jobs than before. The number of employees who left the company fell from 48 in the previous year to 30. However, some managers reported that it had become harder to train new staff, because junior employees had fewer chances to learn by watching experienced colleagues. The company plans to keep the policy but will ask new hires to come to the office four days a week during their first six months.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nEmployees may now work from home every day of the week.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"up to three days a week\"(週に最大三日)とある。毎日ではない。",
+  "explanation_detail_ja": [
+   "設問文: Employees may now work from home every day of the week.",
+   "根拠: \"up to three days a week\"(週に最大三日)とある。毎日ではない。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 소프트웨어 회사가 주 3일까지 재택근무를 허용했다. 1년 뒤 직원 400명 중 약 70%가 전보다 만족한다고 답했고, 퇴사자는 48명에서 30명으로 줄었다. 다만 일부 관리자는 신입 교육이 어려워졌다고 했다. 회사는 제도를 유지하되, 신입은 첫 6개월간 주 4일 출근하게 할 계획이다.\n설문: 직원들은 이제 매일 재택근무를 할 수 있다.\n정답 B (분명히 틀림): \"up to three days a week\"(주 3일까지)이므로 매일은 아닙니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-01-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A software company introduced a policy that allows employees to work from home up to three days a week. Before the change, all staff were required to be in the office every weekday. One year later, the company surveyed its 400 employees. About 70 percent said they were more satisfied with their jobs than before. The number of employees who left the company fell from 48 in the previous year to 30. However, some managers reported that it had become harder to train new staff, because junior employees had fewer chances to learn by watching experienced colleagues. The company plans to keep the policy but will ask new hires to come to the office four days a week during their first six months.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nFewer employees left the company in the year after the policy was introduced than in the year before.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"fell from 48 in the previous year to 30\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Fewer employees left the company in the year after the policy was introduced than in the year before.",
+   "根拠: \"fell from 48 in the previous year to 30\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 소프트웨어 회사가 주 3일까지 재택근무를 허용했다. 1년 뒤 직원 400명 중 약 70%가 전보다 만족한다고 답했고, 퇴사자는 48명에서 30명으로 줄었다. 다만 일부 관리자는 신입 교육이 어려워졌다고 했다. 회사는 제도를 유지하되, 신입은 첫 6개월간 주 4일 출근하게 할 계획이다.\n설문: 제도 도입 후 1년 동안 퇴사한 직원은 그 전 해보다 적었다.\n정답 A (분명히 맞음): 48명에서 30명으로 줄었으므로 맞습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-01-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A software company introduced a policy that allows employees to work from home up to three days a week. Before the change, all staff were required to be in the office every weekday. One year later, the company surveyed its 400 employees. About 70 percent said they were more satisfied with their jobs than before. The number of employees who left the company fell from 48 in the previous year to 30. However, some managers reported that it had become harder to train new staff, because junior employees had fewer chances to learn by watching experienced colleagues. The company plans to keep the policy but will ask new hires to come to the office four days a week during their first six months.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nMost managers were against the new policy.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。本文は \"some managers reported that it had become harder to train new staff\" と述べるだけで、管理職が制度に反対だったかどうか、またその割合は書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: Most managers were against the new policy.",
+   "根拠: 本文は \"some managers reported that it had become harder to train new staff\" と述べるだけで、管理職が制度に反対だったかどうか、またその割合は書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 소프트웨어 회사가 주 3일까지 재택근무를 허용했다. 1년 뒤 직원 400명 중 약 70%가 전보다 만족한다고 답했고, 퇴사자는 48명에서 30명으로 줄었다. 다만 일부 관리자는 신입 교육이 어려워졌다고 했다. 회사는 제도를 유지하되, 신입은 첫 6개월간 주 4일 출근하게 할 계획이다.\n설문: 대부분의 관리자는 새 제도에 반대했다.\n정답 C (본문만으로는 판단 불가): \"일부 관리자가 신입 교육이 어려워졌다고 했다\"는 말만 있습니다. 반대했는지, 몇 명인지는 나오지 않습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-01-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A software company introduced a policy that allows employees to work from home up to three days a week. Before the change, all staff were required to be in the office every weekday. One year later, the company surveyed its 400 employees. About 70 percent said they were more satisfied with their jobs than before. The number of employees who left the company fell from 48 in the previous year to 30. However, some managers reported that it had become harder to train new staff, because junior employees had fewer chances to learn by watching experienced colleagues. The company plans to keep the policy but will ask new hires to come to the office four days a week during their first six months.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nDuring their first six months, new hires will be asked to come to the office four days a week.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。最後の文に \"will ask new hires to come to the office four days a week during their first six months\" とある。",
+  "explanation_detail_ja": [
+   "設問文: During their first six months, new hires will be asked to come to the office four days a week.",
+   "根拠: 最後の文に \"will ask new hires to come to the office four days a week during their first six months\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 소프트웨어 회사가 주 3일까지 재택근무를 허용했다. 1년 뒤 직원 400명 중 약 70%가 전보다 만족한다고 답했고, 퇴사자는 48명에서 30명으로 줄었다. 다만 일부 관리자는 신입 교육이 어려워졌다고 했다. 회사는 제도를 유지하되, 신입은 첫 6개월간 주 4일 출근하게 할 계획이다.\n설문: 신입 사원은 첫 6개월 동안 주 4일 출근하도록 요청받는다.\n정답 A (분명히 맞음): 마지막 문장 그대로입니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-02-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A coffee shop chain began charging customers an extra 20 cents for each disposable cup in order to reduce waste. Customers who bring their own cup pay the regular price. In the first three months, the share of drinks sold in reusable cups rose from 5 percent to 18 percent. Total sales did not change significantly during the period. The chain said the money collected from the cup charge would be donated to local environmental groups. Some customers complained that the charge was unfair to people who buy coffee on the way to work without planning ahead. The chain is now testing a system in two stores where customers can borrow a cup and return it at any branch.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nCustomers who bring their own cup receive a discount on the regular price.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"Customers who bring their own cup pay the regular price.\" とある。割引ではなく通常価格を払う。",
+  "explanation_detail_ja": [
+   "設問文: Customers who bring their own cup receive a discount on the regular price.",
+   "根拠: \"Customers who bring their own cup pay the regular price.\" とある。割引ではなく通常価格を払う。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 커피 체인이 쓰레기를 줄이려고 일회용 컵에 20센트를 더 받기 시작했다. 자기 컵을 가져오면 정가를 낸다. 3개월 만에 재사용 컵 비율이 5%에서 18%로 올랐고, 전체 매출은 큰 변화가 없었다. 컵 요금은 지역 환경 단체에 기부한다. 현재 두 매장에서 컵 대여 제도를 시험 중이다.\n설문: 자기 컵을 가져오는 손님은 정가에서 할인을 받는다.\n정답 B (분명히 틀림): 자기 컵을 가져오면 \"정가를 낸다\"고 했습니다. 할인이 아닙니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-02-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A coffee shop chain began charging customers an extra 20 cents for each disposable cup in order to reduce waste. Customers who bring their own cup pay the regular price. In the first three months, the share of drinks sold in reusable cups rose from 5 percent to 18 percent. Total sales did not change significantly during the period. The chain said the money collected from the cup charge would be donated to local environmental groups. Some customers complained that the charge was unfair to people who buy coffee on the way to work without planning ahead. The chain is now testing a system in two stores where customers can borrow a cup and return it at any branch.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe share of drinks sold in reusable cups more than tripled in the first three months.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"rose from 5 percent to 18 percent\" とある。5%の3倍は15%で、18%はそれより大きい。",
+  "explanation_detail_ja": [
+   "設問文: The share of drinks sold in reusable cups more than tripled in the first three months.",
+   "根拠: \"rose from 5 percent to 18 percent\" とある。5%の3倍は15%で、18%はそれより大きい。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 커피 체인이 쓰레기를 줄이려고 일회용 컵에 20센트를 더 받기 시작했다. 자기 컵을 가져오면 정가를 낸다. 3개월 만에 재사용 컵 비율이 5%에서 18%로 올랐고, 전체 매출은 큰 변화가 없었다. 컵 요금은 지역 환경 단체에 기부한다. 현재 두 매장에서 컵 대여 제도를 시험 중이다.\n설문: 재사용 컵으로 팔린 음료의 비율은 첫 3개월 동안 3배 넘게 늘었다.\n정답 A (분명히 맞음): 5% → 18%입니다. 5%의 3배는 15%이므로 3배가 넘습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-02-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A coffee shop chain began charging customers an extra 20 cents for each disposable cup in order to reduce waste. Customers who bring their own cup pay the regular price. In the first three months, the share of drinks sold in reusable cups rose from 5 percent to 18 percent. Total sales did not change significantly during the period. The chain said the money collected from the cup charge would be donated to local environmental groups. Some customers complained that the charge was unfair to people who buy coffee on the way to work without planning ahead. The chain is now testing a system in two stores where customers can borrow a cup and return it at any branch.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe cup-borrowing system will be introduced in all stores next year.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。\"is now testing a system in two stores\" とあるだけで、今後すべての店に広げるかどうかは書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: The cup-borrowing system will be introduced in all stores next year.",
+   "根拠: \"is now testing a system in two stores\" とあるだけで、今後すべての店に広げるかどうかは書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 커피 체인이 쓰레기를 줄이려고 일회용 컵에 20센트를 더 받기 시작했다. 자기 컵을 가져오면 정가를 낸다. 3개월 만에 재사용 컵 비율이 5%에서 18%로 올랐고, 전체 매출은 큰 변화가 없었다. 컵 요금은 지역 환경 단체에 기부한다. 현재 두 매장에서 컵 대여 제도를 시험 중이다.\n설문: 컵 대여 제도는 내년에 모든 매장에 도입된다.\n정답 C (본문만으로는 판단 불가): \"두 매장에서 시험 중\"이라는 말만 있고, 앞으로의 계획은 나오지 않습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-02-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A coffee shop chain began charging customers an extra 20 cents for each disposable cup in order to reduce waste. Customers who bring their own cup pay the regular price. In the first three months, the share of drinks sold in reusable cups rose from 5 percent to 18 percent. Total sales did not change significantly during the period. The chain said the money collected from the cup charge would be donated to local environmental groups. Some customers complained that the charge was unfair to people who buy coffee on the way to work without planning ahead. The chain is now testing a system in two stores where customers can borrow a cup and return it at any branch.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe chain keeps the money from the cup charge as profit.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"the money collected from the cup charge would be donated to local environmental groups\" とある。",
+  "explanation_detail_ja": [
+   "設問文: The chain keeps the money from the cup charge as profit.",
+   "根拠: \"the money collected from the cup charge would be donated to local environmental groups\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 커피 체인이 쓰레기를 줄이려고 일회용 컵에 20센트를 더 받기 시작했다. 자기 컵을 가져오면 정가를 낸다. 3개월 만에 재사용 컵 비율이 5%에서 18%로 올랐고, 전체 매출은 큰 변화가 없었다. 컵 요금은 지역 환경 단체에 기부한다. 현재 두 매장에서 컵 대여 제도를 시험 중이다.\n설문: 체인은 컵 요금으로 받은 돈을 이익으로 가진다.\n정답 B (분명히 틀림): 지역 환경 단체에 기부한다고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-03-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "The city of Norton launched a bicycle-sharing service two years ago with 500 bikes and 40 stations. Residents can rent a bike with a smartphone app and return it to any station. The service now has 1,200 bikes, and the number of trips per day has grown from about 900 to about 3,500. A city report found that around 30 percent of users had previously made the same trips by car. The report also noted problems: bikes tend to collect at stations near the train station in the morning, leaving other stations empty, and staff must move bikes by truck several times a day. The city council will vote next month on whether to add 20 more stations.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe number of bikes has more than doubled since the service began.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。500台から1,200台になった。500の2倍は1,000で、1,200はそれより多い。",
+  "explanation_detail_ja": [
+   "設問文: The number of bikes has more than doubled since the service began.",
+   "根拠: 500台から1,200台になった。500の2倍は1,000で、1,200はそれより多い。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 노턴 시가 2년 전 자전거 500대, 정류소 40곳으로 공유 자전거를 시작했다. 지금은 1,200대이고 하루 이용 횟수는 약 900회에서 약 3,500회로 늘었다. 이용자의 약 30%는 전에 같은 구간을 차로 다녔다. 아침에 역 근처 정류소로 자전거가 몰리는 문제가 있다. 시의회는 다음 달 정류소 20곳 추가 여부를 표결한다.\n설문: 서비스 시작 이후 자전거 수는 2배 넘게 늘었다.\n정답 A (분명히 맞음): 500대 → 1,200대입니다. 2배(1,000대)를 넘습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-03-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "The city of Norton launched a bicycle-sharing service two years ago with 500 bikes and 40 stations. Residents can rent a bike with a smartphone app and return it to any station. The service now has 1,200 bikes, and the number of trips per day has grown from about 900 to about 3,500. A city report found that around 30 percent of users had previously made the same trips by car. The report also noted problems: bikes tend to collect at stations near the train station in the morning, leaving other stations empty, and staff must move bikes by truck several times a day. The city council will vote next month on whether to add 20 more stations.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nMost users of the service used to make the same trips by car.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"around 30 percent of users\" とある。30%は \"most\"(大半)ではない。",
+  "explanation_detail_ja": [
+   "設問文: Most users of the service used to make the same trips by car.",
+   "根拠: \"around 30 percent of users\" とある。30%は \"most\"(大半)ではない。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 노턴 시가 2년 전 자전거 500대, 정류소 40곳으로 공유 자전거를 시작했다. 지금은 1,200대이고 하루 이용 횟수는 약 900회에서 약 3,500회로 늘었다. 이용자의 약 30%는 전에 같은 구간을 차로 다녔다. 아침에 역 근처 정류소로 자전거가 몰리는 문제가 있다. 시의회는 다음 달 정류소 20곳 추가 여부를 표결한다.\n설문: 이용자 대부분은 전에 같은 구간을 차로 다녔다.\n정답 B (분명히 틀림): 약 30%이므로 \"대부분\"이 아닙니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-03-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "The city of Norton launched a bicycle-sharing service two years ago with 500 bikes and 40 stations. Residents can rent a bike with a smartphone app and return it to any station. The service now has 1,200 bikes, and the number of trips per day has grown from about 900 to about 3,500. A city report found that around 30 percent of users had previously made the same trips by car. The report also noted problems: bikes tend to collect at stations near the train station in the morning, leaving other stations empty, and staff must move bikes by truck several times a day. The city council will vote next month on whether to add 20 more stations.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe city council has decided to add 20 more stations.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"will vote next month on whether to add\" とある。来月採決する段階であり、まだ決まっていない。",
+  "explanation_detail_ja": [
+   "設問文: The city council has decided to add 20 more stations.",
+   "根拠: \"will vote next month on whether to add\" とある。来月採決する段階であり、まだ決まっていない。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 노턴 시가 2년 전 자전거 500대, 정류소 40곳으로 공유 자전거를 시작했다. 지금은 1,200대이고 하루 이용 횟수는 약 900회에서 약 3,500회로 늘었다. 이용자의 약 30%는 전에 같은 구간을 차로 다녔다. 아침에 역 근처 정류소로 자전거가 몰리는 문제가 있다. 시의회는 다음 달 정류소 20곳 추가 여부를 표결한다.\n설문: 시의회는 정류소 20곳을 추가하기로 결정했다.\n정답 B (분명히 틀림): \"다음 달에 추가 여부를 표결한다\"고 했습니다. 아직 결정되지 않았습니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-03-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "The city of Norton launched a bicycle-sharing service two years ago with 500 bikes and 40 stations. Residents can rent a bike with a smartphone app and return it to any station. The service now has 1,200 bikes, and the number of trips per day has grown from about 900 to about 3,500. A city report found that around 30 percent of users had previously made the same trips by car. The report also noted problems: bikes tend to collect at stations near the train station in the morning, leaving other stations empty, and staff must move bikes by truck several times a day. The city council will vote next month on whether to add 20 more stations.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe service has reduced traffic jams in the city centre.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。利用者の約30%が以前は車を使っていたとあるが、渋滞が減ったかどうかは書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: The service has reduced traffic jams in the city centre.",
+   "根拠: 利用者の約30%が以前は車を使っていたとあるが、渋滞が減ったかどうかは書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 노턴 시가 2년 전 자전거 500대, 정류소 40곳으로 공유 자전거를 시작했다. 지금은 1,200대이고 하루 이용 횟수는 약 900회에서 약 3,500회로 늘었다. 이용자의 약 30%는 전에 같은 구간을 차로 다녔다. 아침에 역 근처 정류소로 자전거가 몰리는 문제가 있다. 시의회는 다음 달 정류소 20곳 추가 여부를 표결한다.\n설문: 이 서비스로 시 중심부의 교통 체증이 줄었다.\n정답 C (본문만으로는 판단 불가): 이용자의 약 30%가 전에 차를 썼다는 말만 있고, 체증이 줄었는지는 나오지 않습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-04-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "An online retailer introduced a chatbot to answer common customer questions, such as delivery dates and return rules. The chatbot now handles about 60 percent of all enquiries without human help. As a result, the average waiting time for customers who need to speak to a human agent has fallen from eight minutes to three. The company did not reduce the number of agents; instead, agents now spend more time on complicated cases, such as damaged goods or payment errors. A customer survey showed that satisfaction was high when the chatbot solved the problem, but low when customers had to repeat their explanation to a human agent after the chatbot failed. The company is working on a way to pass the chat history to the agent automatically.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe chatbot deals with more than half of customer enquiries on its own.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"handles about 60 percent of all enquiries without human help\" とある。",
+  "explanation_detail_ja": [
+   "設問文: The chatbot deals with more than half of customer enquiries on its own.",
+   "根拠: \"handles about 60 percent of all enquiries without human help\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 온라인 소매업체가 배송일·반품 규정 같은 흔한 질문에 답하는 챗봇을 도입했다. 챗봇이 전체 문의의 약 60%를 사람 없이 처리한다. 상담원 연결 대기 시간은 8분에서 3분으로 줄었다. 상담원 수는 줄이지 않았고, 복잡한 건에 더 많은 시간을 쓴다. 챗봇이 해결하면 만족도가 높지만, 실패해서 상담원에게 다시 설명해야 하면 낮다.\n설문: 챗봇은 고객 문의의 절반 이상을 혼자 처리한다.\n정답 A (분명히 맞음): 약 60%를 사람 도움 없이 처리하므로 맞습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-04-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "An online retailer introduced a chatbot to answer common customer questions, such as delivery dates and return rules. The chatbot now handles about 60 percent of all enquiries without human help. As a result, the average waiting time for customers who need to speak to a human agent has fallen from eight minutes to three. The company did not reduce the number of agents; instead, agents now spend more time on complicated cases, such as damaged goods or payment errors. A customer survey showed that satisfaction was high when the chatbot solved the problem, but low when customers had to repeat their explanation to a human agent after the chatbot failed. The company is working on a way to pass the chat history to the agent automatically.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe company cut the number of human agents after introducing the chatbot.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"The company did not reduce the number of agents\" とある。",
+  "explanation_detail_ja": [
+   "設問文: The company cut the number of human agents after introducing the chatbot.",
+   "根拠: \"The company did not reduce the number of agents\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 온라인 소매업체가 배송일·반품 규정 같은 흔한 질문에 답하는 챗봇을 도입했다. 챗봇이 전체 문의의 약 60%를 사람 없이 처리한다. 상담원 연결 대기 시간은 8분에서 3분으로 줄었다. 상담원 수는 줄이지 않았고, 복잡한 건에 더 많은 시간을 쓴다. 챗봇이 해결하면 만족도가 높지만, 실패해서 상담원에게 다시 설명해야 하면 낮다.\n설문: 회사는 챗봇 도입 후 상담원 수를 줄였다.\n정답 B (분명히 틀림): \"상담원 수를 줄이지 않았다\"고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-04-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "An online retailer introduced a chatbot to answer common customer questions, such as delivery dates and return rules. The chatbot now handles about 60 percent of all enquiries without human help. As a result, the average waiting time for customers who need to speak to a human agent has fallen from eight minutes to three. The company did not reduce the number of agents; instead, agents now spend more time on complicated cases, such as damaged goods or payment errors. A customer survey showed that satisfaction was high when the chatbot solved the problem, but low when customers had to repeat their explanation to a human agent after the chatbot failed. The company is working on a way to pass the chat history to the agent automatically.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nCustomers who had to explain their problem twice tended to be less satisfied.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"low when customers had to repeat their explanation to a human agent\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Customers who had to explain their problem twice tended to be less satisfied.",
+   "根拠: \"low when customers had to repeat their explanation to a human agent\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 온라인 소매업체가 배송일·반품 규정 같은 흔한 질문에 답하는 챗봇을 도입했다. 챗봇이 전체 문의의 약 60%를 사람 없이 처리한다. 상담원 연결 대기 시간은 8분에서 3분으로 줄었다. 상담원 수는 줄이지 않았고, 복잡한 건에 더 많은 시간을 쓴다. 챗봇이 해결하면 만족도가 높지만, 실패해서 상담원에게 다시 설명해야 하면 낮다.\n설문: 문제를 두 번 설명해야 했던 고객은 만족도가 낮은 경향이 있었다.\n정답 A (분명히 맞음): 상담원에게 설명을 반복해야 했을 때 만족도가 낮았다고 했습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-04-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "An online retailer introduced a chatbot to answer common customer questions, such as delivery dates and return rules. The chatbot now handles about 60 percent of all enquiries without human help. As a result, the average waiting time for customers who need to speak to a human agent has fallen from eight minutes to three. The company did not reduce the number of agents; instead, agents now spend more time on complicated cases, such as damaged goods or payment errors. A customer survey showed that satisfaction was high when the chatbot solved the problem, but low when customers had to repeat their explanation to a human agent after the chatbot failed. The company is working on a way to pass the chat history to the agent automatically.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nHuman agents are paid more than before because their work has become more difficult.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。担当者が複雑な案件に時間を使うようになったとあるが、給与については書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: Human agents are paid more than before because their work has become more difficult.",
+   "根拠: 担当者が複雑な案件に時間を使うようになったとあるが、給与については書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 온라인 소매업체가 배송일·반품 규정 같은 흔한 질문에 답하는 챗봇을 도입했다. 챗봇이 전체 문의의 약 60%를 사람 없이 처리한다. 상담원 연결 대기 시간은 8분에서 3분으로 줄었다. 상담원 수는 줄이지 않았고, 복잡한 건에 더 많은 시간을 쓴다. 챗봇이 해결하면 만족도가 높지만, 실패해서 상담원에게 다시 설명해야 하면 낮다.\n설문: 상담원은 일이 어려워졌기 때문에 전보다 급여를 더 받는다.\n정답 C (본문만으로는 판단 불가): 복잡한 건에 시간을 쓴다는 말만 있고, 급여 이야기는 없습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-05-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A manufacturing firm with 250 workers tested a four-day working week for six months. Workers kept the same pay but worked 32 hours a week instead of 40. To make this possible, the firm shortened meetings and stopped producing several reports that few people read. Output per worker stayed at roughly the same level as before the trial. Sick leave fell by a quarter. Not every department took part: the customer service team continued to work five days because the firm could not find a way to cover telephone calls on the fifth day. At the end of the trial, 9 out of 10 participants said they wanted the arrangement to continue. Management will announce its decision in the spring.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nWorkers in the trial received lower pay because they worked fewer hours.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"Workers kept the same pay\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Workers in the trial received lower pay because they worked fewer hours.",
+   "根拠: \"Workers kept the same pay\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 직원 250명의 제조업체가 6개월간 주 4일제를 시험했다. 급여는 그대로, 주 40시간 대신 32시간 일했다. 회의를 줄이고 거의 읽히지 않는 보고서를 없앴다. 1인당 생산량은 거의 같았고 병가는 4분의 1 줄었다. 고객 서비스팀은 참가하지 않았다. 참가자 10명 중 9명이 계속하기를 원했다. 경영진은 봄에 결정을 발표한다.\n설문: 시험에 참가한 직원들은 일하는 시간이 줄어서 급여가 낮아졌다.\n정답 B (분명히 틀림): \"급여는 그대로\"라고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-05-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A manufacturing firm with 250 workers tested a four-day working week for six months. Workers kept the same pay but worked 32 hours a week instead of 40. To make this possible, the firm shortened meetings and stopped producing several reports that few people read. Output per worker stayed at roughly the same level as before the trial. Sick leave fell by a quarter. Not every department took part: the customer service team continued to work five days because the firm could not find a way to cover telephone calls on the fifth day. At the end of the trial, 9 out of 10 participants said they wanted the arrangement to continue. Management will announce its decision in the spring.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe customer service team will join the four-day week next year.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。顧客サービス部門が参加しなかった理由は書かれているが、今後参加するかどうかは書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: The customer service team will join the four-day week next year.",
+   "根拠: 顧客サービス部門が参加しなかった理由は書かれているが、今後参加するかどうかは書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 직원 250명의 제조업체가 6개월간 주 4일제를 시험했다. 급여는 그대로, 주 40시간 대신 32시간 일했다. 회의를 줄이고 거의 읽히지 않는 보고서를 없앴다. 1인당 생산량은 거의 같았고 병가는 4분의 1 줄었다. 고객 서비스팀은 참가하지 않았다. 참가자 10명 중 9명이 계속하기를 원했다. 경영진은 봄에 결정을 발표한다.\n설문: 고객 서비스팀은 내년에 주 4일제에 참가한다.\n정답 C (본문만으로는 판단 불가): 참가하지 않은 이유만 나오고, 앞으로 참가하는지는 나오지 않습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-05-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A manufacturing firm with 250 workers tested a four-day working week for six months. Workers kept the same pay but worked 32 hours a week instead of 40. To make this possible, the firm shortened meetings and stopped producing several reports that few people read. Output per worker stayed at roughly the same level as before the trial. Sick leave fell by a quarter. Not every department took part: the customer service team continued to work five days because the firm could not find a way to cover telephone calls on the fifth day. At the end of the trial, 9 out of 10 participants said they wanted the arrangement to continue. Management will announce its decision in the spring.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nSick leave decreased during the trial.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"Sick leave fell by a quarter.\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Sick leave decreased during the trial.",
+   "根拠: \"Sick leave fell by a quarter.\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 직원 250명의 제조업체가 6개월간 주 4일제를 시험했다. 급여는 그대로, 주 40시간 대신 32시간 일했다. 회의를 줄이고 거의 읽히지 않는 보고서를 없앴다. 1인당 생산량은 거의 같았고 병가는 4분의 1 줄었다. 고객 서비스팀은 참가하지 않았다. 참가자 10명 중 9명이 계속하기를 원했다. 경영진은 봄에 결정을 발표한다.\n설문: 시험 기간 동안 병가가 줄었다.\n정답 A (분명히 맞음): 병가가 4분의 1 줄었다고 했습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-05-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A manufacturing firm with 250 workers tested a four-day working week for six months. Workers kept the same pay but worked 32 hours a week instead of 40. To make this possible, the firm shortened meetings and stopped producing several reports that few people read. Output per worker stayed at roughly the same level as before the trial. Sick leave fell by a quarter. Not every department took part: the customer service team continued to work five days because the firm could not find a way to cover telephone calls on the fifth day. At the end of the trial, 9 out of 10 participants said they wanted the arrangement to continue. Management will announce its decision in the spring.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nManagement has already decided to make the four-day week permanent.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"Management will announce its decision in the spring.\" とある。決定はこれから発表されるので、「すでに恒久化を決めた」とは言えない。",
+  "explanation_detail_ja": [
+   "設問文: Management has already decided to make the four-day week permanent.",
+   "根拠: \"Management will announce its decision in the spring.\" とある。決定はこれから発表されるので、「すでに恒久化を決めた」とは言えない。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 직원 250명의 제조업체가 6개월간 주 4일제를 시험했다. 급여는 그대로, 주 40시간 대신 32시간 일했다. 회의를 줄이고 거의 읽히지 않는 보고서를 없앴다. 1인당 생산량은 거의 같았고 병가는 4분의 1 줄었다. 고객 서비스팀은 참가하지 않았다. 참가자 10명 중 9명이 계속하기를 원했다. 경영진은 봄에 결정을 발표한다.\n설문: 경영진은 이미 주 4일제를 영구적으로 하기로 결정했다.\n정답 B (분명히 틀림): \"봄에 결정을 발표한다\"고 했습니다. 아직 결정이 나오지 않았습니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-06-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A language-learning app studied how its users practise. It found that users who studied for ten minutes every day remembered more words after three months than users who studied for seventy minutes once a week, even though the total study time was the same. The app's researchers believe that short, frequent sessions give the brain more chances to recall information before it is forgotten. The study also found that users who set a reminder on their phone were twice as likely to keep studying for more than a month. However, the study only looked at vocabulary. The researchers said they did not know whether the same pattern would be found for speaking or writing skills.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe two groups compared in the study spent the same total amount of time studying.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"even though the total study time was the same\" とある(毎日10分×7日=70分、週1回70分)。",
+  "explanation_detail_ja": [
+   "設問文: The two groups compared in the study spent the same total amount of time studying.",
+   "根拠: \"even though the total study time was the same\" とある(毎日10分×7日=70分、週1回70分)。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 언어 학습 앱이 이용자의 학습 방식을 조사했다. 매일 10분 공부한 사람이 주 1회 70분 공부한 사람보다 3개월 뒤 단어를 더 많이 기억했다(총 학습 시간은 같음). 알림을 설정한 사람은 한 달 넘게 계속할 가능성이 2배였다. 다만 조사 대상은 어휘뿐이고, 말하기·쓰기에도 같은지는 모른다고 했다.\n설문: 조사에서 비교한 두 그룹은 총 학습 시간이 같았다.\n정답 A (분명히 맞음): \"총 학습 시간은 같았다\"고 했습니다(매일 10분 × 7일 = 70분).",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-06-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A language-learning app studied how its users practise. It found that users who studied for ten minutes every day remembered more words after three months than users who studied for seventy minutes once a week, even though the total study time was the same. The app's researchers believe that short, frequent sessions give the brain more chances to recall information before it is forgotten. The study also found that users who set a reminder on their phone were twice as likely to keep studying for more than a month. However, the study only looked at vocabulary. The researchers said they did not know whether the same pattern would be found for speaking or writing skills.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nUsers who studied once a week remembered more words than users who studied every day.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。本文では、毎日10分学習した人のほうが多く覚えていた。設問文は逆。",
+  "explanation_detail_ja": [
+   "設問文: Users who studied once a week remembered more words than users who studied every day.",
+   "根拠: 本文では、毎日10分学習した人のほうが多く覚えていた。設問文は逆。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 언어 학습 앱이 이용자의 학습 방식을 조사했다. 매일 10분 공부한 사람이 주 1회 70분 공부한 사람보다 3개월 뒤 단어를 더 많이 기억했다(총 학습 시간은 같음). 알림을 설정한 사람은 한 달 넘게 계속할 가능성이 2배였다. 다만 조사 대상은 어휘뿐이고, 말하기·쓰기에도 같은지는 모른다고 했다.\n설문: 주 1회 공부한 사람이 매일 공부한 사람보다 단어를 더 많이 기억했다.\n정답 B (분명히 틀림): 더 많이 기억한 쪽은 매일 공부한 사람이므로 반대입니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-06-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A language-learning app studied how its users practise. It found that users who studied for ten minutes every day remembered more words after three months than users who studied for seventy minutes once a week, even though the total study time was the same. The app's researchers believe that short, frequent sessions give the brain more chances to recall information before it is forgotten. The study also found that users who set a reminder on their phone were twice as likely to keep studying for more than a month. However, the study only looked at vocabulary. The researchers said they did not know whether the same pattern would be found for speaking or writing skills.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nShort daily sessions are also more effective for improving speaking skills.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。\"they did not know whether the same pattern would be found for speaking or writing skills\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Short daily sessions are also more effective for improving speaking skills.",
+   "根拠: \"they did not know whether the same pattern would be found for speaking or writing skills\" とある。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 언어 학습 앱이 이용자의 학습 방식을 조사했다. 매일 10분 공부한 사람이 주 1회 70분 공부한 사람보다 3개월 뒤 단어를 더 많이 기억했다(총 학습 시간은 같음). 알림을 설정한 사람은 한 달 넘게 계속할 가능성이 2배였다. 다만 조사 대상은 어휘뿐이고, 말하기·쓰기에도 같은지는 모른다고 했다.\n설문: 짧은 매일 학습은 말하기 실력 향상에도 더 효과적이다.\n정답 C (본문만으로는 판단 불가): 말하기·쓰기에도 같은지는 \"모른다\"고 했으므로 판단할 수 없습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-06-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A language-learning app studied how its users practise. It found that users who studied for ten minutes every day remembered more words after three months than users who studied for seventy minutes once a week, even though the total study time was the same. The app's researchers believe that short, frequent sessions give the brain more chances to recall information before it is forgotten. The study also found that users who set a reminder on their phone were twice as likely to keep studying for more than a month. However, the study only looked at vocabulary. The researchers said they did not know whether the same pattern would be found for speaking or writing skills.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nUsers who set a reminder were more likely to continue studying for over a month.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"twice as likely to keep studying for more than a month\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Users who set a reminder were more likely to continue studying for over a month.",
+   "根拠: \"twice as likely to keep studying for more than a month\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 언어 학습 앱이 이용자의 학습 방식을 조사했다. 매일 10분 공부한 사람이 주 1회 70분 공부한 사람보다 3개월 뒤 단어를 더 많이 기억했다(총 학습 시간은 같음). 알림을 설정한 사람은 한 달 넘게 계속할 가능성이 2배였다. 다만 조사 대상은 어휘뿐이고, 말하기·쓰기에도 같은지는 모른다고 했다.\n설문: 알림을 설정한 사람은 한 달 넘게 공부를 계속할 가능성이 더 높았다.\n정답 A (분명히 맞음): 가능성이 2배였다고 했으므로 맞습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ }
+]

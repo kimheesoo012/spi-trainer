@@ -1,6 +1,6 @@
 import { makeRng } from '../core/rng';
 import type { BankItem, Difficulty, Question } from '../core/types';
-import { TYPES, type TypeDef } from './catalog';
+import { TYPES, typeById, type TypeDef } from './catalog';
 
 // 直接作成した問題(JSON)。src/data/bank/ に .json を追加すると自動で読み込まれる(再ビルドが必要)。
 // 1ファイルは BankItem の配列。
@@ -21,10 +21,12 @@ export function validateBankItem(x: unknown): string[] {
   for (const k of REQUIRED_STR) if (typeof o[k] !== 'string' || !(o[k] as string).trim()) errs.push(`missing ${k}`);
   if (o.exam !== 'SPI' && o.exam !== 'SHL') errs.push('exam must be SPI or SHL');
   if (![1, 2, 3].includes(o.difficulty as number)) errs.push('difficulty must be 1-3');
-  if (!Array.isArray(o.choices) || o.choices.length !== 4) errs.push('choices must have 4 items');
+  const t0 = typeof o.category === 'string' ? typeForCategory(o.category) : undefined;
+  const nChoices = t0?.abc ? 3 : 4;
+  if (!Array.isArray(o.choices) || o.choices.length !== nChoices) errs.push(`choices must have ${nChoices} items`);
   else {
     if (o.choices.some((c) => typeof c !== 'string' || !c.trim())) errs.push('empty choice');
-    if (new Set(o.choices).size !== 4) errs.push('duplicate choices');
+    if (new Set(o.choices).size !== nChoices) errs.push('duplicate choices');
     if (o.choices.filter((c) => c === o.answer).length !== 1) errs.push('answer is not exactly one of the choices');
   }
   const det = o.explanation_detail_ja;
@@ -81,7 +83,7 @@ export const verifiedCount = (typeId: string) => bankItemsFor(typeId).length;
 
 export function bankQuestion(item: BankItem & { typeId: string }, shuffleSeed: number): Question {
   const rng = makeRng(shuffleSeed);
-  const choices = rng.shuffle(item.choices);
+  const choices = typeById(item.typeId)?.abc ? [...item.choices] : rng.shuffle(item.choices);
   const det = Array.isArray(item.explanation_detail_ja) ? item.explanation_detail_ja : [item.explanation_detail_ja];
   return {
     id: `b:${item.id}`,

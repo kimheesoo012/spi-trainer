@@ -14,10 +14,11 @@ describe('問題JSONの形式', () => {
       expect(n, t.name).toBeGreaterThanOrEqual(10);
     }
   });
-  it('選択肢は4つ・重複なし・正解は選択肢の1つ', () => {
+  it('選択肢は4つ(本番形式は3つ)・重複なし・正解は選択肢の1つ', () => {
     for (const i of BANK.items) {
-      expect(i.choices.length, i.id).toBe(4);
-      expect(new Set(i.choices).size, i.id).toBe(4);
+      const n = TYPES.find((t) => t.id === i.typeId)?.abc ? 3 : 4;
+      expect(i.choices.length, i.id).toBe(n);
+      expect(new Set(i.choices).size, i.id).toBe(n);
       expect(i.choices.filter((c) => c === i.answer).length, i.id).toBe(1);
     }
   });

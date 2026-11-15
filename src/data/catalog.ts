@@ -18,6 +18,8 @@ export interface TypeDef {
   infoId: string;
   /** 1問ごとの制限時間モードを出すか */
   perQuestion?: boolean;
+  /** 本番と同じ3択(A/B/C)。選択肢の順番は固定で、並べ替えない */
+  abc?: boolean;
 }
 
 export const TYPES: TypeDef[] = [
@@ -43,10 +45,12 @@ export const TYPES: TypeDef[] = [
   { id: 'zuhyo', exam: 'SHL', section: '計数', name: '図表の読み取り', name_ko: '도표 읽기', kind: 'gen', test_name: 'GAB系', testNote: 'GAB 計数(図表理解)に近い形式の類似練習問題。「玉手箱の図表の読み取り」として知られる形式', practiceSec: 35, infoId: 'gab', perQuestion: true, formatNote: '実際の検査の選択肢数とは異なる場合がある。このアプリでは4択。' },
   { id: 'kuuran', exam: 'SHL', section: '計数', name: '表の空欄推測', name_ko: '표의 빈칸 추측', kind: 'gen', test_name: '玉手箱系(未確認)', testNote: '対策書で「玉手箱の表の空欄推測」とされる形式の類似練習問題(公式の科目名は未確認)', practiceSec: 60, infoId: 'hyoKuuran', perQuestion: true, formatNote: 'このアプリでは、表の規則を「一次式」に限って答えが1つに決まるようにしている。' },
   // ---- 玉手箱・SHL系 言語
+  { id: 'gab_abc', exam: 'SHL', section: '言語', name: '論理的読解(本番形式・3択)', name_ko: '논리적 독해(실전형 A/B/C)', kind: 'bank', test_name: 'GAB', testNote: '玉手箱・GAB 言語(論理的読解)と同じ「A 正しい / B 間違っている / C 判断できない」の3択で答える類似練習問題(オリジナル)。本番は32問15分(1問あたり約28秒)', practiceSec: 28, infoId: 'gab', abc: true, formatNote: '本番は1つの長文に設問文が4つ付く。このアプリでは設問文を1つずつ出す。' },
+  { id: 'eigo_abc', exam: 'SHL', section: '英語', name: '英語 論理的読解(本番形式・3択)', name_ko: '영어 논리적 독해(실전형 A/B/C)', kind: 'bank', test_name: 'GAB', testNote: '玉手箱 英語(論理的読解)と同じ A/B/C の3択で答える類似練習問題(オリジナル)。本番は24問10分(1問あたり約25秒)', practiceSec: 25, infoId: 'gab', abc: true, formatNote: '本番は1つの長文に設問文が3つ付く。このアプリでは設問文を1つずつ出す。' },
   { id: 'gab_ronri', exam: 'SHL', section: '言語', name: '論理的読解(GAB形式)', name_ko: '논리적 독해(GAB형)', kind: 'bank', test_name: 'GAB', testNote: 'GAB 言語(論理)を想定した類似練習問題(オリジナル)', practiceSec: 50, infoId: 'gab', formatNote: '元の形式は各文について「A 正しい / B 誤り / C 判断できない」を選ぶ3択(公式未確認)。このアプリでは「本文から確実に言えるもの」を1つ選ぶ4択に変えている。' },
   { id: 'images_shushi', exam: 'SHL', section: '言語', name: '趣旨判定(IMAGES形式)', name_ko: '취지 판정(IMAGES형)', kind: 'bank', test_name: 'IMAGES', testNote: 'IMAGES 言語(趣旨判定)を想定した類似練習問題(オリジナル)', practiceSec: 75, infoId: 'images', formatNote: '元の形式は複数の文について「筆者の趣旨か・書かれているが趣旨ではないか・関係ないか」を判定する形式として知られる(公式未確認)。このアプリでは「筆者の趣旨として最も適切なもの」を1つ選ぶ4択に変えている。' },
 ];
 
 export const typeById = (id: string) => TYPES.find((t) => t.id === id);
 
-export const FOUR_CHOICE_NOTE = 'このアプリの問題は、学習しやすいように「正解が1つの4択」に作り直した練習用です。実際の検査の形式とは異なる場合があります。';
+export const FOUR_CHOICE_NOTE = 'このアプリの問題は、「本番形式・3択」と書かれた分野を除き、学習しやすいように「正解が1つの4択」に作り直した練習用です。実際の検査の形式とは異なる場合があります。';
