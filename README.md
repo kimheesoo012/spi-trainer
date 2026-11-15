@@ -57,8 +57,10 @@ node scripts/e2e.cjs "iPhone 13" <保存先>  # vite preview を 4173 番で起�
 
 - `category` は分野名(`src/data/catalog.ts` の `name`)。`exam` は分野と一致させる。
 - `choices` は4つ・重複なし。`answer` は `choices` のどれかと完全に一致する文字列。表示時に順番は入れ替わる。
+  - 本番形式・3択の分野(`catalog.ts` で `abc: true`)だけは、`choices` が A・B・C の3つで、表示時も順番を変えない。
 - `reviewed: false` の問題は読み込むが出題しない(検証済みの数にも入れない)。
-- 推論の問題を追加するときは `tests/bank.test.ts` に総当たりの検証を追加する(答えが1つに決まることを確かめるため)。
+- 推論の問題を追加するときは `tests/bank.test.ts` に総当たりの検証を追加する(答えが1つに決まることを確かめるため)。追加分の検証は `tests/suiron2.ts`・`tests/suiron3.ts` にある。
+- 追加分の問題は `tools/bank-src/*.mjs` に書いてあり、`node tools/build-bank.mjs` で `src/data/bank/*2.json` などに書き出す。本番形式・3択の問題は `node tools/make-abc-bank.mjs src/data/bank` で書き出す。
 
 ## 構成
 

@@ -574,5 +574,581 @@
   "explanation_ko": "지문 요지: 한 언어 학습 앱이 이용자의 학습 방식을 조사했다. 매일 10분 공부한 사람이 주 1회 70분 공부한 사람보다 3개월 뒤 단어를 더 많이 기억했다(총 학습 시간은 같음). 알림을 설정한 사람은 한 달 넘게 계속할 가능성이 2배였다. 다만 조사 대상은 어휘뿐이고, 말하기·쓰기에도 같은지는 모른다고 했다.\n설문: 알림을 설정한 사람은 한 달 넘게 공부를 계속할 가능성이 더 높았다.\n정답 A (분명히 맞음): 가능성이 2배였다고 했으므로 맞습니다.",
   "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
   "reviewed": true
+ },
+ {
+  "id": "engabc-07-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A city library extended its opening hours last April. It used to close at 6 p.m. on weekdays, but now stays open until 9 p.m. from Monday to Friday. Weekend hours were not changed. In the first six months, the number of visitors on weekdays rose by about 25 percent compared with the same period of the previous year. A survey showed that most of the evening visitors were office workers and university students. The longer hours required the library to hire four part-time staff. To cover the cost, the city reduced the budget for buying new books by 10 percent. Some residents have criticized this decision, saying that a library should spend money on books first.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nWeekday visitor numbers increased after the opening hours were extended.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"the number of visitors on weekdays rose by about 25 percent\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Weekday visitor numbers increased after the opening hours were extended.",
+   "根拠: \"the number of visitors on weekdays rose by about 25 percent\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 시립 도서관이 지난 4월부터 평일 폐관 시간을 오후 6시에서 9시로 늘렸다(주말은 그대로). 첫 6개월간 평일 방문자가 전년 같은 기간보다 약 25% 늘었다. 저녁 방문자의 대부분은 직장인과 대학생. 시간 연장으로 파트타임 직원 4명을 고용했고, 비용을 대기 위해 신간 구입 예산을 10% 줄였다. 일부 주민은 이 결정을 비판했다.\n설문: 개관 시간 연장 후 평일 방문자 수가 늘었다.\n정답 A (분명히 맞음): 평일 방문자가 약 25% 늘었다고 했으므로 맞습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-07-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A city library extended its opening hours last April. It used to close at 6 p.m. on weekdays, but now stays open until 9 p.m. from Monday to Friday. Weekend hours were not changed. In the first six months, the number of visitors on weekdays rose by about 25 percent compared with the same period of the previous year. A survey showed that most of the evening visitors were office workers and university students. The longer hours required the library to hire four part-time staff. To cover the cost, the city reduced the budget for buying new books by 10 percent. Some residents have criticized this decision, saying that a library should spend money on books first.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe library's weekend opening hours were also extended.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"Weekend hours were not changed.\" とある。",
+  "explanation_detail_ja": [
+   "設問文: The library's weekend opening hours were also extended.",
+   "根拠: \"Weekend hours were not changed.\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 시립 도서관이 지난 4월부터 평일 폐관 시간을 오후 6시에서 9시로 늘렸다(주말은 그대로). 첫 6개월간 평일 방문자가 전년 같은 기간보다 약 25% 늘었다. 저녁 방문자의 대부분은 직장인과 대학생. 시간 연장으로 파트타임 직원 4명을 고용했고, 비용을 대기 위해 신간 구입 예산을 10% 줄였다. 일부 주민은 이 결정을 비판했다.\n설문: 도서관의 주말 개관 시간도 연장됐다.\n정답 B (분명히 틀림): \"주말 시간은 바뀌지 않았다\"고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-07-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A city library extended its opening hours last April. It used to close at 6 p.m. on weekdays, but now stays open until 9 p.m. from Monday to Friday. Weekend hours were not changed. In the first six months, the number of visitors on weekdays rose by about 25 percent compared with the same period of the previous year. A survey showed that most of the evening visitors were office workers and university students. The longer hours required the library to hire four part-time staff. To cover the cost, the city reduced the budget for buying new books by 10 percent. Some residents have criticized this decision, saying that a library should spend money on books first.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nMost residents support the decision to cut the book budget.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。\"Some residents have criticized this decision\" とあるだけで、住民全体のうち賛成が多いのか反対が多いのかは書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: Most residents support the decision to cut the book budget.",
+   "根拠: \"Some residents have criticized this decision\" とあるだけで、住民全体のうち賛成が多いのか反対が多いのかは書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 시립 도서관이 지난 4월부터 평일 폐관 시간을 오후 6시에서 9시로 늘렸다(주말은 그대로). 첫 6개월간 평일 방문자가 전년 같은 기간보다 약 25% 늘었다. 저녁 방문자의 대부분은 직장인과 대학생. 시간 연장으로 파트타임 직원 4명을 고용했고, 비용을 대기 위해 신간 구입 예산을 10% 줄였다. 일부 주민은 이 결정을 비판했다.\n설문: 대부분의 주민은 도서 예산을 줄인 결정을 지지한다.\n정답 C (본문만으로는 판단 불가): \"일부 주민이 비판했다\"는 말만 있고, 전체적으로 찬성이 많은지 반대가 많은지는 나오지 않습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-07-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A city library extended its opening hours last April. It used to close at 6 p.m. on weekdays, but now stays open until 9 p.m. from Monday to Friday. Weekend hours were not changed. In the first six months, the number of visitors on weekdays rose by about 25 percent compared with the same period of the previous year. A survey showed that most of the evening visitors were office workers and university students. The longer hours required the library to hire four part-time staff. To cover the cost, the city reduced the budget for buying new books by 10 percent. Some residents have criticized this decision, saying that a library should spend money on books first.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe library hired additional staff because of the longer hours.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"The longer hours required the library to hire four part-time staff.\" とある。",
+  "explanation_detail_ja": [
+   "設問文: The library hired additional staff because of the longer hours.",
+   "根拠: \"The longer hours required the library to hire four part-time staff.\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 시립 도서관이 지난 4월부터 평일 폐관 시간을 오후 6시에서 9시로 늘렸다(주말은 그대로). 첫 6개월간 평일 방문자가 전년 같은 기간보다 약 25% 늘었다. 저녁 방문자의 대부분은 직장인과 대학생. 시간 연장으로 파트타임 직원 4명을 고용했고, 비용을 대기 위해 신간 구입 예산을 10% 줄였다. 일부 주민은 이 결정을 비판했다.\n설문: 도서관은 개관 시간이 길어져서 직원을 추가로 고용했다.\n정답 A (분명히 맞음): 시간 연장으로 파트타임 직원 4명을 고용했다고 했습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-08-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A delivery company replaced 200 of its 1,000 diesel vans with electric vans two years ago. The electric vans cost about 30 percent more to buy, but the company says that fuel and maintenance costs are roughly half those of diesel vans. Drivers reported that the electric vans are quieter and easier to drive in city traffic. However, the vans can travel only about 150 kilometers on a single charge, so they are used mainly for short routes in urban areas. The company plans to replace another 300 diesel vans by the end of next year. It has not decided whether to use electric vans for long-distance routes, because charging stations are still rare along highways.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe company has decided to use electric vans on long-distance routes.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"It has not decided whether to use electric vans for long-distance routes\" とある。まだ決めていない。",
+  "explanation_detail_ja": [
+   "設問文: The company has decided to use electric vans on long-distance routes.",
+   "根拠: \"It has not decided whether to use electric vans for long-distance routes\" とある。まだ決めていない。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 배송 회사가 2년 전 디젤 밴 1,000대 중 200대를 전기 밴으로 바꿨다. 전기 밴은 구입비가 약 30% 더 비싸지만 연료·정비 비용은 디젤의 절반 정도. 운전자들은 조용하고 시내에서 운전하기 쉽다고 했다. 다만 1회 충전으로 약 150km밖에 못 가서 주로 도시 단거리에 쓴다. 내년 말까지 300대를 더 바꿀 계획. 장거리 노선에 쓸지는 아직 정하지 않았다.\n설문: 회사는 장거리 노선에 전기 밴을 쓰기로 결정했다.\n정답 B (분명히 틀림): \"쓸지 말지 정하지 않았다\"고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-08-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A delivery company replaced 200 of its 1,000 diesel vans with electric vans two years ago. The electric vans cost about 30 percent more to buy, but the company says that fuel and maintenance costs are roughly half those of diesel vans. Drivers reported that the electric vans are quieter and easier to drive in city traffic. However, the vans can travel only about 150 kilometers on a single charge, so they are used mainly for short routes in urban areas. The company plans to replace another 300 diesel vans by the end of next year. It has not decided whether to use electric vans for long-distance routes, because charging stations are still rare along highways.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nCustomers prefer deliveries made by electric vans.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。本文には運転手の感想はあるが、顧客がどう思っているかは書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: Customers prefer deliveries made by electric vans.",
+   "根拠: 本文には運転手の感想はあるが、顧客がどう思っているかは書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 배송 회사가 2년 전 디젤 밴 1,000대 중 200대를 전기 밴으로 바꿨다. 전기 밴은 구입비가 약 30% 더 비싸지만 연료·정비 비용은 디젤의 절반 정도. 운전자들은 조용하고 시내에서 운전하기 쉽다고 했다. 다만 1회 충전으로 약 150km밖에 못 가서 주로 도시 단거리에 쓴다. 내년 말까지 300대를 더 바꿀 계획. 장거리 노선에 쓸지는 아직 정하지 않았다.\n설문: 고객은 전기 밴으로 하는 배송을 더 좋아한다.\n정답 C (본문만으로는 판단 불가): 운전자의 의견만 있고, 고객의 생각은 나오지 않습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-08-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 3,
+  "passage_ja": "A delivery company replaced 200 of its 1,000 diesel vans with electric vans two years ago. The electric vans cost about 30 percent more to buy, but the company says that fuel and maintenance costs are roughly half those of diesel vans. Drivers reported that the electric vans are quieter and easier to drive in city traffic. However, the vans can travel only about 150 kilometers on a single charge, so they are used mainly for short routes in urban areas. The company plans to replace another 300 diesel vans by the end of next year. It has not decided whether to use electric vans for long-distance routes, because charging stations are still rare along highways.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nIf the plan is carried out, half of the 1,000 vans will have been replaced with electric vans by the end of next year.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。すでに200台を置き換え、さらに300台を置き換える計画なので、合計500台。1,000台の半分にあたる。",
+  "explanation_detail_ja": [
+   "設問文: If the plan is carried out, half of the 1,000 vans will have been replaced with electric vans by the end of next year.",
+   "根拠: すでに200台を置き換え、さらに300台を置き換える計画なので、合計500台。1,000台の半分にあたる。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 배송 회사가 2년 전 디젤 밴 1,000대 중 200대를 전기 밴으로 바꿨다. 전기 밴은 구입비가 약 30% 더 비싸지만 연료·정비 비용은 디젤의 절반 정도. 운전자들은 조용하고 시내에서 운전하기 쉽다고 했다. 다만 1회 충전으로 약 150km밖에 못 가서 주로 도시 단거리에 쓴다. 내년 말까지 300대를 더 바꿀 계획. 장거리 노선에 쓸지는 아직 정하지 않았다.\n설문: 계획대로 되면, 내년 말까지 1,000대 중 절반이 전기 밴으로 바뀐다.\n정답 A (분명히 맞음): 이미 200대 + 추가 300대 = 500대로, 1,000대의 절반입니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-08-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A delivery company replaced 200 of its 1,000 diesel vans with electric vans two years ago. The electric vans cost about 30 percent more to buy, but the company says that fuel and maintenance costs are roughly half those of diesel vans. Drivers reported that the electric vans are quieter and easier to drive in city traffic. However, the vans can travel only about 150 kilometers on a single charge, so they are used mainly for short routes in urban areas. The company plans to replace another 300 diesel vans by the end of next year. It has not decided whether to use electric vans for long-distance routes, because charging stations are still rare along highways.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nElectric vans are cheaper to buy than diesel vans.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"The electric vans cost about 30 percent more to buy\" とある。購入費は電気のほうが高い。",
+  "explanation_detail_ja": [
+   "設問文: Electric vans are cheaper to buy than diesel vans.",
+   "根拠: \"The electric vans cost about 30 percent more to buy\" とある。購入費は電気のほうが高い。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 배송 회사가 2년 전 디젤 밴 1,000대 중 200대를 전기 밴으로 바꿨다. 전기 밴은 구입비가 약 30% 더 비싸지만 연료·정비 비용은 디젤의 절반 정도. 운전자들은 조용하고 시내에서 운전하기 쉽다고 했다. 다만 1회 충전으로 약 150km밖에 못 가서 주로 도시 단거리에 쓴다. 내년 말까지 300대를 더 바꿀 계획. 장거리 노선에 쓸지는 아직 정하지 않았다.\n설문: 전기 밴은 디젤 밴보다 구입비가 싸다.\n정답 B (분명히 틀림): 구입비가 약 30% 더 비싸다고 했으므로 반대입니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-09-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A high school introduced a rule last year that requires students to put their smartphones in lockers during class hours. Students may use their phones during the lunch break and after school. Before the rule, teachers had complained that students were often distracted in class. One year later, the school compared test results. The average score in mathematics rose by 6 points, while the average score in English did not change. In a survey, 55 percent of students said they could concentrate better in class, but 30 percent said the rule was inconvenient because they could not contact their parents quickly. The school will continue the rule and plans to place a telephone in the staff room that students may use in an emergency.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nMore than half of the students said they could concentrate better in class.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"55 percent of students said they could concentrate better in class\" とある。",
+  "explanation_detail_ja": [
+   "設問文: More than half of the students said they could concentrate better in class.",
+   "根拠: \"55 percent of students said they could concentrate better in class\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 고등학교가 작년에 수업 시간 중 스마트폰을 사물함에 넣게 하는 규칙을 도입했다. 점심시간과 방과 후에는 쓸 수 있다. 1년 뒤 수학 평균은 6점 올랐고 영어 평균은 변하지 않았다. 학생의 55%는 수업에 더 집중할 수 있다고 했고, 30%는 부모에게 빨리 연락할 수 없어 불편하다고 했다. 학교는 규칙을 유지하고 교무실에 비상용 전화를 둘 계획이다.\n설문: 학생의 절반 이상이 수업에 더 잘 집중할 수 있다고 했다.\n정답 A (분명히 맞음): 55%이므로 절반 이상입니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-09-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 3,
+  "passage_ja": "A high school introduced a rule last year that requires students to put their smartphones in lockers during class hours. Students may use their phones during the lunch break and after school. Before the rule, teachers had complained that students were often distracted in class. One year later, the school compared test results. The average score in mathematics rose by 6 points, while the average score in English did not change. In a survey, 55 percent of students said they could concentrate better in class, but 30 percent said the rule was inconvenient because they could not contact their parents quickly. The school will continue the rule and plans to place a telephone in the staff room that students may use in an emergency.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe rise in the mathematics score was caused by the smartphone rule.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。本文は、規則の導入後に数学の平均点が上がったという事実を述べているだけで、規則が原因だとは書いていない。英語の点数は変わっておらず、原因は本文からは判断できない。",
+  "explanation_detail_ja": [
+   "設問文: The rise in the mathematics score was caused by the smartphone rule.",
+   "根拠: 本文は、規則の導入後に数学の平均点が上がったという事実を述べているだけで、規則が原因だとは書いていない。英語の点数は変わっておらず、原因は本文からは判断できない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 고등학교가 작년에 수업 시간 중 스마트폰을 사물함에 넣게 하는 규칙을 도입했다. 점심시간과 방과 후에는 쓸 수 있다. 1년 뒤 수학 평균은 6점 올랐고 영어 평균은 변하지 않았다. 학생의 55%는 수업에 더 집중할 수 있다고 했고, 30%는 부모에게 빨리 연락할 수 없어 불편하다고 했다. 학교는 규칙을 유지하고 교무실에 비상용 전화를 둘 계획이다.\n설문: 수학 점수의 상승은 스마트폰 규칙 때문이었다.\n정답 C (본문만으로는 판단 불가): 규칙 도입 후 점수가 올랐다는 사실만 있고, 규칙이 원인이라고는 하지 않았습니다. \"뒤에 일어났다\"와 \"그 때문이다\"는 다릅니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-09-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A high school introduced a rule last year that requires students to put their smartphones in lockers during class hours. Students may use their phones during the lunch break and after school. Before the rule, teachers had complained that students were often distracted in class. One year later, the school compared test results. The average score in mathematics rose by 6 points, while the average score in English did not change. In a survey, 55 percent of students said they could concentrate better in class, but 30 percent said the rule was inconvenient because they could not contact their parents quickly. The school will continue the rule and plans to place a telephone in the staff room that students may use in an emergency.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nStudents are not allowed to use their phones at any time while they are at school.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"Students may use their phones during the lunch break and after school.\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Students are not allowed to use their phones at any time while they are at school.",
+   "根拠: \"Students may use their phones during the lunch break and after school.\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 고등학교가 작년에 수업 시간 중 스마트폰을 사물함에 넣게 하는 규칙을 도입했다. 점심시간과 방과 후에는 쓸 수 있다. 1년 뒤 수학 평균은 6점 올랐고 영어 평균은 변하지 않았다. 학생의 55%는 수업에 더 집중할 수 있다고 했고, 30%는 부모에게 빨리 연락할 수 없어 불편하다고 했다. 학교는 규칙을 유지하고 교무실에 비상용 전화를 둘 계획이다.\n설문: 학생들은 학교에 있는 동안 언제도 휴대폰을 쓸 수 없다.\n정답 B (분명히 틀림): 점심시간과 방과 후에는 쓸 수 있다고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-09-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A high school introduced a rule last year that requires students to put their smartphones in lockers during class hours. Students may use their phones during the lunch break and after school. Before the rule, teachers had complained that students were often distracted in class. One year later, the school compared test results. The average score in mathematics rose by 6 points, while the average score in English did not change. In a survey, 55 percent of students said they could concentrate better in class, but 30 percent said the rule was inconvenient because they could not contact their parents quickly. The school will continue the rule and plans to place a telephone in the staff room that students may use in an emergency.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe average English score rose after the rule was introduced.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"the average score in English did not change\" とある。",
+  "explanation_detail_ja": [
+   "設問文: The average English score rose after the rule was introduced.",
+   "根拠: \"the average score in English did not change\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 고등학교가 작년에 수업 시간 중 스마트폰을 사물함에 넣게 하는 규칙을 도입했다. 점심시간과 방과 후에는 쓸 수 있다. 1년 뒤 수학 평균은 6점 올랐고 영어 평균은 변하지 않았다. 학생의 55%는 수업에 더 집중할 수 있다고 했고, 30%는 부모에게 빨리 연락할 수 없어 불편하다고 했다. 학교는 규칙을 유지하고 교무실에 비상용 전화를 둘 계획이다.\n설문: 규칙 도입 후 영어 평균 점수가 올랐다.\n정답 B (분명히 틀림): 영어 평균은 \"변하지 않았다\"고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-10-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A bakery chain started using a smartphone app to sell bread that is left unsold near closing time. Customers can reserve a bag of bread through the app at half the regular price and pick it up during the last hour before the shop closes. They cannot choose which items are in the bag. In the first year, the chain sold about 120,000 bags through the app and reduced the amount of bread it threw away by 40 percent. About one-third of the app users had never visited the chain's shops before. The chain's managers were initially worried that regular customers would stop buying bread at full price, but sales at regular prices fell by only 2 percent.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nCustomers using the app can select the bread they want.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"They cannot choose which items are in the bag.\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Customers using the app can select the bread they want.",
+   "根拠: \"They cannot choose which items are in the bag.\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 빵집 체인이 폐점 무렵 남은 빵을 앱으로 팔기 시작했다. 손님은 앱으로 빵 한 봉지를 정가의 절반에 예약하고 폐점 전 1시간 동안 찾아간다. 내용물은 고를 수 없다. 첫해에 약 12만 봉지를 팔았고 버리는 빵이 40% 줄었다. 앱 이용자의 약 3분의 1은 이전에 이 체인 매장에 온 적이 없었다. 정가 매출은 2%만 줄었다.\n설문: 앱을 쓰는 손님은 원하는 빵을 고를 수 있다.\n정답 B (분명히 틀림): \"봉지에 무엇이 들어갈지 고를 수 없다\"고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-10-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A bakery chain started using a smartphone app to sell bread that is left unsold near closing time. Customers can reserve a bag of bread through the app at half the regular price and pick it up during the last hour before the shop closes. They cannot choose which items are in the bag. In the first year, the chain sold about 120,000 bags through the app and reduced the amount of bread it threw away by 40 percent. About one-third of the app users had never visited the chain's shops before. The chain's managers were initially worried that regular customers would stop buying bread at full price, but sales at regular prices fell by only 2 percent.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nSome people who used the app had not been customers of the chain before.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"About one-third of the app users had never visited the chain's shops before.\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Some people who used the app had not been customers of the chain before.",
+   "根拠: \"About one-third of the app users had never visited the chain's shops before.\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 빵집 체인이 폐점 무렵 남은 빵을 앱으로 팔기 시작했다. 손님은 앱으로 빵 한 봉지를 정가의 절반에 예약하고 폐점 전 1시간 동안 찾아간다. 내용물은 고를 수 없다. 첫해에 약 12만 봉지를 팔았고 버리는 빵이 40% 줄었다. 앱 이용자의 약 3분의 1은 이전에 이 체인 매장에 온 적이 없었다. 정가 매출은 2%만 줄었다.\n설문: 앱을 이용한 사람 중 일부는 이전에 이 체인의 손님이 아니었다.\n정답 A (분명히 맞음): 앱 이용자의 약 3분의 1은 이전에 매장에 온 적이 없었다고 했습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-10-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A bakery chain started using a smartphone app to sell bread that is left unsold near closing time. Customers can reserve a bag of bread through the app at half the regular price and pick it up during the last hour before the shop closes. They cannot choose which items are in the bag. In the first year, the chain sold about 120,000 bags through the app and reduced the amount of bread it threw away by 40 percent. About one-third of the app users had never visited the chain's shops before. The chain's managers were initially worried that regular customers would stop buying bread at full price, but sales at regular prices fell by only 2 percent.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe chain threw away less bread after it began using the app.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"reduced the amount of bread it threw away by 40 percent\" とある。",
+  "explanation_detail_ja": [
+   "設問文: The chain threw away less bread after it began using the app.",
+   "根拠: \"reduced the amount of bread it threw away by 40 percent\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 빵집 체인이 폐점 무렵 남은 빵을 앱으로 팔기 시작했다. 손님은 앱으로 빵 한 봉지를 정가의 절반에 예약하고 폐점 전 1시간 동안 찾아간다. 내용물은 고를 수 없다. 첫해에 약 12만 봉지를 팔았고 버리는 빵이 40% 줄었다. 앱 이용자의 약 3분의 1은 이전에 이 체인 매장에 온 적이 없었다. 정가 매출은 2%만 줄었다.\n설문: 체인은 앱을 쓰기 시작한 뒤 버리는 빵이 줄었다.\n정답 A (분명히 맞음): 버리는 빵이 40% 줄었다고 했습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-10-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A bakery chain started using a smartphone app to sell bread that is left unsold near closing time. Customers can reserve a bag of bread through the app at half the regular price and pick it up during the last hour before the shop closes. They cannot choose which items are in the bag. In the first year, the chain sold about 120,000 bags through the app and reduced the amount of bread it threw away by 40 percent. About one-third of the app users had never visited the chain's shops before. The chain's managers were initially worried that regular customers would stop buying bread at full price, but sales at regular prices fell by only 2 percent.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nMost app users later became regular customers who buy bread at full price.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。アプリの利用者がその後、定価で買う常連客になったかどうかは書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: Most app users later became regular customers who buy bread at full price.",
+   "根拠: アプリの利用者がその後、定価で買う常連客になったかどうかは書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 빵집 체인이 폐점 무렵 남은 빵을 앱으로 팔기 시작했다. 손님은 앱으로 빵 한 봉지를 정가의 절반에 예약하고 폐점 전 1시간 동안 찾아간다. 내용물은 고를 수 없다. 첫해에 약 12만 봉지를 팔았고 버리는 빵이 40% 줄었다. 앱 이용자의 약 3분의 1은 이전에 이 체인 매장에 온 적이 없었다. 정가 매출은 2%만 줄었다.\n설문: 앱 이용자의 대부분은 나중에 정가로 빵을 사는 단골이 됐다.\n정답 C (본문만으로는 판단 불가): 앱 이용자가 그 뒤 단골이 됐는지는 본문에 나오지 않습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-11-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A manufacturing company started a mentoring program in which each new employee is paired with an experienced worker from a different department. The pairs meet once a month for one year. The company's aim was to reduce the number of new employees who quit within three years. Before the program, about 30 percent of new employees left within three years. Among those who joined after the program began, the figure fell to 18 percent. New employees said that they found it easier to ask questions of a mentor who was not their own boss. Some mentors, however, said that the meetings took time away from their own work. The company is now considering whether to count mentoring hours as part of mentors' regular duties.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nA smaller share of new employees left within three years after the program began.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。以前は \"about 30 percent\"、制度開始後に入社した人では \"18 percent\" に下がったとある。",
+  "explanation_detail_ja": [
+   "設問文: A smaller share of new employees left within three years after the program began.",
+   "根拠: 以前は \"about 30 percent\"、制度開始後に入社した人では \"18 percent\" に下がったとある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 한 제조업체가 신입 사원마다 다른 부서의 경험 많은 직원을 짝지어 주는 멘토링 제도를 시작했다. 한 달에 한 번, 1년간 만난다. 목적은 3년 이내 퇴사하는 신입을 줄이는 것. 제도 전에는 신입의 약 30%가 3년 안에 그만뒀지만, 제도 시작 후 입사자는 18%로 내려갔다. 일부 멘토는 자기 업무 시간이 줄어든다고 했다. 회사는 멘토링 시간을 정규 업무로 인정할지 검토 중이다.\n설문: 제도가 시작된 뒤, 3년 안에 그만둔 신입 사원의 비율이 줄었다.\n정답 A (분명히 맞음): 약 30%에서 18%로 내려갔으므로 맞습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-11-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A manufacturing company started a mentoring program in which each new employee is paired with an experienced worker from a different department. The pairs meet once a month for one year. The company's aim was to reduce the number of new employees who quit within three years. Before the program, about 30 percent of new employees left within three years. Among those who joined after the program began, the figure fell to 18 percent. New employees said that they found it easier to ask questions of a mentor who was not their own boss. Some mentors, however, said that the meetings took time away from their own work. The company is now considering whether to count mentoring hours as part of mentors' regular duties.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nMentors receive extra pay for taking part in the program.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。メンターへの追加の報酬については、本文に何も書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: Mentors receive extra pay for taking part in the program.",
+   "根拠: メンターへの追加の報酬については、本文に何も書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 한 제조업체가 신입 사원마다 다른 부서의 경험 많은 직원을 짝지어 주는 멘토링 제도를 시작했다. 한 달에 한 번, 1년간 만난다. 목적은 3년 이내 퇴사하는 신입을 줄이는 것. 제도 전에는 신입의 약 30%가 3년 안에 그만뒀지만, 제도 시작 후 입사자는 18%로 내려갔다. 일부 멘토는 자기 업무 시간이 줄어든다고 했다. 회사는 멘토링 시간을 정규 업무로 인정할지 검토 중이다.\n설문: 멘토는 제도에 참가하는 대가로 추가 급여를 받는다.\n정답 C (본문만으로는 판단 불가): 추가 급여 이야기는 본문에 없습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-11-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "A manufacturing company started a mentoring program in which each new employee is paired with an experienced worker from a different department. The pairs meet once a month for one year. The company's aim was to reduce the number of new employees who quit within three years. Before the program, about 30 percent of new employees left within three years. Among those who joined after the program began, the figure fell to 18 percent. New employees said that they found it easier to ask questions of a mentor who was not their own boss. Some mentors, however, said that the meetings took time away from their own work. The company is now considering whether to count mentoring hours as part of mentors' regular duties.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nEach new employee is paired with a mentor from the same department.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"paired with an experienced worker from a different department\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Each new employee is paired with a mentor from the same department.",
+   "根拠: \"paired with an experienced worker from a different department\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 제조업체가 신입 사원마다 다른 부서의 경험 많은 직원을 짝지어 주는 멘토링 제도를 시작했다. 한 달에 한 번, 1년간 만난다. 목적은 3년 이내 퇴사하는 신입을 줄이는 것. 제도 전에는 신입의 약 30%가 3년 안에 그만뒀지만, 제도 시작 후 입사자는 18%로 내려갔다. 일부 멘토는 자기 업무 시간이 줄어든다고 했다. 회사는 멘토링 시간을 정규 업무로 인정할지 검토 중이다.\n설문: 신입 사원은 각각 같은 부서의 멘토와 짝이 된다.\n정답 B (분명히 틀림): \"다른 부서\"의 직원과 짝이 된다고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-11-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "A manufacturing company started a mentoring program in which each new employee is paired with an experienced worker from a different department. The pairs meet once a month for one year. The company's aim was to reduce the number of new employees who quit within three years. Before the program, about 30 percent of new employees left within three years. Among those who joined after the program began, the figure fell to 18 percent. New employees said that they found it easier to ask questions of a mentor who was not their own boss. Some mentors, however, said that the meetings took time away from their own work. The company is now considering whether to count mentoring hours as part of mentors' regular duties.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe company has decided to count mentoring hours as part of mentors' regular duties.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"is now considering whether to count\" とある。検討している段階で、まだ決めていない。",
+  "explanation_detail_ja": [
+   "設問文: The company has decided to count mentoring hours as part of mentors' regular duties.",
+   "根拠: \"is now considering whether to count\" とある。検討している段階で、まだ決めていない。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 한 제조업체가 신입 사원마다 다른 부서의 경험 많은 직원을 짝지어 주는 멘토링 제도를 시작했다. 한 달에 한 번, 1년간 만난다. 목적은 3년 이내 퇴사하는 신입을 줄이는 것. 제도 전에는 신입의 약 30%가 3년 안에 그만뒀지만, 제도 시작 후 입사자는 18%로 내려갔다. 일부 멘토는 자기 업무 시간이 줄어든다고 했다. 회사는 멘토링 시간을 정규 업무로 인정할지 검토 중이다.\n설문: 회사는 멘토링 시간을 멘토의 정규 업무로 인정하기로 결정했다.\n정답 B (분명히 틀림): \"인정할지 검토 중\"이라고 했습니다. 아직 결정되지 않았습니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-12-1",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 3,
+  "passage_ja": "The town of Carlow began charging visitors a tourist tax of two dollars per night at hotels three years ago. The money is used to clean beaches and repair walking trails. Last year the tax raised about 600,000 dollars. Hotel owners had opposed the tax at first, fearing that visitors would choose other towns. In fact, the number of hotel guests has grown by 5 percent since the tax was introduced. A survey of visitors found that 80 percent did not know about the tax before they arrived, and 70 percent said the amount was acceptable. The town council is discussing a proposal to raise the tax to three dollars, but a final decision is not expected until next year.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe number of hotel guests would have grown even more if the tax had not been introduced.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "You cannot say whether the statement is true or untrue without further information.",
+  "explanation_short_ja": "正解は C。宿泊客は5%増えたとあるが、税がなかった場合にどうなっていたかは書かれていない。",
+  "explanation_detail_ja": [
+   "設問文: The number of hotel guests would have grown even more if the tax had not been introduced.",
+   "根拠: 宿泊客は5%増えたとあるが、税がなかった場合にどうなっていたかは書かれていない。",
+   "判定: 本文に手がかりがなく、正しいとも誤りとも言えない → C"
+  ],
+  "explanation_ko": "지문 요지: 칼로 마을은 3년 전부터 호텔 숙박객에게 1박당 2달러의 관광세를 받고 있다. 돈은 해변 청소와 산책로 보수에 쓴다. 작년 세수는 약 60만 달러. 호텔 주인들은 처음에 반대했지만, 도입 후 숙박객은 5% 늘었다. 방문객의 80%는 도착 전에 세금을 몰랐고, 70%는 금액이 받아들일 만하다고 했다. 의회는 3달러로 올리는 안을 논의 중이며 최종 결정은 내년에나 나올 전망이다.\n설문: 세금이 도입되지 않았다면 호텔 숙박객 수는 더 많이 늘었을 것이다.\n정답 C (본문만으로는 판단 불가): 5% 늘었다는 사실만 있고, 세금이 없었을 경우는 나오지 않습니다.",
+  "tip": "本文にない比較・原因・将来の話は C。「ありそうだ」と思っても、書かれていなければ判断できない。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-12-2",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "The town of Carlow began charging visitors a tourist tax of two dollars per night at hotels three years ago. The money is used to clean beaches and repair walking trails. Last year the tax raised about 600,000 dollars. Hotel owners had opposed the tax at first, fearing that visitors would choose other towns. In fact, the number of hotel guests has grown by 5 percent since the tax was introduced. A survey of visitors found that 80 percent did not know about the tax before they arrived, and 70 percent said the amount was acceptable. The town council is discussing a proposal to raise the tax to three dollars, but a final decision is not expected until next year.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nMost visitors surveyed thought the amount of the tax was acceptable.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"70 percent said the amount was acceptable\" とある。",
+  "explanation_detail_ja": [
+   "設問文: Most visitors surveyed thought the amount of the tax was acceptable.",
+   "根拠: \"70 percent said the amount was acceptable\" とある。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 칼로 마을은 3년 전부터 호텔 숙박객에게 1박당 2달러의 관광세를 받고 있다. 돈은 해변 청소와 산책로 보수에 쓴다. 작년 세수는 약 60만 달러. 호텔 주인들은 처음에 반대했지만, 도입 후 숙박객은 5% 늘었다. 방문객의 80%는 도착 전에 세금을 몰랐고, 70%는 금액이 받아들일 만하다고 했다. 의회는 3달러로 올리는 안을 논의 중이며 최종 결정은 내년에나 나올 전망이다.\n설문: 조사에 응한 방문객의 대부분은 세금 액수가 받아들일 만하다고 생각했다.\n정답 A (분명히 맞음): 70%가 그렇게 답했으므로 맞습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-12-3",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 1,
+  "passage_ja": "The town of Carlow began charging visitors a tourist tax of two dollars per night at hotels three years ago. The money is used to clean beaches and repair walking trails. Last year the tax raised about 600,000 dollars. Hotel owners had opposed the tax at first, fearing that visitors would choose other towns. In fact, the number of hotel guests has grown by 5 percent since the tax was introduced. A survey of visitors found that 80 percent did not know about the tax before they arrived, and 70 percent said the amount was acceptable. The town council is discussing a proposal to raise the tax to three dollars, but a final decision is not expected until next year.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe tax money is spent on building new hotels.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は B。\"The money is used to clean beaches and repair walking trails.\" とある。",
+  "explanation_detail_ja": [
+   "設問文: The tax money is spent on building new hotels.",
+   "根拠: \"The money is used to clean beaches and repair walking trails.\" とある。",
+   "判定: 本文の記述と食い違う → B"
+  ],
+  "explanation_ko": "지문 요지: 칼로 마을은 3년 전부터 호텔 숙박객에게 1박당 2달러의 관광세를 받고 있다. 돈은 해변 청소와 산책로 보수에 쓴다. 작년 세수는 약 60만 달러. 호텔 주인들은 처음에 반대했지만, 도입 후 숙박객은 5% 늘었다. 방문객의 80%는 도착 전에 세금을 몰랐고, 70%는 금액이 받아들일 만하다고 했다. 의회는 3달러로 올리는 안을 논의 중이며 최종 결정은 내년에나 나올 전망이다.\n설문: 세금은 새 호텔을 짓는 데 쓰인다.\n정답 B (분명히 틀림): 해변 청소와 산책로 보수에 쓰인다고 했으므로 틀립니다.",
+  "tip": "数字・方向(増えた/減った)・範囲(すべて/一部)が本文と食い違えば B。",
+  "reviewed": true
+ },
+ {
+  "id": "engabc-12-4",
+  "exam": "SHL",
+  "test_name": "GAB",
+  "category": "英語 論理的読解(本番形式・3択)",
+  "difficulty": 2,
+  "passage_ja": "The town of Carlow began charging visitors a tourist tax of two dollars per night at hotels three years ago. The money is used to clean beaches and repair walking trails. Last year the tax raised about 600,000 dollars. Hotel owners had opposed the tax at first, fearing that visitors would choose other towns. In fact, the number of hotel guests has grown by 5 percent since the tax was introduced. A survey of visitors found that 80 percent did not know about the tax before they arrived, and 70 percent said the amount was acceptable. The town council is discussing a proposal to raise the tax to three dollars, but a final decision is not expected until next year.",
+  "question_ja": "Read the passage and decide whether the statement below is A, B or C.\nThe town council has not yet made a final decision on raising the tax.",
+  "choices": [
+   "The statement is clearly true, or follows logically, given the information in the passage.",
+   "The statement is clearly untrue, or the opposite follows logically, given the information in the passage.",
+   "You cannot say whether the statement is true or untrue without further information."
+  ],
+  "answer": "The statement is clearly true, or follows logically, given the information in the passage.",
+  "explanation_short_ja": "正解は A。\"a final decision is not expected until next year\" とある。まだ最終決定は出ていない。",
+  "explanation_detail_ja": [
+   "設問文: The town council has not yet made a final decision on raising the tax.",
+   "根拠: \"a final decision is not expected until next year\" とある。まだ最終決定は出ていない。",
+   "判定: 本文に書かれている、または本文から必ず導ける → A"
+  ],
+  "explanation_ko": "지문 요지: 칼로 마을은 3년 전부터 호텔 숙박객에게 1박당 2달러의 관광세를 받고 있다. 돈은 해변 청소와 산책로 보수에 쓴다. 작년 세수는 약 60만 달러. 호텔 주인들은 처음에 반대했지만, 도입 후 숙박객은 5% 늘었다. 방문객의 80%는 도착 전에 세금을 몰랐고, 70%는 금액이 받아들일 만하다고 했다. 의회는 3달러로 올리는 안을 논의 중이며 최종 결정은 내년에나 나올 전망이다.\n설문: 마을 의회는 세금 인상에 대해 아직 최종 결정을 내리지 않았다.\n정답 A (분명히 맞음): \"최종 결정은 내년에나 나올 전망\"이므로 아직 결정되지 않았습니다.",
+  "tip": "本文の内容を別の言い方にしただけなら A。数字は「約六割 → 半数以上」のように言い換えられる。",
+  "reviewed": true
  }
 ]

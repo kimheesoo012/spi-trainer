@@ -1,6 +1,7 @@
 // 論理的読解(本番形式 A/B/C)と英語の問題JSONを作る。node make.mjs <出力先 bank ディレクトリ>
 import { writeFileSync } from 'node:fs';
 import { join } from 'node:path';
+import { GAB2, ENG2 } from './bank-src/_abc2.mjs';
 
 const JA = {
   A: '本文から論理的に考えて、設問文は明らかに正しい',
@@ -210,8 +211,6 @@ function build(src, { prefix, category, test_name, choices, head }) {
   const out = [];
   src.forEach((P, pi) => {
     P.q.forEach((x, qi) => {
-      const others = P.q.filter((y) => y !== x && y.a !== x.a).map((y) => y.a);
-      void others;
       out.push({
         id: `${prefix}-${String(pi + 1).padStart(2, '0')}-${qi + 1}`,
         exam: 'SHL',
@@ -238,9 +237,9 @@ function build(src, { prefix, category, test_name, choices, head }) {
 }
 
 const dir = process.argv[2];
-const gab = build(GAB, { prefix: 'gababc', category: '論理的読解(本番形式・3択)', test_name: 'GAB', choices: JA, head: '次の設問文について、本文の内容から判断してA・B・Cのいずれかを選びなさい。' });
-const eng = build(ENG, { prefix: 'engabc', category: '英語 論理的読解(本番形式・3択)', test_name: 'GAB', choices: EN, head: 'Read the passage and decide whether the statement below is A, B or C.' });
+const gab = build([...GAB, ...GAB2], { prefix: 'gababc', category: '論理的読解(本番形式・3択)', test_name: 'GAB', choices: JA, head: '次の設問文について、本文の内容から判断してA・B・Cのいずれかを選びなさい。' });
+const eng = build([...ENG, ...ENG2], { prefix: 'engabc', category: '英語 論理的読解(本番形式・3択)', test_name: 'GAB', choices: EN, head: 'Read the passage and decide whether the statement below is A, B or C.' });
 writeFileSync(join(dir, 'shl_gab_abc.json'), JSON.stringify(gab, null, 1) + '\n');
 writeFileSync(join(dir, 'shl_eigo_abc.json'), JSON.stringify(eng, null, 1) + '\n');
-const tally = (a) => a.reduce((m, x) => ((m[x.answer[0]] = (m[x.answer[0]] || 0) + 1), m), {});
+const tally = (a) => a.reduce((m, x) => { const k = 'ABC'[x.choices.indexOf(x.answer)]; m[k] = (m[k] || 0) + 1; return m; }, {});
 console.log('gab', gab.length, tally(gab), 'eng', eng.length, tally(eng));

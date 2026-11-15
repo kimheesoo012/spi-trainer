@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import { BANK, bankQuestion, loadBank, validateBankItem } from '../src/data/bank';
 import { TYPES } from '../src/data/catalog';
+import { P2 } from './suiron2';
+import { P3 } from './suiron3';
 
 const HANGUL = /[ㄱ-ㆎ가-힣]/;
 
@@ -163,6 +165,8 @@ const P: Record<string, () => Puzzle> = {
     return { worlds: ws, claims: aiClaims(ws, (o) => o.z > o.x && o.z > o.y, (o) => o.x + o.y === 3) };
   },
 };
+
+Object.assign(P, P2, P3);
 
 describe('推論の問題は答えが1つに決まる(総当たり)', () => {
   const items = BANK.items.filter((i) => i.typeId === 'suiron');
