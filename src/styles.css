@@ -15,6 +15,10 @@
   --ng-soft: #fbe9e7;
   --warn: #8a5a00;
   --warn-soft: #fff3d6;
+  --c2: #0f8f8f;
+  --c3: #c9781a;
+  --c4: #7a55c7;
+  --c5: #7b8794;
   --font: -apple-system, BlinkMacSystemFont, 'Hiragino Sans', 'Hiragino Kaku Gothic ProN', 'Noto Sans JP', 'Yu Gothic UI', Meiryo, sans-serif;
   --font-ko: 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
   --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
@@ -38,6 +42,10 @@
     --ng-soft: #3a1a18;
     --warn: #f0c060;
     --warn-soft: #3a2e12;
+    --c2: #4fc9c9;
+    --c3: #f0b455;
+    --c4: #b094ee;
+    --c5: #9aa6bc;
     color-scheme: dark;
   }
 }
@@ -57,6 +65,10 @@
   --ng-soft: #3a1a18;
   --warn: #f0c060;
   --warn-soft: #3a2e12;
+  --c2: #4fc9c9;
+  --c3: #f0b455;
+  --c4: #b094ee;
+  --c5: #9aa6bc;
   color-scheme: dark;
 }
 
@@ -1014,4 +1026,95 @@ textarea {
   border: 1px solid var(--accent);
   color: var(--accent);
   white-space: nowrap;
+}
+
+/* グラフ(図表の読み取り) */
+.chart {
+  margin: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px 8px 6px;
+  min-width: 0;
+}
+.chart figcaption {
+  font-size: 0.82rem;
+  color: var(--muted);
+  padding: 0 4px 2px;
+}
+.chart svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: 440px;
+  margin: 0 auto;
+}
+.chart text {
+  font-family: var(--font);
+  font-variant-numeric: tabular-nums;
+}
+.chart .ch-v {
+  fill: var(--ink);
+  font-size: 11.5px;
+  font-weight: 700;
+}
+.chart .ch-x {
+  fill: var(--muted);
+  font-size: 10.5px;
+}
+.chart .ch-axis {
+  stroke: var(--line);
+  stroke-width: 1;
+}
+.chart .ch-bar,
+.chart .ch-m0,
+.chart .ch-p0 {
+  fill: var(--accent);
+}
+.chart .ch-s0 {
+  stroke: var(--accent);
+  stroke-width: 2;
+}
+.chart .ch-s1 {
+  stroke: var(--c3);
+  stroke-width: 2;
+  stroke-dasharray: 5 4;
+}
+.chart .ch-m1,
+.chart .ch-p2 {
+  fill: var(--c3);
+}
+.chart .ch-p1 {
+  fill: var(--c2);
+}
+.chart .ch-p3 {
+  fill: var(--c4);
+}
+.chart .ch-p4 {
+  fill: var(--c5);
+}
+.chart path {
+  stroke: var(--bg);
+  stroke-width: 1.5;
+}
+.chart-note {
+  padding: 2px 4px 0;
+  font-size: 0.86rem;
+  font-weight: 700;
+  text-align: center;
+}
+
+/* 列が多い表は余白を詰める */
+.table-wrap table.dense {
+  font-size: 0.86rem;
+}
+.table-wrap table.dense th,
+.table-wrap table.dense td {
+  padding: 8px 6px;
+}
+.table-wrap table.dense th:first-child {
+  padding-left: 10px;
+}
+.table-wrap table.dense td:last-child,
+.table-wrap table.dense thead th:last-child {
+  padding-right: 10px;
 }

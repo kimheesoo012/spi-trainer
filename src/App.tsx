@@ -9,11 +9,13 @@ import { Review } from './ui/Review';
 import { Stats } from './ui/Stats';
 import { Settings } from './ui/Settings';
 import { About } from './ui/About';
+import { Mock } from './ui/Mock';
 
 export type Route =
   | { name: 'home' }
   | { name: 'setup'; typeId: string }
   | { name: 'omakase'; exam: Exam }
+  | { name: 'mock'; id: string }
   | { name: 'quiz' }
   | { name: 'result' }
   | { name: 'review' }
@@ -47,6 +49,9 @@ export function App() {
       break;
     case 'omakase':
       screen = <Setup key={`o-${route.exam}`} nav={nav} exam={route.exam} />;
+      break;
+    case 'mock':
+      screen = <Mock key={route.id} nav={nav} id={route.id} />;
       break;
     case 'quiz':
       screen = <Quiz nav={nav} />;

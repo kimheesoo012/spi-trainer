@@ -60,6 +60,7 @@ node scripts/e2e.cjs "iPhone 13" <保存先>  # vite preview を 4173 番で起�
   - 本番形式・3択の分野(`catalog.ts` で `abc: true`)だけは、`choices` が A・B・C の3つで、表示時も順番を変えない。
 - `reviewed: false` の問題は読み込むが出題しない(検証済みの数にも入れない)。
 - 推論の問題を追加するときは `tests/bank.test.ts` に総当たりの検証を追加する(答えが1つに決まることを確かめるため)。追加分の検証は `tests/suiron2.ts`・`tests/suiron3.ts` にある。
+- (自動生成の分野)選択肢は4つ。`catalog.ts` で `nChoices: 5` とした分野(図表の読み取り)だけ5つ。新しい型を足すときは `tests/oracles.ts` に、アプリの計算とは別の方法で答えを出す検算を足す。
 - 追加分の問題は `tools/bank-src/*.mjs` に書いてあり、`node tools/build-bank.mjs` で `src/data/bank/*2.json` などに書き出す。本番形式・3択の問題は `node tools/make-abc-bank.mjs src/data/bank` で書き出す。
 
 ## 構成
@@ -72,7 +73,8 @@ node scripts/e2e.cjs "iPhone 13" <保存先>  # vite preview を 4173 番で起�
 | `src/data/examInfo.ts` | 実際の試験情報(出典URL・確認日。確認できないものは「未確認」) |
 | `src/data/bank/*.json` | 直接作成の問題 |
 | `src/store/` | 記録・復習リスト・統計・保存(IndexedDB、使えなければ localStorage)・書き出し/取り込み |
-| `src/ui/` | 画面 |
+| `src/store/mock.ts` | 本番セット(本番と同じ問題数・制限時間で通して解く。言語は長文ごとに設問を続けて出す) |
+| `src/ui/` | 画面(`Chart.tsx` は図表の読み取り用の棒グラフ・折れ線グラフ・円グラフ) |
 | `tests/` | 生成器の検査(独立した BigInt 有理数の式評価器で解説の式も検算)、問題JSONの検査、推論の総当たり、記録ロジック |
 
 ## 公開(スマホで使う)

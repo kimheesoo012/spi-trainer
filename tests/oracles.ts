@@ -287,6 +287,81 @@ export const ORACLES: Record<string, Oracle> = {
     const round = (n: bigint, d: bigint) => (2n * n + d) / (2n * d); // 四捨五入(正の数)
     const ans = qn.choices[qn.answer];
     const cell = (c: string) => evaluate(c.replace('%', '')).n;
+    // ---- グラフの問題(数値は qn.charts から読む)
+    const ch = qn.charts ?? [];
+    const big = (xs: number[]) => xs.map((x) => BigInt(x));
+    const total = (i: number) => evaluate((ch[i].note ?? '').replace(/[^\d,]/g, '')).n;
+    const uniqueMax = (xs: [bigint, bigint][]): number => {
+      // 分数 xs[k] = [分子, 分母](分母は正)の最大がただ1つならその位置、そうでなければ -1
+      let b = 0;
+      for (let k = 1; k < xs.length; k++) if (xs[k][0] * xs[b][1] > xs[b][0] * xs[k][1]) b = k;
+      return xs.some((x, k) => k !== b && x[0] * xs[b][1] === xs[b][0] * x[1]) ? -1 : b;
+    };
+    switch (p.template) {
+      case 'barTimes': {
+        const v = big(ch[0].series[0].values);
+        const [a, b] = [Number(p.a), Number(p.b)];
+        if (!qn.question_ja.includes(`${ch[0].labels[a]}年度の売上高は、${ch[0].labels[b]}年度の売上高の`)) return 'barTimes: wrong years';
+        return expect(qn, q(round(v[a] * 10n, v[b]), 10n));
+      }
+      case 'barMaxRate': {
+        const v = big(ch[0].series[0].values);
+        const b = uniqueMax(v.slice(1).map((x, k) => [x - v[k], v[k]] as [bigint, bigint]));
+        if (b < 0) return 'barMaxRate: tie';
+        const who = `${ch[0].labels[b + 1]}年度`;
+        return who === ans ? null : `barMaxRate: ${ans} vs ${who}`;
+      }
+      case 'pieAmount':
+      case 'pieDiff': {
+        const s = big(ch[0].series[0].values);
+        if (s.reduce((a, b) => a + b, 0n) !== 100n) return 'pie: shares do not sum to 100';
+        if (p.template === 'pieAmount') {
+          if (!qn.question_ja.includes(`${ch[0].labels[Number(p.c)]}の売上高は`)) return 'pieAmount: wrong item';
+          return expect(qn, q(total(0) * s[Number(p.c)], 100n));
+        }
+        const [hi, lo] = [Number(p.hi), Number(p.lo)];
+        if (!qn.question_ja.includes(`${ch[0].labels[hi]}と${ch[0].labels[lo]}の売上高の差`)) return 'pieDiff: wrong items';
+        return expect(qn, q(total(0) * (s[hi] - s[lo]), 100n));
+      }
+      case 'pie2Change': {
+        const [s1, s2] = [big(ch[0].series[0].values), big(ch[1].series[0].values)];
+        if (s1.reduce((a, b) => a + b, 0n) !== 100n || s2.reduce((a, b) => a + b, 0n) !== 100n) return 'pie2: shares do not sum to 100';
+        if (!ch[0].caption.includes('2023年') || !ch[1].caption.includes('2024年')) return 'pie2: wrong order of years';
+        const c = Number(p.c);
+        if (!qn.question_ja.includes(`${ch[0].labels[c]}の売上高は`)) return 'pie2Change: wrong item';
+        return expect(qn, q(total(1) * s2[c] - total(0) * s1[c], 100n));
+      }
+      case 'lineMaxGap': {
+        const [E, I] = [big(ch[0].series[0].values), big(ch[0].series[1].values)];
+        if (ch[0].series[0].name !== '輸出額' || ch[0].series[1].name !== '輸入額') return 'line: wrong series';
+        const b = uniqueMax(E.map((e, k) => [e - I[k], 1n] as [bigint, bigint]));
+        if (b < 0 || E[b] <= I[b]) return 'lineMaxGap: tie or no surplus';
+        return ch[0].labels[b] === ans ? null : `lineMaxGap: ${ans} vs ${ch[0].labels[b]}`;
+      }
+      case 'lineRatio': {
+        const [E, I] = [big(ch[0].series[0].values), big(ch[0].series[1].values)];
+        const y = Number(p.y);
+        if (!qn.question_ja.includes(`${ch[0].labels[y]}の輸入額は、同じ年の輸出額の`)) return 'lineRatio: wrong year';
+        return expect(qn, q(round(I[y] * 100n, E[y]), 100n));
+      }
+      case 'densityMax': {
+        const b = uniqueMax(t.rows.map((r) => [cell(r[1]), cell(r[2])] as [bigint, bigint]));
+        if (b < 0) return 'densityMax: tie';
+        return t.rows[b][0] === ans ? null : `densityMax: ${ans} vs ${t.rows[b][0]}`;
+      }
+      case 'indexAmount': {
+        const [c, y] = [Number(p.c), Number(p.y)];
+        if (!qn.question_ja.includes(`${t.rows[c][0]}の${t.headers[2 + y]}の生産台数`)) return 'indexAmount: wrong cell';
+        return expect(qn, q(cell(t.rows[c][1]) * cell(t.rows[c][2 + y]), 100n));
+      }
+      case 'indexGrowth': {
+        const c = Number(p.c);
+        if (!qn.question_ja.includes(`${t.rows[c][0]}の2024年の生産台数は、2022年に比べて`)) return 'indexGrowth: wrong row';
+        const [i1, i2] = [cell(t.rows[c][2]), cell(t.rows[c][3])];
+        if (t.headers[2] !== '2022年' || t.headers[3] !== '2024年') return 'indexGrowth: wrong columns';
+        return expect(qn, q(round((i2 - i1) * 100n, i1), 100n));
+      }
+    }
     if (p.template === 'compAmount' || p.template === 'compTimes') {
       const s = t.rows.slice(0, 5).map((r) => r.slice(1).map(cell));
       const T = t.rows[5].slice(1).map(cell);
@@ -364,6 +439,99 @@ export const ORACLES: Record<string, Oracle> = {
     const coef = M.slice(0, n).map((r) => r[n]);
     const pred = rowVec(qi).reduce((s, x, i) => { const m = mul(x, coef[i]); return q(s.n * m.d + m.n * s.d, s.d * m.d); }, q(0n));
     return expect(qn, pred);
+  },
+  ryokin: (qn) => {
+    const p = P(qn);
+    const t = qn.question_ja;
+    const g = (re: RegExp) => {
+      const m = re.exec(t);
+      if (!m) throw new Error(`ryokin: no match ${re}`);
+      return m.slice(1).map((x) => evaluate(x).n);
+    };
+    const [price] = g(/1人([\d,]+)円である/);
+    const [limit] = g(/(\d+)人を超える団体は/);
+    const [limit2] = g(/、(\d+)人を超えた分の人数/);
+    const [r] = g(/入場料が(\d)割引になる/);
+    if (limit !== limit2) return 'ryokin: limit mismatch';
+    // n 人の総額 × 10(割引は 10 − r 割)
+    const cost10 = (n: bigint) => price * (10n * (n < limit ? n : limit) + (10n - r) * (n > limit ? n - limit : 0n));
+    switch (p.template) {
+      case 'groupTotal': {
+        const [m] = g(/。(\d+)人の団体で入場するとき、入場料の総額/);
+        return expect(qn, q(cost10(m), 10n));
+      }
+      case 'groupAverage': {
+        const [m] = g(/。(\d+)人の団体で入場するとき、1人あたりの入場料は平均/);
+        return expect(qn, q(cost10(m), 10n * m));
+      }
+      case 'splitVsTogether': {
+        const [a, b] = g(/。(\d+)人の団体と(\d+)人の団体が、別々に入場する場合と、まとめて1つの団体として/);
+        return expect(qn, q(cost10(a) + cost10(b) - cost10(a + b), 10n));
+      }
+    }
+    return `unknown template ${p.template}`;
+  },
+  seisan: (qn) => {
+    const p = P(qn);
+    const t = qn.question_ja;
+    const g = (re: RegExp) => {
+      const m = re.exec(t);
+      if (!m) throw new Error(`seisan: no match ${re}`);
+      return m.slice(1).map((x) => evaluate(x).n);
+    };
+    switch (p.template) {
+      case 'equalShare3': {
+        const [a, b] = g(/Xが([\d,]+)円、Yが([\d,]+)円を支払い、Zは支払っていない/);
+        return expect(qn, q(a + b, 3n));
+      }
+      case 'payToX': {
+        const [a, b, c] = g(/Xが宿泊費([\d,]+)円、Yが交通費([\d,]+)円、Zが食事代([\d,]+)円を支払った/);
+        if (!t.includes('ZはXにいくら支払えばよいか')) return 'payToX: wrong question';
+        // Y と Z が負担額より少なく、X だけが多く支払っていること(支払い先が X に決まる条件)
+        if (!(3n * b < a + b + c && 3n * c < a + b + c)) return 'payToX: receiver is not unique';
+        return expect(qn, q(a + b + c - 3n * c, 3n));
+      }
+      case 'withDebt': {
+        const [loan] = g(/XはYに([\d,]+)円を借りている/);
+        const [a, b] = g(/Xが([\d,]+)円、Yが([\d,]+)円を支払った/);
+        if (!t.includes('XはYにいくら支払えばよいか')) return 'withDebt: wrong question';
+        const want = q(2n * loan + b - a, 2n);
+        if (want.n <= 0n) return 'withDebt: X does not pay';
+        return expect(qn, want);
+      }
+    }
+    return `unknown template ${p.template}`;
+  },
+  bunkatsu: (qn) => {
+    const p = P(qn);
+    const t = qn.question_ja;
+    const g = (re: RegExp) => {
+      const m = re.exec(t);
+      if (!m) throw new Error(`bunkatsu: no match ${re}`);
+      return m.slice(1).map((x) => BigInt(x));
+    };
+    switch (p.template) {
+      case 'afterDeposit': {
+        const [a, n] = g(/頭金として総額の1\/(\d+)を支払い、残りを(\d+)回の均等払いにする。分割手数料はかからないものとする。均等払いの1回分は/);
+        return expect(qn, q(a - 1n, a * n));
+      }
+      case 'twoDeposits': {
+        const [a, b, n] = g(/契約時に総額の1\/(\d+)を、納品時に総額の1\/(\d+)を支払い、残りを(\d+)回の均等払い/);
+        return expect(qn, q(a * b - a - b, a * b * n));
+      }
+      case 'paidSoFar': {
+        const [a, n] = g(/頭金として総額の1\/(\d+)を支払い、残りを(\d+)回の均等払いにする/);
+        const [k] = g(/均等払いの(\d+)回目を支払い終えた時点で、支払い済みの額/);
+        if (k >= n) return 'paidSoFar: k out of range';
+        return expect(qn, q(n + k * (a - 1n), a * n));
+      }
+      case 'withFee': {
+        const [a, n] = g(/頭金として総額の1\/(\d+)を支払い、残額を(\d+)回の均等払いにする/);
+        const [f] = g(/残額の1\/(\d+)にあたる分割手数料が残額に加算され/);
+        return expect(qn, q((a - 1n) * (f + 1n), a * f * n));
+      }
+    }
+    return `unknown template ${p.template}`;
   },
   shiryo: (qn) => {
     const p = P(qn);

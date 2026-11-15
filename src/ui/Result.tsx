@@ -1,12 +1,14 @@
 import { useState } from 'react';
 import { typeById } from '../data/catalog';
-import { fmtDuration, isCorrect, makeSession, modeLabel, questionsForType } from '../store/logic';
+import { countedIndexes, fmtDuration, isCorrect, makeSession, modeLabel, questionsForType } from '../store/logic';
+import { mockById, mockSession } from '../store/mock';
 import { saveActive, useStore } from '../store/state';
 import { sessionGains } from '../store/progress';
 import { localDay } from '../store/model';
 import type { Nav } from '../App';
 import { MathText, pctText, TableView, Top } from './common';
 import { ChoiceButtons, Explanation } from './Explanation';
+import { ChartView } from './Chart';
 
 export function Result({ nav }: { nav: Nav }) {
   const st = useStore();
@@ -22,7 +24,7 @@ export function Result({ nav }: { nav: Nav }) {
       </>
     );
   }
-  const counted = s.items.map((_, i) => i).filter((i) => s.mode !== 'study' || s.revealed[i]);
+  const counted = countedIndexes(s);
   const correct = counted.filter((i) => isCorrect(s, i)).length;
   const total = counted.length;
   const timeMs = counted.reduce((a, i) => a + (s.times[i] ?? 0), 0);
@@ -31,6 +33,13 @@ export function Result({ nav }: { nav: Nav }) {
   const gains = total > 0 ? sessionGains([...st.attempts.values()], [...st.mistakes.values()], s.id, st.settings.dailyGoal, localDay(Date.now())) : null;
 
   const again = () => {
+    // 本番セットは、同じセットを新しい問題で作り直す
+    const mock = s.mockId ? mockById(s.mockId) : undefined;
+    if (mock) {
+      saveActive(mockSession(mock, [...st.attempts.values()]));
+      nav({ name: 'quiz' });
+      return;
+    }
     // 同じ型・同じ難易度で新しい問題(生成問題は新しい数値)
     const items = s.items.map((it) => {
       const t = typeById(it.q.typeId)!;
@@ -59,6 +68,11 @@ export function Result({ nav }: { nav: Nav }) {
             所要時間 {fmtDuration(timeMs)}
             {total ? `(1問平均 ${Math.round(timeMs / total / 1000)}秒)` : ''}
           </div>
+          {s.mode !== 'study' && total < s.items.length && (
+            <div className="small">
+              全{s.items.length}問のうち{total}問目まで進みました。見ていない問題は記録していません。
+            </div>
+          )}
           {wrongCount > 0 && <div className="small muted">間違えた{wrongCount}問は「間違えた問題」に保存しました。</div>}
         </div>
 
@@ -103,7 +117,7 @@ export function Result({ nav }: { nav: Nav }) {
             <span />
           )}
           <button className="btn" onClick={again}>
-            同じ分野でもう一度
+            {s.mockId ? 'セットをもう一度' : '同じ分野でもう一度'}
           </button>
         </div>
 
@@ -131,6 +145,7 @@ export function Result({ nav }: { nav: Nav }) {
                       <MathText text={q.question_ja} />
                     </div>
                     {q.table && <TableView t={q.table} />}
+                    {q.charts?.map((c, k) => <ChartView key={k} c={c} />)}
                     <ChoiceButtons q={q} chosen={s.answers[i]} reveal onChoose={() => {}} />
                     <Explanation q={q} chosen={s.answers[i]} timedOut={s.mode === 'speed' && s.answers[i] === null} />
                   </div>

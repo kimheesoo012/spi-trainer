@@ -2,6 +2,7 @@ import type { Exam } from '../core/types';
 import { FOUR_CHOICE_NOTE, TYPES } from '../data/catalog';
 import { verifiedCount } from '../data/bank';
 import { daySummary, fmtDuration, typeStats } from '../store/logic';
+import { MOCKS } from '../store/mock';
 import { allMastery, dayCells, levelOf, streakOf, totalXp } from '../store/progress';
 import { localDay } from '../store/model';
 import { updateSettings, useStore } from '../store/state';
@@ -89,6 +90,27 @@ export function Home({ nav }: { nav: Nav }) {
             </div>
           </button>
         </div>
+
+        {MOCKS.some((m) => m.exam === exam) && (
+          <section className="stack">
+            <div className="section-label">本番セット</div>
+            <div className="type-list">
+              {MOCKS.filter((m) => m.exam === exam).map((m) => (
+                <button key={m.id} className="type-row" onClick={() => nav({ name: 'mock', id: m.id })}>
+                  <span className="name">
+                    {m.name}
+                    <div className="tiny muted" style={{ fontWeight: 400 }}>
+                      {m.count}問・{m.minutes}分
+                    </div>
+                  </span>
+                  <span className="meta">
+                    <span className="badge accent">本番と同じ時間</span>
+                  </span>
+                </button>
+              ))}
+            </div>
+          </section>
+        )}
 
         {sections.map((sec) => (
           <section key={sec} className="stack">

@@ -39,7 +39,7 @@ export function Top({ title, onBack, right }: { title: string; onBack?: () => vo
 export function TableView({ t }: { t: TableData }) {
   return (
     <div className="table-wrap" role="region" aria-label={t.caption ?? '表'} tabIndex={0}>
-      <table>
+      <table className={t.dense ? 'dense' : undefined}>
         {t.caption && <caption>{t.caption}</caption>}
         <thead>
           <tr>

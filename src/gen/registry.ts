@@ -12,10 +12,16 @@ import { genBaai } from './baai';
 import { genZuhyo } from './zuhyo';
 import { genKuuran } from './kuuran';
 import { genShiryo } from './shiryo';
+import { genRyokin } from './ryokin';
+import { genSeisan } from './seisan';
+import { genBunkatsu } from './bunkatsu';
 
 export const GENERATORS: Record<string, GenFn> = {
   wariai: genWariai,
   soneki: genSoneki,
+  ryokin: genRyokin,
+  seisan: genSeisan,
+  bunkatsu: genBunkatsu,
   hayasa: genHayasa,
   shigoto: genShigoto,
   shugo: genShugo,
@@ -33,7 +39,7 @@ export function generate(typeId: string, difficulty: Difficulty, seed: number, w
   const t = typeById(typeId);
   const fn = GENERATORS[typeId];
   if (!t || !fn) throw new Error(`no generator: ${typeId}`);
-  return buildQuestion({ exam: t.exam, typeId, test_name: t.test_name, category: t.name }, fn, difficulty, seed, wantTemplate);
+  return buildQuestion({ exam: t.exam, typeId, test_name: t.test_name, category: t.name, nChoices: t.nChoices }, fn, difficulty, seed, wantTemplate);
 }
 
 /** 保存しておいたIDから同じ問題を作り直す。id = g:typeId:difficulty:seed */

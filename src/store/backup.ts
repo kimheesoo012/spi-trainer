@@ -2,7 +2,7 @@ import type { Attempt, Mistake, Settings } from './model';
 
 export const APP_ID = 'spi-tamate-trainer';
 export const SCHEMA_VERSION = 1;
-export const APP_VERSION = '1.1.0';
+export const APP_VERSION = '1.2.0';
 
 export interface BackupFile {
   app: typeof APP_ID;
@@ -35,7 +35,7 @@ function checkQuestion(q: unknown): string | null {
   if (!q || typeof q !== 'object') return '問題データがない';
   const o = q as Record<string, unknown>;
   if (!isStr(o.id) || !isStr(o.question_ja) || !isStr(o.typeId)) return '問題データの形式が不正';
-  if (!Array.isArray(o.choices) || (o.choices.length !== 4 && o.choices.length !== 3) || !o.choices.every(isStr)) return '問題の選択肢の数が不正';
+  if (!Array.isArray(o.choices) || ![3, 4, 5].includes(o.choices.length) || !o.choices.every(isStr)) return '問題の選択肢の数が不正';
   if (!isNum(o.answer) || (o.answer as number) < 0 || (o.answer as number) >= o.choices.length) return '問題の正解の位置が不正';
   return null;
 }

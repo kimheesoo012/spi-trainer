@@ -4,6 +4,9 @@ import type { Difficulty, Question } from '../src/core/types';
 import { checkChain, evaluate, mathSegments, q, qeq } from './exactEval';
 import { choiceValue } from './choiceValue';
 import { ORACLES } from './oracles';
+import { typeById } from '../src/data/catalog';
+
+const nChoicesOf = (typeId: string) => typeById(typeId)?.nChoices ?? 4;
 
 const N = Number(process.env.GEN_N ?? 3000);
 
@@ -13,13 +16,14 @@ function allText(qn: Question): string[] {
 
 function checkQuestion(qn: Question): string[] {
   const errs: string[] = [];
-  if (qn.choices.length !== 4) errs.push('choices != 4');
-  if (new Set(qn.choices).size !== 4) errs.push(`duplicate choice text: ${qn.choices.join(' | ')}`);
-  if (qn.answer < 0 || qn.answer > 3) errs.push('answer index out of range');
+  const nc = nChoicesOf(qn.typeId);
+  if (qn.choices.length !== nc) errs.push(`choices != ${nc}`);
+  if (new Set(qn.choices).size !== nc) errs.push(`duplicate choice text: ${qn.choices.join(' | ')}`);
+  if (qn.answer < 0 || qn.answer >= nc) errs.push('answer index out of range');
   const vals = qn.choices.map(choiceValue);
   if (vals.every((v) => v)) {
-    for (let i = 0; i < 4; i++)
-      for (let j = i + 1; j < 4; j++) if (qeq(vals[i]!, vals[j]!)) errs.push(`same value: ${qn.choices[i]} = ${qn.choices[j]}`);
+    for (let i = 0; i < nc; i++)
+      for (let j = i + 1; j < nc; j++) if (qeq(vals[i]!, vals[j]!)) errs.push(`same value: ${qn.choices[i]} = ${qn.choices[j]}`);
   }
   const correct = qn.choices[qn.answer];
   if (!qn.explanation_short_ja.includes(correct)) errs.push(`short explanation lacks answer "${correct}"`);
@@ -55,7 +59,8 @@ describe('generators', () => {
       it(`${typeId} difficulty ${diff} × ${N}`, () => {
         const failures: string[] = [];
         const templates = new Map<string, number>();
-        const positions = [0, 0, 0, 0];
+        const nc = nChoicesOf(typeId);
+        const positions = Array(nc).fill(0) as number[];
         for (let seed = 1; seed <= N; seed++) {
           const qn = generate(typeId, diff, seed * 7919 + diff);
           const errs = checkQuestion(qn);
@@ -76,9 +81,10 @@ describe('generators', () => {
           console.log(`${typeId} d${diff}: fast ${withFast}/50`);
         }
         // 正解の位置が偏っていない
-        for (const c of positions) expect(c).toBeGreaterThan(N * 0.15);
+        for (const c of positions) expect(c).toBeGreaterThan((N * 0.6) / nc);
         // どのテンプレートも出る
         expect(templates.size).toBeGreaterThan(0);
+        if (process.env.GEN_LOG) console.log(`${typeId} d${diff}:`, Object.fromEntries(templates));
       });
     }
   }

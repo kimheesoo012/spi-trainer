@@ -5,7 +5,7 @@ import { MathText } from './common';
 
 import { typeById } from '../data/catalog';
 
-const NUM = ['1', '2', '3', '4'];
+const NUM = ['1', '2', '3', '4', '5'];
 const ABC = ['A', 'B', 'C'];
 const labels = (q: Question) => (typeById(q.typeId)?.abc ? ABC : NUM);
 

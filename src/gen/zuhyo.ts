@@ -3,6 +3,7 @@ import { decStr, num } from '../core/format';
 import type { Rng } from '../core/rng';
 import type { Difficulty, TableData } from '../core/types';
 import { numCand, type Cand, type Draft } from './framework';
+import { barMaxRate, barTimes, densityMax, indexAmount, indexGrowth, lineMaxGap, lineRatio, pie2Change, pieAmount, pieDiff } from './zuhyoChart';
 
 // 図表の読み取り(GAB 計数・玉手箱で知られる形式の類似練習)。四捨五入の規則は問題文に書く
 
@@ -257,9 +258,11 @@ function makeComp(rng: Rng): Comp | null {
 
 function compTable(d: Comp): TableData {
   return {
-    caption: 'ある会社の部門別売上高の構成比と売上高合計',
+    caption: 'ある会社の部門別売上高の構成比と、売上高の合計',
     headers: ['部門', ...YEARS],
-    rows: [...DIVS.map((n, i) => [n, ...d.s[i].map((x) => `${x}%`)]), ['売上高合計(億円)', ...d.T.map((t) => num(t))]],
+    rows: [...DIVS.map((n, i) => [n, ...d.s[i].map((x) => `${x}%`)]), ['合計(億円)', ...d.T.map((t) => num(t))]],
+    note: '「合計(億円)」は、その年の全部門の売上高の合計。',
+    dense: true,
   };
 }
 
@@ -364,8 +367,10 @@ function prevFromRate(rng: Rng): Draft | null {
     question_ja: `表で、${SHOPS[c]}の2023年の売上高はおよそいくらか(万円未満を四捨五入)。`,
     table: {
       caption: 'あるチェーンの店舗別売上高(2024年)と対前年増加率',
-      headers: ['店舗', '2024年の売上高(万円)', '対前年増加率'],
+      headers: ['店舗', '売上高(万円)', '対前年増加率'],
       rows: SHOPS.map((n, i) => [n, num(v[i]), `${r[i]}%`]),
+      note: '売上高は2024年の金額。対前年増加率は、2023年と比べた増加率。',
+      dense: true,
     },
     correct: { text: man(ans)!, value: ans },
     wrong: [
@@ -396,8 +401,17 @@ function prevFromRate(rng: Rng): Draft | null {
 }
 
 export function genZuhyo(rng: Rng, diff: Difficulty): Draft | null {
-  const k = rng.int(0, 3);
-  if (diff === 1) return k < 2 ? share(rng) : compAmount(rng);
-  if (diff === 2) return [growth, ratioTimes, prevFromRate, compAmount][k](rng);
-  return [maxIncrease, ratioTimes, compTimes, prevFromRate][k](rng);
+  type T = (r: Rng) => Draft | null;
+  // 先に型を1つ決め、その型で作れるまで数値を引き直す(条件の厳しい型が出にくくならないようにする)
+  const pick = (a: T[]) => {
+    const t = a[rng.int(0, a.length - 1)];
+    for (let i = 0; i < 60; i++) {
+      const d = t(rng);
+      if (d) return d;
+    }
+    return null;
+  };
+  if (diff === 1) return pick([share, compAmount, barTimes, pieAmount]);
+  if (diff === 2) return pick([growth, ratioTimes, prevFromRate, compAmount, (r) => barMaxRate(r, 2), pieDiff, lineMaxGap, lineRatio, (r) => densityMax(r, 2)]);
+  return pick([maxIncrease, ratioTimes, compTimes, prevFromRate, (r) => barMaxRate(r, 3), pie2Change, (r) => densityMax(r, 3), indexAmount, indexGrowth]);
 }

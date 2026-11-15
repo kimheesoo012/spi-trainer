@@ -110,7 +110,8 @@ async function answer(p, wantWrong) {
   // 4) 実戦モードの途中でアプリを閉じ、開き直して復元
   await p.click('.top .icon-btn');
   await p.click('.seg button:has-text("玉手箱")');
-  await p.click('.type-row:has-text("図表の読み取り")');
+  // 「本番セット」の行(計数(図表の読み取り))ではなく、分野の行を選ぶ
+  await p.locator('.type-row').filter({ hasText: /^図表の読み取り/ }).first().click();
   await p.click('label:has-text("実戦モード")');
   await p.click('text=始める');
   await p.locator('.choice').first().waitFor();
@@ -118,7 +119,11 @@ async function answer(p, wantWrong) {
   await p.click('.sticky-next .btn.primary');
   await p.locator('.quiz-bar .num:has-text("2")').waitFor();
   const qBefore = await p.locator('.qtext').innerText();
-  const tableBefore = await p.locator('.table-wrap').innerText();
+  // 図表の読み取りは、表の問題とグラフの問題がある。どちらでも「図表の中身」を文字列にして比べる
+  const figure = async (pg) =>
+    pg.evaluate(() => [...document.querySelectorAll('.table-wrap, .chart')].map((el) => el.innerText + '|' + [...el.querySelectorAll('svg')].map((s) => s.getAttribute('aria-label')).join('|')).join('||'));
+  const tableBefore = await figure(p);
+  assert(tableBefore.length > 0, '図表が表示されていない');
   const choicesBefore = await p.locator('.choices').innerText();
   await noHorizontalScroll(p, 'table question');
   await p.screenshot({ path: `${out}/${deviceName}-table.png` });
@@ -129,7 +134,7 @@ async function answer(p, wantWrong) {
   await p.goto(URL);
   await p.locator('.choice').first().waitFor();
   assert.strictEqual(await p.locator('.qtext').innerText(), qBefore, '開き直すと問題文が変わった');
-  assert.strictEqual(await p.locator('.table-wrap').innerText(), tableBefore, '開き直すと表が変わった');
+  assert.strictEqual(await figure(p), tableBefore, '開き直すと図表が変わった');
   assert.strictEqual(await p.locator('.choices').innerText(), choicesBefore, '開き直すと選択肢の順番が変わった');
   assert((await p.locator('.quiz-bar .num').innerText()).startsWith('2'), '何問目かが復元されていない');
   console.log('restore: OK (2問目・同じ問題・同じ選択肢順)');

@@ -1,6 +1,6 @@
 import { Frac } from '../core/frac';
 import { makeRng, type Rng } from '../core/rng';
-import type { Difficulty, Question, TableData } from '../core/types';
+import type { ChartData, Difficulty, Question, TableData } from '../core/types';
 
 /** 選択肢の候補。value があれば数値として重複判定する */
 export interface Cand {
@@ -13,6 +13,7 @@ export interface Cand {
 export interface Draft {
   question_ja: string;
   table?: TableData;
+  charts?: ChartData[];
   correct: Cand;
   /** よくある間違いから作った誤答。優先順 */
   wrong: (Cand | null)[];
@@ -45,6 +46,8 @@ export interface GenMeta {
   typeId: string;
   test_name: string;
   category: string;
+  /** 選択肢の数(既定 4) */
+  nChoices?: number;
 }
 
 export class GenerationError extends Error {}
@@ -55,7 +58,7 @@ function sameCand(a: Cand, b: Cand): boolean {
   return false;
 }
 
-/** 誤答候補から3つ選ぶ。値が同じもの・正解と同じもの・不正な値は捨てる */
+/** 誤答候補から n 個(既定3つ)選ぶ。値が同じもの・正解と同じもの・不正な値は捨てる */
 export function pickDistractors(d: Draft, n = 3): Cand[] | null {
   const out: Cand[] = [];
   const positiveOnly = d.positiveOnly ?? true;
@@ -83,7 +86,7 @@ export function buildQuestion(meta: GenMeta, fn: GenFn, difficulty: Difficulty, 
     }
     if (!d) continue;
     if (wantTemplate && d.params.template !== wantTemplate) continue;
-    const ds = pickDistractors(d);
+    const ds = pickDistractors(d, (meta.nChoices ?? 4) - 1);
     if (!ds) continue;
     const re = d.check();
     const ok = re instanceof Frac ? !!d.correct.value && re.eq(d.correct.value) : re === d.correct.text;
@@ -107,6 +110,7 @@ export function buildQuestion(meta: GenMeta, fn: GenFn, difficulty: Difficulty, 
       difficulty,
       question_ja: d.question_ja,
       table: d.table,
+      ...(d.charts ? { charts: d.charts } : {}),
       choices: all.map((c) => c.text),
       answer: all.indexOf(d.correct),
       explanation_short_ja: d.short,

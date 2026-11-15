@@ -5,6 +5,7 @@ import type { Session } from '../store/model';
 import { discardActive, finishSession, getState, recordAttempt, saveActive, setActiveLocal, useStore } from '../store/state';
 import type { Nav } from '../App';
 import { MathText, TableView, Top } from './common';
+import { ChartView } from './Chart';
 import { ChoiceButtons, Explanation } from './Explanation';
 
 function mmss(ms: number) {
@@ -34,6 +35,7 @@ function QuestionBody({ q }: { q: Question }) {
         )}
       </div>
       {q.table && <TableView t={q.table} />}
+      {q.charts?.map((c, i) => <ChartView key={i} c={c} />)}
     </div>
   );
 }
@@ -216,7 +218,7 @@ export function Quiz({ nav }: { nav: Nav }) {
                   nav({ name: 'result' });
                 }}
               >
-                ここで終了して結果を見る{s.mode !== 'study' ? '(未回答は不正解)' : ''}
+                ここで終了して結果を見る{s.mode !== 'study' ? '(まだ見ていない問題は数えません)' : ''}
               </button>
             ) : null}
             <button

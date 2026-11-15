@@ -6,6 +6,20 @@ export interface TableData {
   headers: string[];
   rows: string[][];
   note?: string;
+  /** 列が多い表。余白を詰めて、横にスクロールしなくても全体が見えるようにする */
+  dense?: boolean;
+}
+
+/** グラフ。数値はすべてグラフの中に書いて、読み取れるようにする */
+export interface ChartData {
+  kind: 'bar' | 'line' | 'pie';
+  caption: string;
+  /** bar・line: 横軸のラベル。pie: 項目名 */
+  labels: string[];
+  /** bar は1系列、line は1〜2系列、pie は1系列(構成比 %) */
+  series: { name?: string; values: number[] }[];
+  /** 図の下に出す補足(円グラフの合計など) */
+  note?: string;
 }
 
 /** 画面に出す1問。生成問題もJSON問題もこの形にそろえる */
@@ -20,6 +34,7 @@ export interface Question {
   passage_ja?: string;
   question_ja: string;
   table?: TableData;
+  charts?: ChartData[];
   /** 表示順(シャッフル済み) */
   choices: string[];
   /** choices の中の正解の位置 */

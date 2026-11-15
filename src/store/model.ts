@@ -70,6 +70,8 @@ export interface Session {
   elapsedMs: number;
   status: 'active' | 'done';
   finishedAt?: number;
+  /** 本番セットから始めた回(「もう一度」で同じセットを作り直すため) */
+  mockId?: string;
 }
 
 export interface Settings {

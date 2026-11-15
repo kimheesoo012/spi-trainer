@@ -1,6 +1,6 @@
 import { useSyncExternalStore } from 'react';
 import { openBackend, type Backend } from './db';
-import { applyAttempt, attemptFor } from './logic';
+import { applyAttempt, attemptFor, countedIndexes } from './logic';
 import { DEFAULT_SETTINGS, type Attempt, type Mistake, type Session, type Settings } from './model';
 import { mergeBackup, type BackupFile } from './backup';
 
@@ -100,9 +100,7 @@ export function recordAttempt(s: Session, i: number) {
 /** セッションを終える。学習モードは解説まで見た問題、実戦モードは全問(未回答は不正解)を記録 */
 export function finishSession(s: Session) {
   if (s.status === 'done') return;
-  s.items.forEach((_, i) => {
-    if (s.mode !== 'study' || s.revealed[i]) recordAttempt(s, i);
-  });
+  for (const i of countedIndexes(s)) recordAttempt(s, i);
   const done: Session = { ...s, status: 'done', finishedAt: Date.now() };
   set({ last: done, active: null });
   persist(db?.put('kv', 'last', done));

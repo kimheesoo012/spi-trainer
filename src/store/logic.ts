@@ -11,6 +11,21 @@ export function isCorrect(s: Session, i: number): boolean {
   return s.answers[i] !== null && s.answers[i] === s.items[i].q.answer;
 }
 
+/**
+ * 採点と記録の対象になる問題の番号。
+ * 学習モード: 解説を見た問題。実戦・1問ごと制限: 解答した問題と、そこまでに画面に出た問題(未回答は不正解)。
+ * 時間切れや途中終了で一度も画面に出なかった問題は、数えない。
+ */
+export function countedIndexes(s: Session): number[] {
+  const all = s.items.map((_, i) => i);
+  if (s.mode === 'study') return all.filter((i) => s.revealed[i]);
+  let reached = s.index;
+  s.answers.forEach((a, i) => {
+    if (a !== null && i > reached) reached = i;
+  });
+  return all.filter((i) => i <= reached);
+}
+
 export function attemptFor(s: Session, i: number, now: number): Attempt {
   const it = s.items[i];
   const a = s.answers[i];
@@ -181,6 +196,9 @@ export interface SessionOpts {
   label: string;
   items: SessionItem[];
   practiceSecFor: (typeId: string) => number;
+  /** 実戦モードの制限時間を指定する(本番セット用)。省略すると分野ごとの目安の合計 */
+  limitMs?: number;
+  mockId?: string;
 }
 
 export function makeSession(o: SessionOpts, now = Date.now()): Session {
@@ -196,10 +214,11 @@ export function makeSession(o: SessionOpts, now = Date.now()): Session {
     times: Array(n).fill(0),
     revealed: Array(n).fill(false),
     index: 0,
-    limitMs: o.mode === 'exam' ? totalSec * 1000 : undefined,
+    limitMs: o.mode === 'exam' ? (o.limitMs ?? totalSec * 1000) : undefined,
     perQMs: o.mode === 'speed' ? o.practiceSecFor(o.items[0]?.q.typeId) * 1000 : undefined,
     elapsedMs: 0,
     status: 'active',
+    ...(o.mockId ? { mockId: o.mockId } : {}),
   };
 }
 
